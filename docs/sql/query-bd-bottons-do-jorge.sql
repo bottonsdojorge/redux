@@ -56,5 +56,44 @@ CREATE TABLE Produto(
 	imagem VARCHAR(100) NOT NULL	
 )
 CREATE TABLE marcadorProduto(
-	produto_id INT PRIMARY KEY
+	Produto_id INT NOT NULL,
+	Marcador_id INT NOT NULL,
+	descricao VARCHAR(20) NOT NULL,
+	FOREIGN KEY (Produto_id) REFERENCES Produto(id),
+	FOREIGN KEY (Marcador_id) REFERENCES Marcador(id)
+)
+CREATE TABLE Tamanho(
+	id INT IDENTITY PRIMARY KEY,
+	descricao VARCHAR(20) NOT NULL,
+	precoUnitario NUMERIC(10,2) NOT NULL
+)
+CREATE TABLE Item(
+	Tamanho_id INT NOT NULL,
+	Produto_id INT NOT NULL,
+	FOREIGN KEY (Tamanho_id) REFERENCES Tamanho(id),
+	FOREIGN KEY (Produto_id) REFERENCES Produto(id)
+)
+CREATE TABLE Carrinho(
+	Usuario_id INT NOT NULL,
+	precoTotal NUMERIC(10,2) NOT NULL,
+	FOREIGN KEY (Usuario_id) REFERENCES Usuario(id)
+)
+CREATE TABLE itemCarrinho(
+	Carrinho_id INT NOT NULL,
+	item_tamanho_id INT NOT NULL,
+	item_Produto_id INT NOT NULL,
+	quantidade INT NOT NULL,
+	FOREIGN KEY (carrinho_id) REFERENCES Carrinho(Usuario_id),
+	FOREIGN KEY (item_tamanho_id) REFERENCES Item(Tamanho_id),
+	FOREIGN KEY (item_Produto_id) REFERENCES Item(Produto_id)
+)
+CREATE TABLE itemEncomenda(
+	Encomenda_id INT NOT NULL,
+	item_tamanho_id INT NOT NULL,
+	item_Produto_id INT NOT NULL,
+	precoUnitario NUMERIC(10,2) NOT NULL,
+	quantidade INT NOT NULL,
+	FOREIGN KEY (Encomenda_id) REFERENCES Encomenda(Usuario_id),
+	FOREIGN KEY (item_tamanho_id) REFERENCES Item(Tamanho_id),
+	FOREIGN KEY (item_Produto_id) REFERENCES Item(Produto_id)
 )
