@@ -59,6 +59,7 @@ CREATE TABLE marcadorProduto(
 	Produto_id INT NOT NULL,
 	Marcador_id INT NOT NULL,
 	descricao VARCHAR(20) NOT NULL,
+	PRIMARY KEY (Marcador_id, Produto_id),
 	FOREIGN KEY (Produto_id) REFERENCES Produto(id),
 	FOREIGN KEY (Marcador_id) REFERENCES Marcador(id)
 )
@@ -70,6 +71,7 @@ CREATE TABLE Tamanho(
 CREATE TABLE Item(
 	Tamanho_id INT NOT NULL,
 	Produto_id INT NOT NULL,
+	PRIMARY KEY (Tamanho_id, Produto_id),
 	FOREIGN KEY (Tamanho_id) REFERENCES Tamanho(id),
 	FOREIGN KEY (Produto_id) REFERENCES Produto(id)
 )
@@ -85,7 +87,8 @@ CREATE TABLE itemCarrinho(
 	quantidade INT NOT NULL,
 	FOREIGN KEY (carrinho_id) REFERENCES Carrinho(Usuario_id),
 	FOREIGN KEY (item_tamanho_id) REFERENCES Item(Tamanho_id),
-	FOREIGN KEY (item_Produto_id) REFERENCES Item(Produto_id)
+	FOREIGN KEY (item_Produto_id) REFERENCES Item(Produto_id),
+	PRIMARY KEY (Carrinho_id)
 )
 CREATE TABLE itemEncomenda(
 	Encomenda_id INT NOT NULL,
