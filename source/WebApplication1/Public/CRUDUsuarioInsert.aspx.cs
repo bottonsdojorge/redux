@@ -19,7 +19,7 @@ namespace WebApplication1
         }
         protected void CreateUserWizard1_CreatedUser(object sender, EventArgs e)
         {
-            Roles.AddUserToRole(CreateUserWizard1.UserName, "cliente");
+            Roles.AddUserToRole(wiz_criarUsuario.UserName, "cliente");
             string aSQLConecStr;
             // Lendo a conexão de dados do Web.Config
             aSQLConecStr = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
@@ -30,10 +30,10 @@ namespace WebApplication1
 
             // Executando o comando
             SqlCommand aSQL = new SqlCommand("INSERT INTO Usuario(id, nome, userLogin, userSenha, dataRegistro) VALUES (@id, @nome, @userLogin, @userSenha, @dataRegistro)", aSQLCon);
-            aSQL.Parameters.AddWithValue("@id", Membership.GetUser(CreateUserWizard1.UserName).ProviderUserKey);
-            aSQL.Parameters.AddWithValue("@nome", CreateUserWizard1.UserName);
-            aSQL.Parameters.AddWithValue("@userLogin", CreateUserWizard1.UserName);
-            aSQL.Parameters.AddWithValue("@userSenha", CreateUserWizard1.Password);
+            aSQL.Parameters.AddWithValue("@id", Membership.GetUser(wiz_criarUsuario.UserName).ProviderUserKey);
+            aSQL.Parameters.AddWithValue("@nome", wiz_criarUsuario.UserName);
+            aSQL.Parameters.AddWithValue("@userLogin", wiz_criarUsuario.UserName);
+            aSQL.Parameters.AddWithValue("@userSenha", wiz_criarUsuario.Password);
             aSQL.Parameters.AddWithValue("@dataRegistro", DateTime.Now);
             aSQL.ExecuteNonQuery();
 

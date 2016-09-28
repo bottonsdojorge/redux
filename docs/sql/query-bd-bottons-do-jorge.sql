@@ -1,9 +1,7 @@
 CREATE TABLE Usuario(
 	id INT IDENTITY PRIMARY KEY,
-	nome VARCHAR(100) NOT NULL,
-	dataRegistro DATETIME NOT NULL,
-	adm BIT NOT NULL,
 	aspnet_id UNIQUEIDENTIFIER,
+	nome VARCHAR(100) NOT NULL,
 	FOREIGN KEY (aspnet_id) REFERENCES aspnet_Users(UserId) 
 )
 CREATE TABLE Telefone(
@@ -31,15 +29,21 @@ CREATE TABLE localEntrega(
 	descricao VARCHAR(50) NOT NULL,
 	cep VARCHAR(8) NOT NULL
 )
+CREATE TABLE EnderecoUsuario(
+	usuario_id int,
+	localentrega_id int,
+	PRIMARY KEY (usuario_id, localentrega_id),
+	FOREIGN KEY (Usuario_id) REFERENCES Usuario(id),
+	FOREIGN KEY (localEntrega_id) REFERENCES localEntrega(id),
+)
 CREATE TABLE Status(	
 	id INT IDENTITY PRIMARY KEY,
 	descricao VARCHAR(20) NOT NULL
 )
-CREATE TABLE Encomenda(	
-	id INT IDENTITY PRIMARY KEY,
+CREATE TABLE Encomenda(
+	Usuario_id INT PRIMARY KEY,
 	precoTotal NUMERIC(10,2) NOT NULL,
 	dataEntrega DATETIME,
-	Usuario_id INT NOT NULL,
 	localEntrega_id INT NOT NULL,
 	Status_id INT NOT NULL,
 	FOREIGN KEY (Usuario_id) REFERENCES Usuario(id),
@@ -78,17 +82,17 @@ CREATE TABLE Item(
 CREATE TABLE Carrinho(
 	Usuario_id INT NOT NULL,
 	precoTotal NUMERIC(10,2) NOT NULL,
+	PRIMARY KEY(Usuario_id),
 	FOREIGN KEY (Usuario_id) REFERENCES Usuario(id)
 )
 CREATE TABLE itemCarrinho(
 	Carrinho_id INT NOT NULL,
 	item_tamanho_id INT NOT NULL,
 	item_Produto_id INT NOT NULL,
-	quantidade INT NOT NULL,
+	quantidade INT NOT NULL,	
+	PRIMARY KEY (Carrinho_id, item_tamanho_id, item_Produto_id),
 	FOREIGN KEY (carrinho_id) REFERENCES Carrinho(Usuario_id),
-	FOREIGN KEY (item_tamanho_id) REFERENCES Item(Tamanho_id),
-	FOREIGN KEY (item_Produto_id) REFERENCES Item(Produto_id),
-	PRIMARY KEY (Carrinho_id)
+	FOREIGN KEY (item_tamanho_id, item_Produto_id) REFERENCES Item(Tamanho_id, Produto_id),
 )
 CREATE TABLE itemEncomenda(
 	Encomenda_id INT NOT NULL,
@@ -97,6 +101,5 @@ CREATE TABLE itemEncomenda(
 	precoUnitario NUMERIC(10,2) NOT NULL,
 	quantidade INT NOT NULL,
 	FOREIGN KEY (Encomenda_id) REFERENCES Encomenda(Usuario_id),
-	FOREIGN KEY (item_tamanho_id) REFERENCES Item(Tamanho_id),
-	FOREIGN KEY (item_Produto_id) REFERENCES Item(Produto_id)
+	FOREIGN KEY (item_tamanho_id, item_Produto_id) REFERENCES Item(Tamanho_id,Produto_id)
 )
