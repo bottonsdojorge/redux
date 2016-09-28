@@ -1,7 +1,7 @@
 CREATE TABLE Usuario(
 	id INT IDENTITY PRIMARY KEY,
 	aspnet_id UNIQUEIDENTIFIER,
-	nome VARCHAR(100) NOT NULL,
+	nome VARCHAR(100),
 	FOREIGN KEY (aspnet_id) REFERENCES aspnet_Users(UserId) 
 )
 CREATE TABLE Telefone(

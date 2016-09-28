@@ -8,3 +8,8 @@ C:\Users\aluno\Downloads\bottons-do-jorge-vs-2012(1)\WebApplication1\bin\WebAppl
 C:\Users\aluno\Downloads\bottons-do-jorge-vs-2012(1)\WebApplication1\obj\Debug\index.csprojResolveAssemblyReference.cache
 C:\Users\aluno\Downloads\bottons-do-jorge-vs-2012(1)\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\aluno\Downloads\bottons-do-jorge-vs-2012(1)\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\20141011110352\Documents\redux\source\WebApplication1\bin\WebApplication1.dll
+C:\Users\20141011110352\Documents\redux\source\WebApplication1\bin\WebApplication1.pdb
+C:\Users\20141011110352\Documents\redux\source\WebApplication1\obj\Debug\index.csprojResolveAssemblyReference.cache
+C:\Users\20141011110352\Documents\redux\source\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\20141011110352\Documents\redux\source\WebApplication1\obj\Debug\WebApplication1.pdb

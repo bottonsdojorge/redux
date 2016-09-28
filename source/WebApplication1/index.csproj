@@ -59,13 +59,13 @@
   <ItemGroup>
     <Content Include="Adms\CRUDProdutoInsert.aspx" />
     <Content Include="Adms\CRUDProdutoSelect.aspx" />
-    <Content Include="Public\CRUDUsuarioInsert.aspx" />
+    <Content Include="Public\Cadastro.aspx" />
     <Content Include="Adms\CRUDUsuarioSelect.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="WebForm1.aspx" />
+    <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Adms\CRUDProdutoInsert.aspx.cs">
@@ -82,12 +82,12 @@
     <Compile Include="Adms\CRUDProdutoSelect.aspx.designer.cs">
       <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Public\CRUDUsuarioInsert.aspx.cs">
-      <DependentUpon>CRUDUsuarioInsert.aspx</DependentUpon>
+    <Compile Include="Public\Cadastro.aspx.cs">
+      <DependentUpon>Cadastro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Public\CRUDUsuarioInsert.aspx.designer.cs">
-      <DependentUpon>CRUDUsuarioInsert.aspx</DependentUpon>
+    <Compile Include="Public\Cadastro.aspx.designer.cs">
+      <DependentUpon>Cadastro.aspx</DependentUpon>
     </Compile>
     <Compile Include="Adms\CRUDUsuarioSelect.aspx.cs">
       <DependentUpon>CRUDUsuarioSelect.aspx</DependentUpon>
@@ -104,12 +104,12 @@
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

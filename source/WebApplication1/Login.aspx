@@ -13,7 +13,7 @@
         <asp:Login ID="Login1" runat="server" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt">
             <TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
         </asp:Login>
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Public/CRUDUsuarioInsert.aspx">Cadastre-se aqui:</asp:HyperLink>
+                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Public/Cadastro.aspx">Não tem uma conta? Cadastre-se</asp:HyperLink>
     </div>
         
     </form>
