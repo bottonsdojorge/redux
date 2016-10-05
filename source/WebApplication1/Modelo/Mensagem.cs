@@ -8,7 +8,7 @@ namespace WebApplication1.Modelo
     public class Mensagem
     {
         private int _id;
-        public int MyProperty
+        public int id
         {
             get { return _id; }
             set { _id = value; }
@@ -28,20 +28,36 @@ namespace WebApplication1.Modelo
             set { _corpo = value; }
         }
 
-        private Modelo.Usuario _destinatario;
-        public Modelo.Usuario destinatario
+        private Usuario _destinatario;
+        public Usuario destinatario
         {
             get { return _destinatario; }
             set { _destinatario = value; }
         }
 
-        private Modelo.Usuario _remetente;
-        public Modelo.Usuario remetente
+        private Usuario _remetente;
+        public Usuario remetente
         {
             get { return _remetente; }
             set { _remetente = value; }
         }
-        
-        
+
+        public Mensagem()
+        {
+            this.id = 0;
+            this.data = default(DateTime);
+            this.corpo = "";
+            this.destinatario = new Usuario();
+            this.remetente = new Usuario();
+        }
+        public Mensagem(int id, DateTime data, string corpo, Usuario destinatario, Usuario remetente)
+        {
+            this.id = id;
+            this.data = data;
+            this.corpo = corpo;
+            this.remetente = remetente;
+            this.destinatario = destinatario;
+        }
+
     }
 }
