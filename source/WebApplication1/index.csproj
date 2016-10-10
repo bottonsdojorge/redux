@@ -82,6 +82,7 @@
     <Compile Include="Adms\CRUDProdutoSelect.aspx.designer.cs">
       <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
     <Compile Include="Modelo\localEntrega.cs" />
     <Compile Include="Modelo\Mensagem.cs" />
