@@ -41,7 +41,7 @@ namespace WebApplication1.Modelo
             this.id = 0;
             this.descricao = "";
             this.imagem = default(Image);
-            this.marcadores = new List<Marcador>;
+            this.marcadores = new List<Marcador>();
         }
 
         public Produto(int id, string descricao, Image imagem, List<Marcador> marcadores)
