@@ -84,10 +84,15 @@
     </Compile>
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
+    <Compile Include="Modelo\Item.cs" />
+    <Compile Include="Modelo\itemEncomenda.cs" />
     <Compile Include="Modelo\localEntrega.cs" />
+    <Compile Include="Modelo\Marcador.cs" />
     <Compile Include="Modelo\Mensagem.cs" />
+    <Compile Include="Modelo\Produto.cs" />
     <Compile Include="Modelo\Status.cs" />
     <Compile Include="Modelo\Tamanho.cs" />
+    <Compile Include="Modelo\Telefone.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Public\Cadastro.aspx.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>

@@ -14,6 +14,14 @@ namespace WebApplication1.Modelo
             set { _Usuario = value; }
         }
 
+        private List<itemEncomenda> _itens;
+        public List<itemEncomenda> itens
+        {
+            get { return _itens; }
+            set { _itens = value; }
+        }
+        
+
         private double _precoTotal;
         public double precoTotal 
         {
@@ -44,12 +52,30 @@ namespace WebApplication1.Modelo
         public Encomenda()
         {
             this.Usuario = new Usuario();
+            this.itens = new List<itemEncomenda>();
             this.precoTotal = 0;
             this.dataEntrega = default(DateTime);
             this.localEntrega = new localEntrega();
             this.Status = new Status();
         }
 
+        public Encomenda(Usuario usuario, List<itemEncomenda> itens, DateTime dataentrega, localEntrega localEntrega, Status status)
+        {
+            this.Usuario = new Usuario();
+            this.itens = itens;
+            this.dataEntrega = default(DateTime);
+            this.localEntrega = new localEntrega();
+            this.Status = new Status();
+            calcularPreco();
+        }
 
+        private void calcularPreco()
+        {
+            double preco = 0;
+            foreach (var item in this.itens)
+            {
+                preco += item.precoIndividual * item.quantidade;
+            }
+        }
     }
 }
