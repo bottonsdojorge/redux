@@ -82,10 +82,10 @@
     <Compile Include="Adms\CRUDProdutoSelect.aspx.designer.cs">
       <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DAL\DALCarrinho.cs" />
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
     <Compile Include="Modelo\Item.cs" />
-    <Compile Include="Modelo\itemEncomenda.cs" />
     <Compile Include="Modelo\localEntrega.cs" />
     <Compile Include="Modelo\Marcador.cs" />
     <Compile Include="Modelo\Mensagem.cs" />
@@ -135,7 +135,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cliente\" />
-    <Folder Include="DAL\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
