@@ -10,11 +10,12 @@ namespace WebApplication1.DAL
 {
     public class DALMarcador
     {
-        public List<Modelo.Marcador> SelectAll();
-        public List<Modelo.Marcador> Select(int idMarcador);
-        public void Delete(Modelo.Marcador marcador);
-        public void Insert(Modelo.Marcador marcador);
-        public void Update(Modelo.Marcador marcador);
+        //public List<Modelo.Marcador> SelectAll();
+        //public List<Modelo.Marcador> Select(int idMarcador);
+        //public List<Modelo.Marcador> SelectFromProduto(int idProduto);
+        //public void Delete(Modelo.Marcador marcador);
+        //public void Insert(Modelo.Marcador marcador);
+        //public void Update(Modelo.Marcador marcador);
 
         string connectionString = "";
 
@@ -97,6 +98,72 @@ namespace WebApplication1.DAL
                                 marcadores.Add(marcador);
                             }
                         }                        
+                    }
+                }
+            }
+
+            // Alguma excessão eventual deverá ser tratada aqui.
+            catch (SystemException)
+            {
+                throw;
+            }
+            return marcadores;
+        }
+
+        /*
+         * Retorna uma lista de Marcadores a partir do ID do Produto. 
+         * @param int id do produto
+         */
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Marcador> SelectFromProduto(int idProduto)
+        {
+            // O Marcador
+            Modelo.Marcador marcador;
+            // A lista de retorno
+            List<Modelo.Marcador> marcadores = new List<Modelo.Marcador>();
+
+            // A conexão
+            SqlConnection conn = new SqlConnection(connectionString);
+            try
+            {
+                using (conn)
+                {
+                    // O SQL da tabela relacional
+                    string sqlRelacional = String.Format("SELECT * FROM marcadorProduto WHERE Produto_id = {0}", idProduto);
+                    SqlCommand cmdRelacional = new SqlCommand(sqlRelacional);
+                    SqlDataReader drRelacional;
+
+                    using (drRelacional = cmdRelacional.ExecuteReader())
+                    {
+                        // Leitura do resultado
+                        if (drRelacional.HasRows)
+                        {
+                            while (drRelacional.Read())
+                            {
+                                int idMarcador = Convert.ToInt32(drRelacional["Marcador_id"]);
+                                // O SQL da tabela Marcador
+                                string sqlMarcador = String.Format("SELECT * FROM Marcador WHERE id = {0}", idMarcador);
+                                SqlCommand cmdMarcador = new SqlCommand(sqlMarcador);
+                                SqlDataReader drMarcador;
+
+                                using (drMarcador = cmdMarcador.ExecuteReader())
+                                {
+                                    // Leitura do resultado
+                                    if (drMarcador.HasRows)
+                                    {
+                                        while (drMarcador.Read())
+                                        {
+                                            int id = Convert.ToInt32(drMarcador["id"]);
+                                            string descricao = drMarcador["descricao"].ToString();
+
+                                            // Instanciamento do marcador.
+                                            marcador = new Modelo.Marcador(id, descricao);
+                                            marcadores.Add(marcador);
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
             }

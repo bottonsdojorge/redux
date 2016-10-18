@@ -85,6 +85,8 @@
     <Compile Include="DAL\DALCarrinho.cs" />
     <Compile Include="DAL\DALItem.cs" />
     <Compile Include="DAL\DALItemCarrinho.cs" />
+    <Compile Include="DAL\DALMarcador.cs" />
+    <Compile Include="DAL\DALProduto.cs" />
     <Compile Include="DAL\DALTamanho.cs" />
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />

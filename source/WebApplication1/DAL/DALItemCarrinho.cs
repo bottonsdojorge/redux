@@ -10,7 +10,7 @@ namespace WebApplication1.DAL
 {
     public class DALItemCarrinho
     {
-        public Modelo.itemCarrinho Select(int idCarrinho);
+        //public Modelo.itemCarrinho Select(int idCarrinho);
         string connectionString = "";
 
         public DALItemCarrinho()

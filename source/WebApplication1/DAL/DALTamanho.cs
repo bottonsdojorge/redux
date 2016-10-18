@@ -10,11 +10,11 @@ namespace WebApplication1.DAL
 {
     public class DALTamanho
     {
-        public List<Modelo.Tamanho> SelectAll();
-        public List<Modelo.Tamanho> Select(int idTamanho);
-        public void Delete(Modelo.Tamanho tamanho);
-        public void Insert(Modelo.Tamanho tamanho);
-        public void Update(Modelo.Tamanho tamanho);
+        //public List<Modelo.Tamanho> SelectAll();
+        //public List<Modelo.Tamanho> Select(int idTamanho);
+        //public void Delete(Modelo.Tamanho tamanho);
+        //public void Insert(Modelo.Tamanho tamanho);
+        //public void Update(Modelo.Tamanho tamanho);
 
         string connectionString = "";
 
