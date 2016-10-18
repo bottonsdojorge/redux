@@ -14,11 +14,11 @@ namespace WebApplication1.Modelo
             set { _id = value; }
         }
 
-        private string _descricacao;
+        private string _descricao;
         public string descricao
         {
-            get { return _descricacao; }
-            set { _descricacao = value; }
+            get { return _descricao; }
+            set { _descricao = value; }
         }
 
         public Marcador()

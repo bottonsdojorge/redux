@@ -20,7 +20,6 @@ namespace WebApplication1.Modelo
             get { return _itens; }
             set { _itens = value; }
         }
-        
 
         private double _precoTotal;
         public double precoTotal 

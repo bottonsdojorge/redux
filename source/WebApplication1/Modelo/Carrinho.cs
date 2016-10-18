@@ -14,8 +14,8 @@ namespace WebApplication1.Modelo
             set { _Usuario_id = value; }
         }
 
-        private List<KeyValuePair<Item, int>> _itens;
-        public List<KeyValuePair<Item, int>> itens
+        private List<itemCarrinho> _itens;
+        public List<itemCarrinho> itens
         {
             get { return _itens; }
             set { _itens = value; }
@@ -30,12 +30,12 @@ namespace WebApplication1.Modelo
 
         public Carrinho ()
 	    {
-            this.itens = new List<KeyValuePair<Item,int>>();
+            this.itens = new List<itemCarrinho>();
             this.precoTotal = 0;
             this.Usuario_id = 0;
 	    }
 
-        public Carrinho(List<KeyValuePair<Item, int>> itens, int precoTotal, int Usuario_id)
+        public Carrinho(List<itemCarrinho> itens, int precoTotal, int Usuario_id)
         {
             this.itens = itens;
             this.precoTotal = precoTotal;

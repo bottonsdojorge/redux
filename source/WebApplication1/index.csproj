@@ -83,9 +83,14 @@
       <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DALCarrinho.cs" />
+    <Compile Include="DAL\DALItem.cs" />
+    <Compile Include="DAL\DALItemCarrinho.cs" />
+    <Compile Include="DAL\DALTamanho.cs" />
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
     <Compile Include="Modelo\Item.cs" />
+    <Compile Include="Modelo\itemCarrinho.cs" />
+    <Compile Include="Modelo\itemEncomenda.cs" />
     <Compile Include="Modelo\localEntrega.cs" />
     <Compile Include="Modelo\Marcador.cs" />
     <Compile Include="Modelo\Mensagem.cs" />
