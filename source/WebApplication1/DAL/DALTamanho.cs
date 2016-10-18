@@ -9,20 +9,9 @@ using System.Web;
 
 namespace WebApplication1.DAL
 {
-    public class DALTamanho
+    public class DALTamanho : DAL
     {
-        //public List<Modelo.Tamanho> SelectAll();
-        //public List<Modelo.Tamanho> Select(int idTamanho);
-        //public void Delete(Modelo.Tamanho tamanho);
-        //public void Insert(Modelo.Tamanho tamanho);
-        //public void Update(Modelo.Tamanho tamanho);
-
-        string connectionString = "";
-
-        public DALTamanho()
-        {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
-        }
+        public DALTamanho() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Tamanho> SelectAll()

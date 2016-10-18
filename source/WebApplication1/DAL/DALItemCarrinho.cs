@@ -8,15 +8,9 @@ using System.Web;
 
 namespace WebApplication1.DAL
 {
-    public class DALItemCarrinho
+    public class DALItemCarrinho : DAL
     {
-        //public Modelo.itemCarrinho Select(int idCarrinho);
-        string connectionString = "";
-
-        public DALItemCarrinho()
-        {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
-        }
+        public DALItemCarrinho() : base(){}
 
         /*
          * Retorna itemCarrinho a partir do ID do carrinho.
