@@ -142,6 +142,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Cliente\" />
+    <Folder Include="Upload\imagem-produto\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

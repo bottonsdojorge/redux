@@ -148,7 +148,23 @@ namespace WebApplication1.DAL
         }
 
         /*
+         * Salva imagem no servidor a partir de um arquivo de imagem.
+         * Testar e extender para salvar a partir de um uploaded file.
+         * Modelo de nome: btupcliente+unixtimestamp
+         */
+
+        public void InsertImage(Image image)
+        {
+            string unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
+            string nome = "btupcliente" + unixTimestamp;
+        }
+
+        /*
          * PROBLEMATICA DO ARMAZENAMENTO DA IMAGEM A PARTIR DO OBJETO AQUI
+         * 
+         * 1 - Gera nome para a imagem:
+         * 2 - Salva imagem em diretorio padrão (~/Upload/imagem-produto/
+         * 3 - Salva caminho da imagem no BD
          */
 
         //[DataObjectMethod(DataObjectMethodType.Insert)]
