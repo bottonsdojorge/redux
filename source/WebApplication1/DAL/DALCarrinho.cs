@@ -9,12 +9,7 @@ using System.Web;
 namespace WebApplication1.DAL
 {
     public class DALCarrinho
-    {      
-        //public List<Modelo.Carrinho> SelectAll();
-        //public void Delete(Modelo.Carrinho obj);
-        //public void Insert(Modelo.Carrinho obj);
-        //public void Update(Modelo.Carrinho obj);
-
+    {
         string connectionString = "";
 
         public DALCarrinho()

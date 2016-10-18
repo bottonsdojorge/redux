@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -67,12 +68,10 @@ namespace WebApplication1.DAL
         }   
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Tamanho> Select(int idTamanho)
+        public Modelo.Tamanho Select(int idTamanho)
         {
             // O Tamanho
-            Modelo.Tamanho tamanho;
-            // A lista de retorno
-            List<Modelo.Tamanho> tamanhos = new List<Modelo.Tamanho>();
+            Modelo.Tamanho tamanho = new Modelo.Tamanho;
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -81,8 +80,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlTamanhos = String.Format("SELECT * FROM Tamanho WHERE id = {0}", idTamanho);
+                    string sqlTamanhos = "SELECT * FROM Tamanho WHERE id = @id";
                     SqlCommand cmdTamanhos = new SqlCommand(sqlTamanhos);
+                    cmdTamanhos.Parameters.Add("@id", SqlDbType.Int).Value = idTamanho;
                     SqlDataReader drTamanhos;
 
                     using (drTamanhos = cmdTamanhos.ExecuteReader())
@@ -96,7 +96,6 @@ namespace WebApplication1.DAL
                                 string descricao = drTamanhos["descricao"].ToString();
                                 double precoUnitario = Convert.ToDouble(drTamanhos["precoUnitario"]);
                                 tamanho = new Modelo.Tamanho(id, descricao, precoUnitario);
-                                tamanhos.Add(tamanho);
                             }
                         }                        
                     }
@@ -108,7 +107,7 @@ namespace WebApplication1.DAL
             {
                 throw;
             }
-            return tamanhos;
+            return tamanho;
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
@@ -122,8 +121,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlTamanho = string.Format("DELETE FROM Tamanho WHERE id = {0}", id);
+                    string sqlTamanho = "DELETE FROM Tamanho WHERE id = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                    cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
                     cmdTamanho.ExecuteNonQuery();
                 }
             }
@@ -145,8 +145,10 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlTamanho = string.Format("INSERT INTO Tamanho (descricao, precoUnitario) VALUES ('{0}', {1}", descricao, preco);
+                    string sqlTamanho = "INSERT INTO Tamanho (descricao, precoUnitario) VALUES ('@descricao', @preco)";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                    cmdTamanho.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                    cmdTamanho.Parameters.Add("@preco", SqlDbType.Decimal).Value = preco;
                     cmdTamanho.ExecuteNonQuery();
                 }
             }
@@ -169,8 +171,11 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlTamanho = string.Format("UPDATE Tamanho SET descricao = '{0}', precoUnitario = {1:0.00}", descricao, preco);
+                    string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', precoUnitario = @preco WHERE id = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                    cmdTamanho.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                    cmdTamanho.Parameters.Add("@preco", SqlDbType.Decimal).Value = preco;
+                    cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
                     cmdTamanho.ExecuteNonQuery();
                 }
             }

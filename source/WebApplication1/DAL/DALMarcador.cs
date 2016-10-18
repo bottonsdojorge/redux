@@ -67,12 +67,10 @@ namespace WebApplication1.DAL
         }   
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Marcador> Select(int idMarcador)
+        public Modelo.Marcador Select(int idMarcador)
         {
             // O Marcador
-            Modelo.Marcador marcador;
-            // A lista de retorno
-            List<Modelo.Marcador> marcadores = new List<Modelo.Marcador>();
+            Modelo.Marcador marcador = new Modelo.Marcador;
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -95,7 +93,6 @@ namespace WebApplication1.DAL
                                 int id = Convert.ToInt32(drMarcadores["id"]);
                                 string descricao = drMarcadores["descricao"].ToString();
                                 marcador = new Modelo.Marcador(id, descricao);
-                                marcadores.Add(marcador);
                             }
                         }                        
                     }
@@ -107,7 +104,7 @@ namespace WebApplication1.DAL
             {
                 throw;
             }
-            return marcadores;
+            return marcador;
         }
 
         /*

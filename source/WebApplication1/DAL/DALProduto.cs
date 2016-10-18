@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Web;
 
@@ -11,12 +13,6 @@ namespace WebApplication1.DAL
 {
     public class DALProduto
     {
-        //public List<Modelo.Produto> SelectAll();
-        //public List<Modelo.Produto> Select(int idProduto);
-        //public void Delete(Modelo.Produto produto);
-        //public void Insert(Modelo.Produto produto);
-        //public void Update(Modelo.Produto produto);
-
         /*
          * Tem que prestar atenção no caminho da imagem.
          * Usar caminho absoluto?
@@ -79,12 +75,10 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Produto> Select(int idProduto)
+        public Modelo.Produto Select(int idProduto)
         {
-            // O Produto
-            Modelo.Produto produto;
-            // A lista de retorno
-            List<Modelo.Produto> produtos = new List<Modelo.Produto>();
+            // O Produto retorno
+            Modelo.Produto produto = new Modelo.Produto(); ;
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -94,8 +88,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlProdutos = String.Format("SELECT * FROM Produto WHERE id = {0}", idProduto);
+                    string sqlProdutos = "SELECT * FROM Produto WHERE id = @id";
                     SqlCommand cmdProdutos = new SqlCommand(sqlProdutos);
+                    cmdProdutos.Parameters.Add("@id", SqlDbType.Int).Value = idProduto;
                     SqlDataReader drProdutos;
                     using (drProdutos = cmdProdutos.ExecuteReader())
                     {
@@ -112,7 +107,6 @@ namespace WebApplication1.DAL
                                 marcadores = dalMarcador.SelectFromProduto(idProduto);
 
                                 produto = new Modelo.Produto(idProduto, descricao, imagem, marcadores);
-                                produtos.Add(produto);
                             }
                         }
                     }
@@ -122,7 +116,7 @@ namespace WebApplication1.DAL
             {
                 throw;
             }
-            return produtos;
+            return produto;
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
@@ -136,8 +130,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlTamanho = string.Format("DELETE FROM Produto WHERE id = {0}", id);
+                    string sqlTamanho = "DELETE FROM Produto WHERE id = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                    cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
                     cmdTamanho.ExecuteNonQuery();
                 }
             }
@@ -151,12 +146,24 @@ namespace WebApplication1.DAL
          * Salva imagem no servidor a partir de um arquivo de imagem.
          * Testar e extender para salvar a partir de um uploaded file.
          * Modelo de nome: btupcliente+unixtimestamp
+         * Retorna nome da imagem.
          */
 
-        public void InsertImage(Image image)
+        public string InsertImage(Image image)
         {
             string unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
             string nome = "btupcliente" + unixTimestamp;
+            string path = "~/Upload/imagem-produto/";
+            try
+            {
+                image.Save(path + nome, ImageFormat.Jpeg);
+                return nome;
+            }
+            catch (SystemException)
+            {
+                throw;
+                return null;
+            }
         }
 
         /*
@@ -167,51 +174,80 @@ namespace WebApplication1.DAL
          * 3 - Salva caminho da imagem no BD
          */
 
-        //[DataObjectMethod(DataObjectMethodType.Insert)]
-        //public void Insert(Modelo.Produto produto)
-        //{
-        //    // A conexão
-        //    SqlConnection conn = new SqlConnection(connectionString);
-        //    string descricao = produto.descricao;
-        //    string imagem = produto.imagem.
-        //    try
-        //    {
-        //        using (conn)
-        //        {
-        //            // O SQL
-        //            string sqlTamanho = string.Format("INSERT INTO Tamanho (descricao, precoUnitario) VALUES ('{0}', {1}", descricao, preco);
-        //            SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
-        //            cmdTamanho.ExecuteNonQuery();
-        //        }
-        //    }
-        //    catch (SystemException)
-        //    {
-        //        throw;
-        //    }
-        //}
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Insert(Modelo.Produto produto)
+        {
+            // A conexão
+            SqlConnection conn = new SqlConnection(connectionString);
+            int idProduto;
+            string descricao = produto.descricao;
+            string imagem = this.InsertImage(produto.imagem);
+            try
+            {
+                using (conn)
+                {
+                    // O SQL da inserção do produto
+                    string sqlProduto = "INSERT INTO Tamanho (descricao, imagem) VALUES ('@descricao', '@imagem') SET @ID = SCOPE_IDENTITY();";
+                    SqlCommand cmdProduto = new SqlCommand(sqlProduto, conn);
+                    cmdProduto.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                    cmdProduto.Parameters.Add("@imagem", SqlDbType.VarChar).Value = imagem;
+                    cmdProduto.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmdProduto.ExecuteNonQuery();
 
-        //[DataObjectMethod(DataObjectMethodType.Update)]
-        //public void Update(Modelo.Produto produto)
-        //{
-        //    // A conexão
-        //    SqlConnection conn = new SqlConnection(connectionString);
-        //    int id = tamanho.id;
-        //    string descricao = tamanho.descricao;
-        //    double preco = tamanho.precoUnitario;
-        //    try
-        //    {
-        //        using (conn)
-        //        {
-        //            // O SQL
-        //            string sqlTamanho = string.Format("UPDATE Tamanho SET descricao = '{0}', precoUnitario = {1:0.00}", descricao, preco);
-        //            SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
-        //            cmdTamanho.ExecuteNonQuery();
-        //        }
-        //    }
-        //    catch (SystemException)
-        //    {
-        //        throw;
-        //    }
-        //}
+                    //Pega o ID do produto registrado
+                    idProduto = (int)cmdProduto.Parameters["@ID"].Value;
+
+                    // O SQL da inserção dos Marcadores na tabela relacional.
+                    string sqlMarcadores = "INSERT INTO marcadorProduto (Produto_id, Marcador_id) VALUES (@produtoId, @marcadorId)";
+                    SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores, conn);
+                    cmdMarcadores.Parameters.Add("@produtoId", SqlDbType.Int).Value = idProduto;
+
+                    // Inserção de cada marcador na tabela relacional
+                    foreach (Modelo.Marcador marcador in produto.marcadores)
+                    {
+                        cmdMarcadores.Parameters.Add("@marcadorId", SqlDbType.Int).Value = marcador.id;
+                        cmdMarcadores.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+        }
+
+
+        /*
+         * Como funcionará o sistema de atualização de marcadores de um produto? 
+         * Por enquanto, não faz nada.. Pensar nisso depois. 
+         * Alterando, atualmente, apenas descrição e imagem do produto.
+         * Atualmente não verifica a mudança de imagem, insere mesmo que não tenha mudado.
+         */
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void Update(Modelo.Produto produto)
+        {
+            // A conexão
+            SqlConnection conn = new SqlConnection(connectionString);
+            int id = produto.id;
+            string descricao = produto.descricao;
+            string imagem = this.InsertImage(produto.imagem);
+            try
+            {
+                using (conn)
+                {
+                    // O SQL
+                    string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', imagem = '@imagem' WHERE ID = @id";
+                    SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                    cmdTamanho.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                    cmdTamanho.Parameters.Add("@imagem", SqlDbType.VarChar).Value = imagem;
+                    cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cmdTamanho.ExecuteNonQuery();
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+        }
     }
 }
