@@ -2,27 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
 namespace WebApplication1.DAL
 {
-    public class DALMarcador
+    public class DALMarcador : DAL
     {
-        //public List<Modelo.Marcador> SelectAll();
-        //public List<Modelo.Marcador> Select(int idMarcador);
-        //public List<Modelo.Marcador> SelectFromProduto(int idProduto);
-        //public void Delete(Modelo.Marcador marcador);
-        //public void Insert(Modelo.Marcador marcador);
-        //public void Update(Modelo.Marcador marcador);
-
-        string connectionString = "";
-
-        public DALMarcador()
-        {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
-        }
+        public DALMarcador() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Marcador> SelectAll()
@@ -70,7 +59,7 @@ namespace WebApplication1.DAL
         public Modelo.Marcador Select(int idMarcador)
         {
             // O Marcador
-            Modelo.Marcador marcador = new Modelo.Marcador;
+            Modelo.Marcador marcador = new Modelo.Marcador();
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -79,8 +68,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlMarcadores = String.Format("SELECT * FROM Marcador WHERE id = {0}", idMarcador);
+                    string sqlMarcadores = "SELECT * FROM Marcador WHERE id = @id";
                     SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores);
+                    cmdMarcadores.Parameters.Add("@id", SqlDbType.Int).Value = idMarcador;
                     SqlDataReader drMarcadores;
 
                     using (drMarcadores = cmdMarcadores.ExecuteReader())
@@ -126,8 +116,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL da tabela relacional
-                    string sqlRelacional = String.Format("SELECT * FROM marcadorProduto WHERE Produto_id = {0}", idProduto);
+                    string sqlRelacional = "SELECT * FROM marcadorProduto WHERE Produto_id = @idProduto";
                     SqlCommand cmdRelacional = new SqlCommand(sqlRelacional);
+                    cmdRelacional.Parameters.Add("@idProduto", SqlDbType.Int).Value = idProduto;
                     SqlDataReader drRelacional;
 
                     using (drRelacional = cmdRelacional.ExecuteReader())
@@ -139,8 +130,9 @@ namespace WebApplication1.DAL
                             {
                                 int idMarcador = Convert.ToInt32(drRelacional["Marcador_id"]);
                                 // O SQL da tabela Marcador
-                                string sqlMarcador = String.Format("SELECT * FROM Marcador WHERE id = {0}", idMarcador);
+                                string sqlMarcador = "SELECT * FROM Marcador WHERE id = @idMarcador";
                                 SqlCommand cmdMarcador = new SqlCommand(sqlMarcador);
+                                cmdRelacional.Parameters.Add("@idMarcador", SqlDbType.Int).Value = idMarcador;
                                 SqlDataReader drMarcador;
 
                                 using (drMarcador = cmdMarcador.ExecuteReader())
@@ -184,8 +176,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlMarcador = string.Format("DELETE FROM Marcador WHERE id = {0}", id);
+                    string sqlMarcador = "DELETE FROM Marcador WHERE id = @id";
                     SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);
+                    cmdMarcador.Parameters.Add("@id", SqlDbType.Int).Value = id;
                     cmdMarcador.ExecuteNonQuery();
                 }
             }
@@ -206,8 +199,9 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlMarcador = string.Format("INSERT INTO Marcador (descricao) VALUES ('{0}')", descricao);
+                    string sqlMarcador = "INSERT INTO Marcador (descricao) VALUES ('@descricao')";
                     SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);
+                    cmdMarcador.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
                     cmdMarcador.ExecuteNonQuery();
                 }
             }
@@ -229,8 +223,10 @@ namespace WebApplication1.DAL
                 using (conn)
                 {
                     // O SQL
-                    string sqlMarcador = string.Format("UPDATE Marcador SET descricao = '{0}'", descricao);
+                    string sqlMarcador = "UPDATE Marcador SET descricao = '@descricao' WHERE id = @id";
                     SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);
+                    cmdMarcador.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                    cmdMarcador.Parameters.Add("@id", SqlDbType.Int).Value = id;
                     cmdMarcador.ExecuteNonQuery();
                 }
             }

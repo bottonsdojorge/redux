@@ -8,14 +8,9 @@ using System.Web;
 
 namespace WebApplication1.DAL
 {
-    public class DALCarrinho
+    public class DALCarrinho : DAL
     {
-        string connectionString = "";
-
-        public DALCarrinho()
-        {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
-        }
+        public DALCarrinho() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Carrinho> SelectAll()

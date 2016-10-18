@@ -11,20 +11,15 @@ using System.Web;
 
 namespace WebApplication1.DAL
 {
-    public class DALProduto
+    public class DALProduto : DAL
     {
         /*
-         * Tem que prestar atenção no caminho da imagem.
-         * Usar caminho absoluto?
-         * Pasta só para elas?
+         * --Tem que prestar atenção no caminho da imagem.
+         * --Usar caminho absoluto?
+         * Atualizado: utilizando caminho ~/Upload/imagem-produto/ 
          */
 
-        string connectionString = "";
-
-        public DALProduto ()
-	    {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
-	    }
+        public DALProduto() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Produto> SelectAll()

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
@@ -9,14 +10,11 @@ using System.Web;
 
 namespace WebApplication1.DAL
 {
-    public class DALItem
+    public class DALItem : DAL
     {
-        string connectionString = "";
-        public DALItem()
-        {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
-        }
+        public DALItem() : base(){}
         
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Item> SelectAll()
         {
              // O Item
@@ -63,6 +61,31 @@ namespace WebApplication1.DAL
                 throw;
             }
             return itens;
+        }
+
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Delete(Modelo.Item item)
+        {
+            // A conexão
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                using (conn)
+                {
+                    // O SQL
+                    string sqlItem = "DELETE FROM Item WHERE Tamanho_id = @idTamaho AND Produto_id = @idProduto";
+                    SqlCommand cmditem = new SqlCommand(sqlItem);
+                    cmditem.Parameters.Add("@idTamanho", SqlDbType.Int).Value = item.tamanho.id;
+                    cmditem.Parameters.Add("@idProduto", SqlDbType.Int).Value = item.produto.id;
+                    cmditem.ExecuteNonQuery();                    
+                }
+            }
+            catch (SystemException)
+            {                
+                throw;
+            }
         }
     }
 }
