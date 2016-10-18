@@ -62,6 +62,7 @@
     <Content Include="Public\Cadastro.aspx" />
     <Content Include="Adms\CRUDUsuarioSelect.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Vitrine.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vitrine.aspx.cs">
+      <DependentUpon>Vitrine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vitrine.aspx.designer.cs">
+      <DependentUpon>Vitrine.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

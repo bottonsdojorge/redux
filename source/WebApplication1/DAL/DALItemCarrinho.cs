@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -10,34 +11,104 @@ namespace WebApplication1.DAL
 {
     public class DALItemCarrinho : DAL
     {
-        public DALItemCarrinho() : base(){}
 
-        /*
-         * Retorna itemCarrinho a partir do ID do carrinho.
-         * @param int O id do carrinho
-         */
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.itemCarrinho> Select(int idCarrinho)
+        public List<Modelo.itemCarrinho> SelectAll()
         {
-            // O item
-            Modelo.itemCarrinho item = new Modelo.itemCarrinho();
-            
+            // O Tamanho
+            Modelo.itemCarrinho itemCarrinho;
             // A lista de retorno
-            List<Modelo.itemCarrinho> items = new List<Modelo.itemCarrinho>();
+            List<Modelo.itemCarrinho> itensCarrinho = new List<Modelo.itemCarrinho>();
 
-            // Abrindo a conexão
+            // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
 
-            // Comando SQL Items.
-            string sqlItems = String.Format("SELECT * FROM ItemCarrinho WHERE carrinho_id = {0}", idCarrinho);
-            SqlCommand cmdItems = new SqlCommand(sqlItems);
-            
-            // Executa comando SQL Items
-            SqlDataReader drItems = cmdItems.ExecuteReader();
+            try
+            {
+                using (conn)
+                {
+                    // O SQL
+                    string sqlItensCarrinho = "SELECT * FROM itensCarrinho";
+                    SqlCommand cmdItensCarrinho = new SqlCommand(sqlItensCarrinho);
+                    SqlDataReader drItensCarrinho;
+                    using (drItensCarrinho = cmdItensCarrinho.ExecuteReader())
+                    {                        
+                        // Leitura do resultado
+                        if (drItensCarrinho.HasRows)
+                        {
+                            while (drItensCarrinho.Read())
+                            {
+                                int idCarrinho = Convert.ToInt32(drItensCarrinho["carrinho_id"]);
+                                int idTamanho = Convert.ToInt32(drItensCarrinho["Tamanho_id"]);
+                                int idProduto = Convert.ToInt32(drItensCarrinho["Produto_id"]);
+                                int quantidade = Convert.ToInt32(drItensCarrinho["quantidade"]);
 
-            return items;
+                                DALItem dalItem = new DALItem();
+
+                                Modelo.Item item = dalItem.Select(idProduto, idTamanho);
+                                itemCarrinho = new Modelo.itemCarrinho(idCarrinho, item, quantidade);
+                                itensCarrinho.Add(itemCarrinho);
+
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {                
+                throw;
+            }
+            return itensCarrinho;
         }
 
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.itemCarrinho> SelectFromCarrinho(int idCarrinho)
+        {
+            //O itemCarrinho
+            Modelo.itemCarrinho itemCarrinho = new Modelo.itemCarrinho();
+            //A lista de retorno
+            List<Modelo.itemCarrinho> itensCarrinho = new List<Modelo.itemCarrinho>();
+            
+            // A conexão
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                using (conn)
+                {
+                    // O SQL
+                    string sqlItemCarrinho = "SELECT * FROM ItemCarrinho WHERE id = @id";
+                    SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho);
+                    cmdItemCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = idCarrinho;
+                    SqlDataReader drItemCarrinho;
+                    using (drItemCarrinho = cmdItemCarrinho.ExecuteReader())
+                    {
+                        // Leitura do resultado
+                        if (drItemCarrinho.HasRows)
+                        {
+                            while (drItemCarrinho.Read())
+                            {
+                                int idTamanho = Convert.ToInt32(drItemCarrinho["Tamanho_id"]);
+                                int idProduto = Convert.ToInt32(drItemCarrinho["Produto_id"]);
+                                int quantidade = Convert.ToInt32(drItemCarrinho["quantidade"]);
+
+                                DALItem dalItem = new DALItem();
+
+                                Modelo.Item item = dalItem.Select(idProduto, idTamanho);
+                                itemCarrinho = new Modelo.itemCarrinho(idCarrinho, item, quantidade);
+
+                                itensCarrinho.Add(itemCarrinho);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return itensCarrinho;
+        }                   
     }
 }
