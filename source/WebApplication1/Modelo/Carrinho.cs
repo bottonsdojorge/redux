@@ -35,7 +35,7 @@ namespace WebApplication1.Modelo
             this.Usuario_id = 0;
 	    }
 
-        public Carrinho(List<itemCarrinho> itens, int precoTotal, int Usuario_id)
+        public Carrinho(List<itemCarrinho> itens, double precoTotal, int Usuario_id)
         {
             this.itens = itens;
             this.precoTotal = precoTotal;

@@ -73,7 +73,7 @@ namespace WebApplication1.DAL
         public Modelo.Produto Select(int idProduto)
         {
             // O Produto retorno
-            Modelo.Produto produto = new Modelo.Produto(); ;
+            Modelo.Produto produto = new Modelo.Produto();
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -119,7 +119,7 @@ namespace WebApplication1.DAL
         {
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
-            string id = produto.id.ToString();
+            int id = Convert.ToInt32(produto.id);
             try
             {
                 using (conn)
