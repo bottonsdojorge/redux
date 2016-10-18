@@ -109,6 +109,33 @@ namespace WebApplication1.DAL
                 throw;
             }
             return itensCarrinho;
-        }                   
+        }
+        
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Insert(Modelo.itemCarrinho itemCarrinho)
+        {
+            // A conexão
+            SqlConnection conn = new SqlConnection(connectionString);
+
+            try
+            {
+                using (conn)
+                {
+                    // O SQL
+                    string sqlItemCarrinho = "INSERT INTO itemCarrinho (carrinho_id, Item_Tamanho_id, item_Produto_id, quantidade) VALUES (@carrinhoId, @tamanhoId, @produtoId, @quantidade)";
+                    SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
+                    cmdItemCarrinho.Parameters.Add("@carrinhoId", SqlDbType.Int).Value = itemCarrinho.carrinhoId;
+                    cmdItemCarrinho.Parameters.Add("@produtoId", SqlDbType.Int).Value = itemCarrinho.item.produto.id;
+                    cmdItemCarrinho.Parameters.Add("@tamanhoId", SqlDbType.Int).Value = itemCarrinho.item.tamanho.id;
+                    cmdItemCarrinho.Parameters.Add("@quantidade", SqlDbType.Int).Value = itemCarrinho.quantidade;
+
+                    cmdItemCarrinho.ExecuteNonQuery();
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+        }
     }
 }

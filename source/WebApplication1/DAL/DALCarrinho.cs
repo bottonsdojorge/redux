@@ -131,6 +131,8 @@ namespace WebApplication1.DAL
 
         /*
          * Tem que alterar o carrinho anterior. Aqui só está inserindo um novo carrinho sem verificar nada..
+         * Tratar aqui e no update os itens anteriores do carrinho...
+         * Corrigir calculo de preço: tem que ser tratada na classe carrinho.
          */
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

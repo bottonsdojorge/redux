@@ -7,6 +7,9 @@ namespace WebApplication1.Modelo
 {
     public class Carrinho
     {
+        /*
+         * TODO: Calculo de preço
+         */
         private int _Usuario_id;
         public int Usuario_id
         {
