@@ -74,7 +74,7 @@ namespace WebApplication1.DAL
         public Modelo.Produto Select(int idProduto)
         {
             // O Produto retorno
-            Modelo.Produto produto = new Modelo.Produto();
+            Modelo.Produto produto = null;
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -170,6 +170,8 @@ namespace WebApplication1.DAL
          * 1 - Gera nome para a imagem:
          * 2 - Salva imagem em diretorio padrão (~/Upload/imagem-produto/
          * 3 - Salva caminho da imagem no BD
+         * 
+         * Acima está inválido. Aceitando apenas nome da imagem. 
          */
 
         [DataObjectMethod(DataObjectMethodType.Insert)]

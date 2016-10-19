@@ -11,6 +11,7 @@ namespace WebApplication1.Modelo
 
         /*
          * Modificado: Image imagem para string imagem. Corrigir como é o tratamento no crud..
+         * TODO: Tratamento na classe Produto para receber caminho ou classe imagem..
          */
         private int _id;
         public int id

@@ -21,7 +21,7 @@
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:pedroPcConnectionString %>" SelectCommand="SELECT * FROM [Produto]" DeleteCommand="DELETE FROM Produto WHERE id = @id" UpdateCommand="UPDATE Produto SET descricao = @descricao, preco = @preco, imagem = @imagem WHERE id = @id">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BottonsDoJorgeConnectionString %>" SelectCommand="SELECT * FROM [Produto]" DeleteCommand="DELETE FROM Produto WHERE id = @id" UpdateCommand="UPDATE Produto SET descricao = @descricao, preco = @preco, imagem = @imagem WHERE id = @id">
             <DeleteParameters>
                 <asp:Parameter Name="id" />
             </DeleteParameters>

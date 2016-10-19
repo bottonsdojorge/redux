@@ -60,7 +60,7 @@ namespace WebApplication1.DAL
         public Modelo.Marcador Select(int idMarcador)
         {
             // O Marcador
-            Modelo.Marcador marcador = new Modelo.Marcador();
+            Modelo.Marcador marcador = null;
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);

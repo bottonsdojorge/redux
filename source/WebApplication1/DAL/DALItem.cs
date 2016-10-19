@@ -68,7 +68,7 @@ namespace WebApplication1.DAL
         public Modelo.Item Select(int idProduto, int idTamanho)
         {
             // O Produto retorno
-            Modelo.Item item = new Modelo.Item();
+            Modelo.Item item = null;
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
 

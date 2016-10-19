@@ -66,7 +66,7 @@ namespace WebApplication1.DAL
         public Modelo.Carrinho Select(int idCarrinho)
         {
             // O carrinho retorno
-            Modelo.Carrinho carrinho = new Modelo.Carrinho();
+            Modelo.Carrinho carrinho = null;
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -134,8 +134,7 @@ namespace WebApplication1.DAL
 
         /*
          * Tem que alterar o carrinho anterior. Aqui só está inserindo um novo carrinho sem verificar nada..
-         * Tratar aqui e no update os itens anteriores do carrinho...
-         * Corrigir calculo de preço: tem que ser tratada na classe carrinho.
+         * A atualização dos itens é tratada no DALitemCarrinho.
          */
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
@@ -152,7 +151,7 @@ namespace WebApplication1.DAL
                     // O SQL do carrinho
                     string sqlCarrinho = "INSERT INTO Carrinho(precoTotal) VALUES (@preco)";
                     SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
-                    cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = this.calcularPreco();
+                    cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
 
                     // A inserção dos itens do carrinho
                     DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
@@ -166,10 +165,6 @@ namespace WebApplication1.DAL
             {   throw;
             }
 
-        }
-
-        public double calcularPreco() {
-            return 0;
         }
     }
 }

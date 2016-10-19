@@ -61,7 +61,7 @@ namespace WebApplication1.DAL
         public Modelo.Tamanho Select(int idTamanho)
         {
             // O Tamanho
-            Modelo.Tamanho tamanho = new Modelo.Tamanho();
+            Modelo.Tamanho tamanho = null;
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);

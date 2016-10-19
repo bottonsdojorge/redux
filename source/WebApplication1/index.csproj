@@ -63,6 +63,9 @@
     <Content Include="Public\Cadastro.aspx" />
     <Content Include="Adms\CRUDUsuarioSelect.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Upload\imagem-produto\botton-default.jpg" />
+    <Content Include="Upload\imagem-produto\botton1.gif" />
+    <Content Include="Upload\imagem-produto\botton2.gif" />
     <Content Include="Upload\imagem-produto\offline-stream.png" />
     <Content Include="Vitrine.aspx" />
     <Content Include="Web.config">

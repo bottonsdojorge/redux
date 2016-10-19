@@ -28,6 +28,14 @@ namespace WebApplication1.Modelo
             set { _quantidade = value; }
         }
 
+        private double _subTotal;
+        public double subTotal
+        {
+            get { return _subTotal; }
+            set { _subTotal = value; }
+        }
+        
+
         public itemCarrinho()
         {
             this.carrinhoId = 0;
@@ -40,6 +48,12 @@ namespace WebApplication1.Modelo
             this.carrinhoId = carrinhoId;
             this.item = item;
             this.quantidade = quantidade;
+            this.calcularSubTotal();
+        }
+
+        public void calcularSubTotal()
+        {
+            this.subTotal = quantidade * item.tamanho.precoUnitario;
         }
     }
 }

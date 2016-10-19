@@ -7,9 +7,6 @@ namespace WebApplication1.Modelo
 {
     public class Carrinho
     {
-        /*
-         * TODO: Calculo de preço
-         */
         private int _Usuario_id;
         public int Usuario_id
         {
@@ -36,6 +33,7 @@ namespace WebApplication1.Modelo
             this.itens = new List<itemCarrinho>();
             this.precoTotal = 0;
             this.Usuario_id = 0;
+            precoTotal = 0;
 	    }
 
         public Carrinho(List<itemCarrinho> itens, double precoTotal, int Usuario_id)
@@ -43,6 +41,16 @@ namespace WebApplication1.Modelo
             this.itens = itens;
             this.precoTotal = precoTotal;
             this.Usuario_id = Usuario_id;
+            this.calcularPrecoTotal();
+        }
+
+        public void calcularPrecoTotal()
+        {
+            precoTotal = 0;
+            foreach (itemCarrinho item in itens)
+            {
+                precoTotal += item.subTotal;
+            }
         }
     }
 }
