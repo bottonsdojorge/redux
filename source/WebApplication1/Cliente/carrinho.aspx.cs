@@ -12,7 +12,13 @@ namespace WebApplication1
 {
     public partial class carrinho : System.Web.UI.Page
     {
-
+        private Modelo.Carrinho _carro;
+        public Modelo.Carrinho carro
+        {
+            get { return _carro; }
+            set { _carro = value; }
+        }
+        
         private List<Modelo.itemCarrinho> _itens;
         public List<Modelo.itemCarrinho> itens
         {
@@ -30,8 +36,8 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             this.getUsuarioId();
+            this.initCarrinho();
             this.inserirItem();
-            this.carregarCarrinho();
         }
 
         /*
@@ -78,6 +84,9 @@ namespace WebApplication1
          * O que tem que fazer:
          * 3. Verifica se o item já está inserido. Se sim, altera a quantidade.
          * 4. Se não, insere item.
+         * 
+         * Vai adicionar um item duplicaod se ele já estiver no carrinho.
+         * Tem que verificar o Add.
          */
         protected void inserirItem()
         {
@@ -86,6 +95,7 @@ namespace WebApplication1
 
             if (idProduto != 0 && idTamanho != 0)
             {
+                DAL.DALCarrinho dalCarrinho = new DAL.DALCarrinho();
                 DAL.DALItemCarrinho dalItemCarrinho = new DAL.DALItemCarrinho();
                 DAL.DALItem dalItem = new DAL.DALItem();
 
@@ -94,16 +104,16 @@ namespace WebApplication1
 
                 item = dalItem.Select(idProduto, idTamanho);
                 itemCarrinho = new Modelo.itemCarrinho(this.usuarioId, item, 1);
-
                 dalItemCarrinho.Insert(itemCarrinho);
+
+                initCarrinho();
             }
         }
 
-
-        protected void carregarCarrinho()
+        protected void initCarrinho()
         {
             DAL.DALCarrinho dalCarrinho = new DAL.DALCarrinho();
-            this.itens = dalCarrinho.Select(usuarioId).itens;
+            this.carro = dalCarrinho.Select(usuarioId);
         }
     }
 }

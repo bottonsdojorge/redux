@@ -23,3 +23,8 @@ C:\Users\20141011110352\Documents\GitHub\redux\source\WebApplication1\bin\WebApp
 C:\Users\20141011110352\Documents\GitHub\redux\source\WebApplication1\obj\Debug\index.csprojResolveAssemblyReference.cache
 C:\Users\20141011110352\Documents\GitHub\redux\source\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\20141011110352\Documents\GitHub\redux\source\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\20141011110190\Documents\redux\source\WebApplication1\bin\WebApplication1.dll
+C:\Users\20141011110190\Documents\redux\source\WebApplication1\bin\WebApplication1.pdb
+C:\Users\20141011110190\Documents\redux\source\WebApplication1\obj\Debug\index.csprojResolveAssemblyReference.cache
+C:\Users\20141011110190\Documents\redux\source\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\20141011110190\Documents\redux\source\WebApplication1\obj\Debug\WebApplication1.pdb

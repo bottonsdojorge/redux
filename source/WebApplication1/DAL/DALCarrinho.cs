@@ -67,7 +67,6 @@ namespace WebApplication1.DAL
         {
             // O carrinho retorno
             Modelo.Carrinho carrinho = null;
-
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
 
@@ -145,26 +144,58 @@ namespace WebApplication1.DAL
 
             try
             {
-                using (conn)
+                if (this.Select(carrinho.Usuario_id) == null)
                 {
-                    conn.Open();
-                    // O SQL do carrinho
-                    string sqlCarrinho = "INSERT INTO Carrinho(precoTotal) VALUES (@preco)";
-                    SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
-                    cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
-
-                    // A inserção dos itens do carrinho
-                    DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-                    foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
+                    using (conn)
                     {
-                        dalItemCarrinho.Insert(itemCarrinho);
+                        conn.Open();
+                        // O SQL do carrinho
+                        string sqlCarrinho = "INSERT INTO Carrinho(Usuario_id, precoTotal) VALUES (@id, @preco)";
+                        SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
+                        cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
+                        cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
+                        cmdCarrinho.ExecuteNonQuery();
                     }
+                }
+                else
+                {
+                    this.Update(carrinho);
+                }
+                // A inserção dos itens do carrinho
+                DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+                foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
+                {
+                    dalItemCarrinho.Insert(itemCarrinho);
                 }
             }
             catch (SystemException)
             {   throw;
             }
 
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Update(Modelo.Carrinho carrinho)
+        {
+            // A conexão
+            SqlConnection conn = new SqlConnection(connectionString);
+            try
+            {
+                using (conn)
+                {
+                    conn.Open();
+                    // O SQL
+                    string sqlCarrinho = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
+                    SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
+                    cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
+                    cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
+                    cmdCarrinho.ExecuteNonQuery();
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
         }
     }
 }

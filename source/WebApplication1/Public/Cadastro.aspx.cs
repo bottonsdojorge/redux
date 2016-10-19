@@ -23,14 +23,15 @@ namespace WebApplication1
             string aSQLConecStr;
 
             // Lendo a conexão de dados do Web.Config
-            aSQLConecStr = ConfigurationManager.ConnectionStrings["pedroPcConnectionString"].ConnectionString;
+            aSQLConecStr = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
 
             // Abrindo a Conexão com o banco de dados
             SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
             aSQLCon.Open();
 
             // Relaciona tabela usuários do projeto com a tabela do ASP.
-            SqlCommand aSQL = new SqlCommand("INSERT INTO Usuario(aspnet_id) VALUES (@id)", aSQLCon);
+            SqlCommand aSQL = new SqlCommand("INSERT INTO Usuario(nome, aspnet_id) VALUES (@nome, @id)", aSQLCon);
+            aSQL.Parameters.AddWithValue("@nome", wiz_criarUsuario.UserName);
             aSQL.Parameters.AddWithValue("@id", Membership.GetUser(wiz_criarUsuario.UserName).ProviderUserKey);
             aSQL.ExecuteNonQuery();
             Response.Redirect("~/CRUDUsuarioSelect.aspx");

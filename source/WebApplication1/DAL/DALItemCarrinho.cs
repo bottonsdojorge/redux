@@ -80,8 +80,8 @@ namespace WebApplication1.DAL
                     string sqlItemCarrinho = "SELECT * FROM Itemcarrinho WHERE Carrinho_id = @idCarrinho AND item_tamanho_id = @idTamanho AND item_produto_id = @idProduto";
                     SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
                     cmdItemCarrinho.Parameters.Add("@idCarrinho", SqlDbType.Int).Value = idCarrinho;
-                    cmdItemCarrinho.Parameters.Add("@idTamanho", SqlDbType.Int).Value = idCarrinho;
-                    cmdItemCarrinho.Parameters.Add("@idProduto", SqlDbType.Int).Value = idCarrinho;
+                    cmdItemCarrinho.Parameters.Add("@idTamanho", SqlDbType.Int).Value = idTamanho;
+                    cmdItemCarrinho.Parameters.Add("@idProduto", SqlDbType.Int).Value = idProduto;
                     SqlDataReader drItemCarrinho;
                     using (drItemCarrinho = cmdItemCarrinho.ExecuteReader())
                     {
@@ -177,7 +177,7 @@ namespace WebApplication1.DAL
                     {
                         conn.Open();
                         // O SQL
-                        string sqlItemCarrinho = "INSERT INTO itemCarrinho (carrinho_id, Item_Tamanho_id, item_Produto_id, quantidade) VALUES (@carrinhoId, @tamanhoId, @produtoId, @quantidade)";
+                        string sqlItemCarrinho = "INSERT INTO itemCarrinho (Carrinho_id, Item_tamanho_id, item_Produto_id, quantidade) VALUES (@carrinhoId, @tamanhoId, @produtoId, @quantidade)";
                         SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
                         cmdItemCarrinho.Parameters.Add("@carrinhoId", SqlDbType.Int).Value = itemCarrinho.carrinhoId;
                         cmdItemCarrinho.Parameters.Add("@produtoId", SqlDbType.Int).Value = itemCarrinho.item.produto.id;
@@ -217,6 +217,8 @@ namespace WebApplication1.DAL
                     cmdItemCarrinho.Parameters.Add("@idCarrinho", SqlDbType.Int).Value = itemCarrinho.carrinhoId;
                     cmdItemCarrinho.Parameters.Add("@idTamanho", SqlDbType.Int).Value = itemCarrinho.item.tamanho.id;
                     cmdItemCarrinho.Parameters.Add("@idProduto", SqlDbType.Int).Value = itemCarrinho.item.produto.id;
+
+                    cmdItemCarrinho.ExecuteNonQuery();
                 }
             }
             catch (SystemException)

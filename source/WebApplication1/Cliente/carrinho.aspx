@@ -25,7 +25,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% foreach (WebApplication1.Modelo.itemCarrinho item in itens){ %>
+                        <% foreach (WebApplication1.Modelo.itemCarrinho item in carro.itens){ %>
                         <tr>
                             <th><% Response.Write(String.Format("{0}, {1}", item.item.produto.descricao, item.item.tamanho.descricao)); %></th>
                             <th><% Response.Write(item.quantidade); %></th>
