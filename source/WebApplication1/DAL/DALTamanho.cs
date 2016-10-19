@@ -28,9 +28,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanhos = "SELECT * FROM Tamanho";
-                    SqlCommand cmdTamanhos = new SqlCommand(sqlTamanhos);
+                    SqlCommand cmdTamanhos = new SqlCommand(sqlTamanhos, conn);
                     SqlDataReader drTamanhos;
                     using (drTamanhos = cmdTamanhos.ExecuteReader())
                     {                        
@@ -60,7 +61,7 @@ namespace WebApplication1.DAL
         public Modelo.Tamanho Select(int idTamanho)
         {
             // O Tamanho
-            Modelo.Tamanho tamanho = new Modelo.Tamanho;
+            Modelo.Tamanho tamanho = new Modelo.Tamanho();
 
             // A conexão
             SqlConnection conn = new SqlConnection(connectionString);
@@ -68,9 +69,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanhos = "SELECT * FROM Tamanho WHERE id = @id";
-                    SqlCommand cmdTamanhos = new SqlCommand(sqlTamanhos);
+                    SqlCommand cmdTamanhos = new SqlCommand(sqlTamanhos, conn);
                     cmdTamanhos.Parameters.Add("@id", SqlDbType.Int).Value = idTamanho;
                     SqlDataReader drTamanhos;
 
@@ -109,6 +111,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanho = "DELETE FROM Tamanho WHERE id = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
@@ -133,6 +136,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanho = "INSERT INTO Tamanho (descricao, precoUnitario) VALUES ('@descricao', @preco)";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
@@ -159,6 +163,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', precoUnitario = @preco WHERE id = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);

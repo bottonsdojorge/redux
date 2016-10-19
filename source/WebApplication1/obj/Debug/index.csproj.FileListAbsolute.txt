@@ -13,3 +13,8 @@ C:\Users\20141011110352\Documents\redux\source\WebApplication1\bin\WebApplicatio
 C:\Users\20141011110352\Documents\redux\source\WebApplication1\obj\Debug\index.csprojResolveAssemblyReference.cache
 C:\Users\20141011110352\Documents\redux\source\WebApplication1\obj\Debug\WebApplication1.dll
 C:\Users\20141011110352\Documents\redux\source\WebApplication1\obj\Debug\WebApplication1.pdb
+C:\Users\Pedro Oliveira\Documents\Visual Studio 2012\Projects\redux\source\WebApplication1\obj\Debug\index.csprojResolveAssemblyReference.cache
+C:\Users\Pedro Oliveira\Documents\Visual Studio 2012\Projects\redux\source\WebApplication1\obj\Debug\WebApplication1.dll
+C:\Users\Pedro Oliveira\Documents\Visual Studio 2012\Projects\redux\source\WebApplication1\bin\WebApplication1.dll
+C:\Users\Pedro Oliveira\Documents\Visual Studio 2012\Projects\redux\source\WebApplication1\bin\WebApplication1.pdb
+C:\Users\Pedro Oliveira\Documents\Visual Studio 2012\Projects\redux\source\WebApplication1\obj\Debug\WebApplication1.pdb

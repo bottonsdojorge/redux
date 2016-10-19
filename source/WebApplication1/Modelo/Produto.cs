@@ -8,6 +8,10 @@ namespace WebApplication1.Modelo
 {
     public class Produto
     {
+
+        /*
+         * Modificado: Image imagem para string imagem. Corrigir como é o tratamento no crud..
+         */
         private int _id;
         public int id
         {
@@ -22,8 +26,8 @@ namespace WebApplication1.Modelo
             set { _descricao = value; }
         }
 
-        private Image _imagem;
-        public Image imagem
+        private string _imagem;
+        public string imagem
         {
             get { return _imagem; }
             set { _imagem = value; }
@@ -40,11 +44,11 @@ namespace WebApplication1.Modelo
         {
             this.id = 0;
             this.descricao = "";
-            this.imagem = default(Image);
+            this.imagem = "";
             this.marcadores = new List<Marcador>();
         }
 
-        public Produto(int id, string descricao, Image imagem, List<Marcador> marcadores)
+        public Produto(int id, string descricao, string imagem, List<Marcador> marcadores)
         {
             this.id = id;
             this.descricao = descricao;

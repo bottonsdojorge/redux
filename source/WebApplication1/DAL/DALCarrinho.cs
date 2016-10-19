@@ -28,9 +28,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlCarrinhos = "SELECT * FROM Carrinhos";
-                    SqlCommand cmdCarrinhos = new SqlCommand(sqlCarrinhos);
+                    SqlCommand cmdCarrinhos = new SqlCommand(sqlCarrinhos, conn);
                     SqlDataReader drCarrinhos;
 
                     using (drCarrinhos = cmdCarrinhos.ExecuteReader())
@@ -74,9 +75,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
-                    string sqlCarrinhos = "SELECT * FROM Produto WHERE id = @id";
-                    SqlCommand cmdCarrinhos = new SqlCommand(sqlCarrinhos);
+                    string sqlCarrinhos = "SELECT * FROM Carrinho WHERE Usuario_id = @id";
+                    SqlCommand cmdCarrinhos = new SqlCommand(sqlCarrinhos, conn);
                     cmdCarrinhos.Parameters.Add("@id", SqlDbType.Int).Value = idCarrinho;
                     SqlDataReader drCarrinhos;
                     using (drCarrinhos = cmdCarrinhos.ExecuteReader())
@@ -116,6 +118,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanho = "DELETE FROM Carrinho WHERE id = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
@@ -145,6 +148,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL do carrinho
                     string sqlCarrinho = "INSERT INTO Carrinho(precoTotal) VALUES (@preco)";
                     SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);

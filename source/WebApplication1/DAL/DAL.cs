@@ -14,7 +14,7 @@ namespace WebApplication1.DAL
         protected string connectionString = "";
         public DAL()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["pedroPcConnectionString"].ConnectionString;
         }
     }
 }

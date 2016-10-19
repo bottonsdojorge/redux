@@ -36,9 +36,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlProdutos = "SELECT * FROM Produto";
-                    SqlCommand cmdProdutos = new SqlCommand(sqlProdutos);
+                    SqlCommand cmdProdutos = new SqlCommand(sqlProdutos, conn);
                     SqlDataReader drProdutos;
                     using (drProdutos = cmdProdutos.ExecuteReader())
                     {                        
@@ -49,7 +50,7 @@ namespace WebApplication1.DAL
                             {
                                 int idProduto = Convert.ToInt32(drProdutos["id"]);
                                 string descricao = drProdutos["descricao"].ToString();
-                                Image imagem = Image.FromFile(drProdutos["imagem"].ToString());
+                                string imagem = drProdutos["imagem"].ToString();
                                 List<Modelo.Marcador> marcadores;
 
                                 DALMarcador dalMarcador = new DALMarcador();
@@ -82,9 +83,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlProdutos = "SELECT * FROM Produto WHERE id = @id";
-                    SqlCommand cmdProdutos = new SqlCommand(sqlProdutos);
+                    SqlCommand cmdProdutos = new SqlCommand(sqlProdutos, conn);
                     cmdProdutos.Parameters.Add("@id", SqlDbType.Int).Value = idProduto;
                     SqlDataReader drProdutos;
                     using (drProdutos = cmdProdutos.ExecuteReader())
@@ -95,7 +97,7 @@ namespace WebApplication1.DAL
                             while (drProdutos.Read())
                             {
                                 string descricao = drProdutos["descricao"].ToString();
-                                Image imagem = Image.FromFile(drProdutos["imagem"].ToString());
+                                string imagem = drProdutos["imagem"].ToString();
                                 List<Modelo.Marcador> marcadores;
 
                                 DALMarcador dalMarcador = new DALMarcador();
@@ -124,6 +126,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanho = "DELETE FROM Produto WHERE id = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
@@ -157,8 +160,8 @@ namespace WebApplication1.DAL
             catch (SystemException)
             {
                 throw;
-                return null;
             }
+            return null;
         }
 
         /*
@@ -176,11 +179,12 @@ namespace WebApplication1.DAL
             SqlConnection conn = new SqlConnection(connectionString);
             int idProduto;
             string descricao = produto.descricao;
-            string imagem = this.InsertImage(produto.imagem);
+            string imagem = produto.imagem;
             try
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL da inserção do produto
                     string sqlProduto = "INSERT INTO Tamanho (descricao, imagem) VALUES ('@descricao', '@imagem') SET @ID = SCOPE_IDENTITY();";
                     SqlCommand cmdProduto = new SqlCommand(sqlProduto, conn);
@@ -225,11 +229,12 @@ namespace WebApplication1.DAL
             SqlConnection conn = new SqlConnection(connectionString);
             int id = produto.id;
             string descricao = produto.descricao;
-            string imagem = this.InsertImage(produto.imagem);
+            string imagem = produto.imagem;
             try
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', imagem = '@imagem' WHERE ID = @id";
                     SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);

@@ -28,9 +28,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlMarcadores = "SELECT * FROM Marcador";
-                    SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores);
+                    SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores, conn);
                     SqlDataReader drMarcadores;
                     using (drMarcadores = cmdMarcadores.ExecuteReader())
                     {                        
@@ -67,9 +68,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlMarcadores = "SELECT * FROM Marcador WHERE id = @id";
-                    SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores);
+                    SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores, conn);
                     cmdMarcadores.Parameters.Add("@id", SqlDbType.Int).Value = idMarcador;
                     SqlDataReader drMarcadores;
 
@@ -115,9 +117,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL da tabela relacional
                     string sqlRelacional = "SELECT * FROM marcadorProduto WHERE Produto_id = @idProduto";
-                    SqlCommand cmdRelacional = new SqlCommand(sqlRelacional);
+                    SqlCommand cmdRelacional = new SqlCommand(sqlRelacional, conn);
                     cmdRelacional.Parameters.Add("@idProduto", SqlDbType.Int).Value = idProduto;
                     SqlDataReader drRelacional;
 
@@ -131,7 +134,7 @@ namespace WebApplication1.DAL
                                 int idMarcador = Convert.ToInt32(drRelacional["Marcador_id"]);
                                 // O SQL da tabela Marcador
                                 string sqlMarcador = "SELECT * FROM Marcador WHERE id = @idMarcador";
-                                SqlCommand cmdMarcador = new SqlCommand(sqlMarcador);
+                                SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);
                                 cmdRelacional.Parameters.Add("@idMarcador", SqlDbType.Int).Value = idMarcador;
                                 SqlDataReader drMarcador;
 
@@ -198,6 +201,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlMarcador = "INSERT INTO Marcador (descricao) VALUES ('@descricao')";
                     SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);
@@ -222,6 +226,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlMarcador = "UPDATE Marcador SET descricao = '@descricao' WHERE id = @id";
                     SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);

@@ -27,9 +27,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlItensCarrinho = "SELECT * FROM itensCarrinho";
-                    SqlCommand cmdItensCarrinho = new SqlCommand(sqlItensCarrinho);
+                    SqlCommand cmdItensCarrinho = new SqlCommand(sqlItensCarrinho, conn);
                     SqlDataReader drItensCarrinho;
                     using (drItensCarrinho = cmdItensCarrinho.ExecuteReader())
                     {                        
@@ -39,8 +40,8 @@ namespace WebApplication1.DAL
                             while (drItensCarrinho.Read())
                             {
                                 int idCarrinho = Convert.ToInt32(drItensCarrinho["carrinho_id"]);
-                                int idTamanho = Convert.ToInt32(drItensCarrinho["Tamanho_id"]);
-                                int idProduto = Convert.ToInt32(drItensCarrinho["Produto_id"]);
+                                int idTamanho = Convert.ToInt32(drItensCarrinho["Item_Tamanho_id"]);
+                                int idProduto = Convert.ToInt32(drItensCarrinho["Item_Produto_id"]);
                                 int quantidade = Convert.ToInt32(drItensCarrinho["quantidade"]);
 
                                 DALItem dalItem = new DALItem();
@@ -77,9 +78,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
-                    string sqlItemCarrinho = "SELECT * FROM ItemCarrinho WHERE id = @id";
-                    SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho);
+                    string sqlItemCarrinho = "SELECT * FROM ItemCarrinho WHERE Carrinho_id = @id";
+                    SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
                     cmdItemCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = idCarrinho;
                     SqlDataReader drItemCarrinho;
                     using (drItemCarrinho = cmdItemCarrinho.ExecuteReader())
@@ -89,8 +91,8 @@ namespace WebApplication1.DAL
                         {
                             while (drItemCarrinho.Read())
                             {
-                                int idTamanho = Convert.ToInt32(drItemCarrinho["Tamanho_id"]);
-                                int idProduto = Convert.ToInt32(drItemCarrinho["Produto_id"]);
+                                int idTamanho = Convert.ToInt32(drItemCarrinho["Item_Tamanho_id"]);
+                                int idProduto = Convert.ToInt32(drItemCarrinho["Item_Produto_id"]);
                                 int quantidade = Convert.ToInt32(drItemCarrinho["quantidade"]);
 
                                 DALItem dalItem = new DALItem();
@@ -121,6 +123,7 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlItemCarrinho = "INSERT INTO itemCarrinho (carrinho_id, Item_Tamanho_id, item_Produto_id, quantidade) VALUES (@carrinhoId, @tamanhoId, @produtoId, @quantidade)";
                     SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);

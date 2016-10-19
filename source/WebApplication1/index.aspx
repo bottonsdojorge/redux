@@ -29,7 +29,10 @@
         <br />
         <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Adms/CRUDProdutoInsert.aspx">Cadastro de Produto</asp:HyperLink>
         <br />
-        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Adms/CRUDProdutoSelect.aspx">Vizualização de Produto</asp:HyperLink></td>
+        <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Adms/CRUDProdutoSelect.aspx">Vizualização de Produto</asp:HyperLink>
+        <br />
+         <asp:HyperLink ID="linkVitrine" runat="server" NavigateUrl="~/Vitrine.aspx">Vitrine</asp:HyperLink>
+            </td>
             <td>&nbsp;</td>
         </tr>
         <tr>

@@ -29,9 +29,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlItens = "SELECT * FROM Item";
-                    SqlCommand cmdItens = new SqlCommand(sqlItens);
+                    SqlCommand cmdItens = new SqlCommand(sqlItens, conn);
                     SqlDataReader drItens;
                     using (drItens = cmdItens.ExecuteReader())
                     {
@@ -75,9 +76,10 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     // O SQL
                     string sqlItens = "SELECT * FROM Item WHERE Tamanho_id = @idTamanho AND Produto_id = @idProduto";
-                    SqlCommand cmdItens = new SqlCommand(sqlItens);
+                    SqlCommand cmdItens = new SqlCommand(sqlItens, conn);
                     cmdItens.Parameters.Add("@idTamanho", SqlDbType.Int).Value = idTamanho;
                     cmdItens.Parameters.Add("@idProduto", SqlDbType.Int).Value = idProduto;
                     SqlDataReader drItens;
@@ -120,8 +122,9 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     string sqlItem = "DELETE FROM Item WHERE Tamanho_id = @idTamaho AND Produto_id = @idProduto";
-                    SqlCommand cmdItem = new SqlCommand(sqlItem);
+                    SqlCommand cmdItem = new SqlCommand(sqlItem, conn);
                     cmdItem.Parameters.Add("@idTamanho", SqlDbType.Int).Value = item.tamanho.id;
                     cmdItem.Parameters.Add("@idProduto", SqlDbType.Int).Value = item.produto.id;
                     cmdItem.ExecuteNonQuery();                    
@@ -143,8 +146,9 @@ namespace WebApplication1.DAL
             {
                 using (conn)
                 {
+                    conn.Open();
                     string sqlItem = "INSERT INTO Item (Tamanho_id, Produto_id) VALUES (@idTamanho, @idProduto)";
-                    SqlCommand cmdItem = new SqlCommand(sqlItem);
+                    SqlCommand cmdItem = new SqlCommand(sqlItem, conn);
                     cmdItem.Parameters.Add("@idTamanho", SqlDbType.Int).Value = item.tamanho.id;
                     cmdItem.Parameters.Add("@idProduto", SqlDbType.Int).Value = item.produto.id;
                     cmdItem.ExecuteNonQuery();                  
