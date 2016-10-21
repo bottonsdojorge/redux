@@ -21,12 +21,12 @@ namespace WebApplication1.DAL
             // A lista de retorno
             List<Modelo.Marcador> marcadores = new List<Modelo.Marcador>();
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
 
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -62,11 +62,11 @@ namespace WebApplication1.DAL
             // O Marcador
             Modelo.Marcador marcador = null;
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -111,11 +111,11 @@ namespace WebApplication1.DAL
             // A lista de retorno
             List<Modelo.Marcador> marcadores = new List<Modelo.Marcador>();
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL da tabela relacional
@@ -171,12 +171,12 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Marcador marcador)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             string id = marcador.id.ToString();
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     // O SQL
                     string sqlMarcador = "DELETE FROM Marcador WHERE id = @id";
@@ -194,12 +194,12 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Marcador marcador)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             string descricao = marcador.descricao;
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -218,13 +218,13 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.Marcador marcador)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             int id = marcador.id;
             string descricao = marcador.descricao;
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL

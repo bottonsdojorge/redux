@@ -11,7 +11,10 @@ namespace WebApplication1.DAL
 {
     public class DALItemCarrinho : DAL
     {
+        public DALItemCarrinho() : base()
+        {
 
+        }
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.itemCarrinho> SelectAll()
         {
@@ -20,12 +23,12 @@ namespace WebApplication1.DAL
             // A lista de retorno
             List<Modelo.itemCarrinho> itensCarrinho = new List<Modelo.itemCarrinho>();
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
 
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -68,12 +71,12 @@ namespace WebApplication1.DAL
             //O itemCarrinho
             Modelo.itemCarrinho itemCarrinho = null;
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
 
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -116,12 +119,12 @@ namespace WebApplication1.DAL
             //A lista de retorno
             List<Modelo.itemCarrinho> itensCarrinho = new List<Modelo.itemCarrinho>();
             
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
 
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -167,13 +170,14 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.itemCarrinho itemCarrinho)
         {
-            if (this.Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id) == null)
+            Modelo.itemCarrinho itemAnterior = this.Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id);
+            if ( itemAnterior == null || itemAnterior.quantidade == 0)
             {
-                // A conexão
-                SqlConnection conn = new SqlConnection(connectionString);
+                
+                
                 try
                 {
-                    using (conn)
+                    using (conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
                         // O SQL
@@ -194,7 +198,7 @@ namespace WebApplication1.DAL
             }
             else
             {
-                itemCarrinho.quantidade = itemCarrinho.quantidade + 1;
+                itemCarrinho.quantidade = itemAnterior.quantidade + itemCarrinho.quantidade;
                 this.Update(itemCarrinho);
             }
         }
@@ -202,12 +206,9 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.itemCarrinho itemCarrinho)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL 

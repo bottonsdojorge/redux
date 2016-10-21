@@ -102,6 +102,7 @@
     <Compile Include="DAL\DALMarcador.cs" />
     <Compile Include="DAL\DALProduto.cs" />
     <Compile Include="DAL\DALTamanho.cs" />
+    <Compile Include="DAL\DALTelefone.cs" />
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
     <Compile Include="Modelo\Item.cs" />

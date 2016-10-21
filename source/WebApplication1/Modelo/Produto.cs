@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace WebApplication1.Modelo
 {
@@ -55,6 +56,31 @@ namespace WebApplication1.Modelo
             this.descricao = descricao;
             this.imagem = imagem;
             this.marcadores = marcadores;
+        }
+
+        public Produto(int id, string descricao, Image imagem, List<Marcador> marcadores)
+        {
+            this.id = id;
+            this.descricao = descricao;
+            this.marcadores = marcadores;
+            InsertImage(imagem);
+
+        }
+
+        private void InsertImage(Image image)
+        {
+            string unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
+            string nome = "btupcliente" + unixTimestamp;
+            string path = "~/Upload/imagem-produto/";
+            try
+            {
+                image.Save(path + nome, ImageFormat.Jpeg);
+                this.imagem = nome;
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
         }
     }
 }

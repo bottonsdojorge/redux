@@ -75,19 +75,6 @@ namespace WebApplication1
             }
         }
 
-        /*
-         * O que está fazendo:
-         * 1. Verifica se há algum item para adicionar ao carrinho
-         * 2. Instancia itemCarrinho a partir da query stirng
-         * 3. Insere item Carrinho.
-         * 
-         * O que tem que fazer:
-         * 3. Verifica se o item já está inserido. Se sim, altera a quantidade.
-         * 4. Se não, insere item.
-         * 
-         * Vai adicionar um item duplicaod se ele já estiver no carrinho.
-         * Tem que verificar o Add.
-         */
         protected void inserirItem()
         {
             int idProduto = Convert.ToInt32(Request.QueryString["addpid"]);

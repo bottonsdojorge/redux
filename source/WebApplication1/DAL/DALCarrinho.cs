@@ -12,7 +12,7 @@ namespace WebApplication1.DAL
     public class DALCarrinho : DAL
     {
         public DALCarrinho() : base(){}
-
+                
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Carrinho> SelectAll()
         {
@@ -21,12 +21,9 @@ namespace WebApplication1.DAL
             // A lista de retorno
             List<Modelo.Carrinho> carrinhos = new List<Modelo.Carrinho>();
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -67,12 +64,10 @@ namespace WebApplication1.DAL
         {
             // O carrinho retorno
             Modelo.Carrinho carrinho = null;
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
 
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -110,19 +105,18 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Carrinho carrinho)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
             int id = Convert.ToInt32(carrinho.Usuario_id);
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    // O SQL
-                    string sqlTamanho = "DELETE FROM Carrinho WHERE id = @id";
-                    SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
-                    cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmdTamanho.ExecuteNonQuery();
+                        // O SQL
+                        string sqlTamanho = "DELETE FROM Carrinho WHERE id = @id";
+                        SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                        cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                        cmdTamanho.ExecuteNonQuery();
+                    
                 }
             }
             catch (SystemException)
@@ -131,22 +125,14 @@ namespace WebApplication1.DAL
             }
         }
 
-        /*
-         * Tem que alterar o carrinho anterior. Aqui só está inserindo um novo carrinho sem verificar nada..
-         * A atualização dos itens é tratada no DALitemCarrinho.
-         */
-
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Carrinho carrinho)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
                 if (this.Select(carrinho.Usuario_id) == null)
                 {
-                    using (conn)
+                    using (conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
                         // O SQL do carrinho
@@ -169,7 +155,8 @@ namespace WebApplication1.DAL
                 }
             }
             catch (SystemException)
-            {   throw;
+            {
+                throw;
             }
 
         }
@@ -177,19 +164,21 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Update(Modelo.Carrinho carrinho)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    // O SQL
-                    string sqlCarrinho = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
-                    SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
-                    cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
-                    cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
-                    cmdCarrinho.ExecuteNonQuery();
+                    if (Select(carrinho.Usuario_id) != carrinho)
+                    {
+                        // O SQL
+                        string sqlCarrinho = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
+                        SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
+                        cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
+                        cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
+                        cmdCarrinho.ExecuteNonQuery();
+
+                    }
                 }
             }
             catch (SystemException)

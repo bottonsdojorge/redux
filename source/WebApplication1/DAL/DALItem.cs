@@ -12,22 +12,19 @@ namespace WebApplication1.DAL
 {
     public class DALItem : DAL
     {
-        public DALItem() : base(){}
-        
+        public DALItem() : base() { }
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Item> SelectAll()
         {
-             // O Item
+            // O Item
             Modelo.Item item;
             // A lista de retorno
             List<Modelo.Item> itens = new List<Modelo.Item>();
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -40,7 +37,7 @@ namespace WebApplication1.DAL
                         if (drItens.HasRows)
                         {
                             while (drItens.Read())
-                            {   
+                            {
                                 int idProduto = Convert.ToInt32(drItens["Produto_id"]);
                                 int idTamanho = Convert.ToInt32(drItens["Tamanho_id"]);
 
@@ -57,7 +54,7 @@ namespace WebApplication1.DAL
                     }
                 }
             }
-            catch 
+            catch
             {
                 throw;
             }
@@ -69,12 +66,10 @@ namespace WebApplication1.DAL
         {
             // O Produto retorno
             Modelo.Item item = null;
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
 
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -98,7 +93,7 @@ namespace WebApplication1.DAL
 
                                 Modelo.Produto produto = dalProduto.Select(idProduto);
                                 Modelo.Tamanho tamanho = dalTamanho.Select(idTamanho);
-                                
+
                                 item = new Modelo.Item(produto, tamanho);
                             }
                         }
@@ -115,23 +110,20 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Item item)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     string sqlItem = "DELETE FROM Item WHERE Tamanho_id = @idTamaho AND Produto_id = @idProduto";
                     SqlCommand cmdItem = new SqlCommand(sqlItem, conn);
                     cmdItem.Parameters.Add("@idTamanho", SqlDbType.Int).Value = item.tamanho.id;
                     cmdItem.Parameters.Add("@idProduto", SqlDbType.Int).Value = item.produto.id;
-                    cmdItem.ExecuteNonQuery();                    
+                    cmdItem.ExecuteNonQuery();
                 }
             }
             catch (SystemException)
-            {                
+            {
                 throw;
             }
         }
@@ -139,19 +131,20 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Item item)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
 
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    string sqlItem = "INSERT INTO Item (Tamanho_id, Produto_id) VALUES (@idTamanho, @idProduto)";
-                    SqlCommand cmdItem = new SqlCommand(sqlItem, conn);
-                    cmdItem.Parameters.Add("@idTamanho", SqlDbType.Int).Value = item.tamanho.id;
-                    cmdItem.Parameters.Add("@idProduto", SqlDbType.Int).Value = item.produto.id;
-                    cmdItem.ExecuteNonQuery();                  
+                    if (Select(item.produto.id, item.tamanho.id) != item)
+                    {
+                        string sqlItem = "INSERT INTO Item (Tamanho_id, Produto_id) VALUES (@idTamanho, @idProduto)";
+                        SqlCommand cmdItem = new SqlCommand(sqlItem, conn);
+                        cmdItem.Parameters.Add("@idTamanho", SqlDbType.Int).Value = item.tamanho.id;
+                        cmdItem.Parameters.Add("@idProduto", SqlDbType.Int).Value = item.produto.id;
+                        cmdItem.ExecuteNonQuery();
+                    }
                 }
             }
             catch (SystemException)

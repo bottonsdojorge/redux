@@ -13,12 +13,6 @@ namespace WebApplication1.DAL
 {
     public class DALProduto : DAL
     {
-        /*
-         * --Tem que prestar atenção no caminho da imagem.
-         * --Usar caminho absoluto?
-         * Atualizado: utilizando caminho ~/Upload/imagem-produto/ 
-         */
-
         public DALProduto() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
@@ -28,13 +22,9 @@ namespace WebApplication1.DAL
             Modelo.Produto produto;
             // A lista de retorno
             List<Modelo.Produto> produtos = new List<Modelo.Produto>();
-
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -76,12 +66,9 @@ namespace WebApplication1.DAL
             // O Produto retorno
             Modelo.Produto produto = null;
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -119,12 +106,12 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Produto produto)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             int id = Convert.ToInt32(produto.id);
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -140,51 +127,17 @@ namespace WebApplication1.DAL
             }
         }
 
-        /*
-         * Salva imagem no servidor a partir de um arquivo de imagem.
-         * Testar e extender para salvar a partir de um uploaded file.
-         * Modelo de nome: btupcliente+unixtimestamp
-         * Retorna nome da imagem.
-         */
-
-        public string InsertImage(Image image)
-        {
-            string unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
-            string nome = "btupcliente" + unixTimestamp;
-            string path = "~/Upload/imagem-produto/";
-            try
-            {
-                image.Save(path + nome, ImageFormat.Jpeg);
-                return nome;
-            }
-            catch (SystemException)
-            {
-                throw;
-            }
-            return null;
-        }
-
-        /*
-         * PROBLEMATICA DO ARMAZENAMENTO DA IMAGEM A PARTIR DO OBJETO AQUI
-         * 
-         * 1 - Gera nome para a imagem:
-         * 2 - Salva imagem em diretorio padrão (~/Upload/imagem-produto/
-         * 3 - Salva caminho da imagem no BD
-         * 
-         * Acima está inválido. Aceitando apenas nome da imagem. 
-         */
-
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Produto produto)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             int idProduto;
             string descricao = produto.descricao;
             string imagem = produto.imagem;
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL da inserção do produto
@@ -227,23 +180,26 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.Produto produto)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             int id = produto.id;
             string descricao = produto.descricao;
             string imagem = produto.imagem;
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    // O SQL
-                    string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', imagem = '@imagem' WHERE ID = @id";
-                    SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
-                    cmdTamanho.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
-                    cmdTamanho.Parameters.Add("@imagem", SqlDbType.VarChar).Value = imagem;
-                    cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmdTamanho.ExecuteNonQuery();
+                    if (this.Select(produto.id) != produto)
+                    {
+                        // O SQL
+                        string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', imagem = '@imagem' WHERE ID = @id";
+                        SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                        cmdTamanho.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                        cmdTamanho.Parameters.Add("@imagem", SqlDbType.VarChar).Value = imagem;
+                        cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                        cmdTamanho.ExecuteNonQuery();
+                    }
                 }
             }
             catch (SystemException)

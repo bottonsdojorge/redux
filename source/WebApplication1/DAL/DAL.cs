@@ -12,6 +12,7 @@ namespace WebApplication1.DAL
     public class DAL
     {
         protected string connectionString = "";
+        static protected SqlConnection conn;
         public DAL()
         {
             connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;

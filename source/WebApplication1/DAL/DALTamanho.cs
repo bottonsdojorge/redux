@@ -21,12 +21,9 @@ namespace WebApplication1.DAL
             // A lista de retorno
             List<Modelo.Tamanho> tamanhos = new List<Modelo.Tamanho>();
 
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
-
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -62,12 +59,9 @@ namespace WebApplication1.DAL
         {
             // O Tamanho
             Modelo.Tamanho tamanho = null;
-
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -104,12 +98,10 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Tamanho tamanho)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
             string id = tamanho.id.ToString();
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -128,13 +120,13 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Tamanho tamanho)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             string descricao = tamanho.descricao;
             double preco = tamanho.precoUnitario;
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
@@ -154,23 +146,26 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.Tamanho tamanho)
         {
-            // A conexão
-            SqlConnection conn = new SqlConnection(connectionString);
+            
+            
             int id = tamanho.id;
             string descricao = tamanho.descricao;
             double preco = tamanho.precoUnitario;
             try
             {
-                using (conn)
+                using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL
-                    string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', precoUnitario = @preco WHERE id = @id";
-                    SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
-                    cmdTamanho.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
-                    cmdTamanho.Parameters.Add("@preco", SqlDbType.Decimal).Value = preco;
-                    cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmdTamanho.ExecuteNonQuery();
+                    if (Select(tamanho.id) != tamanho)
+                    {
+                        string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', precoUnitario = @preco WHERE id = @id";
+                        SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
+                        cmdTamanho.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                        cmdTamanho.Parameters.Add("@preco", SqlDbType.Decimal).Value = preco;
+                        cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                        cmdTamanho.ExecuteNonQuery();
+                    }
                 }
             }
             catch (SystemException)
