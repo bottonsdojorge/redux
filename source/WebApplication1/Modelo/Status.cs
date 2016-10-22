@@ -27,10 +27,10 @@ namespace WebApplication1.Modelo
             this.descricao = "";
         }
 
-        public Status (int id, string desc)
+        public Status (int id, string descricao)
 	    {
             this.id = id;
-            this.descricao = desc;
+            this.descricao = descricao;
 	    }
     }
 }

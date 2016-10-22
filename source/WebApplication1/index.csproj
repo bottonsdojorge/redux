@@ -100,10 +100,14 @@
     <Compile Include="DAL\DALCarrinho.cs" />
     <Compile Include="DAL\DALItem.cs" />
     <Compile Include="DAL\DALItemCarrinho.cs" />
+    <Compile Include="DAL\DALItemEncomenda.cs" />
     <Compile Include="DAL\DALMarcador.cs" />
+    <Compile Include="DAL\DALMensagem.cs" />
     <Compile Include="DAL\DALProduto.cs" />
+    <Compile Include="DAL\DALStatus.cs" />
     <Compile Include="DAL\DALTamanho.cs" />
     <Compile Include="DAL\DALTelefone.cs" />
+    <Compile Include="DAL\DALUsuario.cs" />
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
