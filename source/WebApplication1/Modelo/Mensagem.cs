@@ -28,6 +28,14 @@ namespace WebApplication1.Modelo
             set { _corpo = value; }
         }
 
+        private bool _visualizada;
+        public bool visualizada
+        {
+            get { return _visualizada; }
+            set { _visualizada = value; }
+        }
+        
+
         private Usuario _destinatario;
         public Usuario destinatario
         {
@@ -47,14 +55,16 @@ namespace WebApplication1.Modelo
             this.id = 0;
             this.data = default(DateTime);
             this.corpo = "";
+            this.visualizada = false;
             this.destinatario = new Usuario();
             this.remetente = new Usuario();
         }
-        public Mensagem(int id, DateTime data, string corpo, Usuario destinatario, Usuario remetente)
+        public Mensagem(int id, DateTime data, string corpo, bool visualizada, Usuario destinatario, Usuario remetente)
         {
             this.id = id;
             this.data = data;
             this.corpo = corpo;
+            this.visualizada = visualizada;
             this.remetente = remetente;
             this.destinatario = destinatario;
         }

@@ -60,6 +60,7 @@
     <Content Include="Adms\CRUDProdutoInsert.aspx" />
     <Content Include="Adms\CRUDProdutoSelect.aspx" />
     <Content Include="Cliente\carrinho.aspx" />
+    <Content Include="index.csproj.user" />
     <Content Include="Public\Cadastro.aspx" />
     <Content Include="Adms\CRUDUsuarioSelect.aspx" />
     <Content Include="Login.aspx" />
@@ -103,6 +104,13 @@
     <Compile Include="DAL\DALProduto.cs" />
     <Compile Include="DAL\DALTamanho.cs" />
     <Compile Include="DAL\DALTelefone.cs" />
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+    </Compile>
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
     <Compile Include="Modelo\Item.cs" />
@@ -155,6 +163,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\Web.config" />
+    <Content Include="MasterPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

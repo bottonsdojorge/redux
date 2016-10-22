@@ -130,8 +130,6 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Produto produto)
         {
-            
-            
             int idProduto;
             string descricao = produto.descricao;
             string imagem = produto.imagem;
@@ -175,7 +173,6 @@ namespace WebApplication1.DAL
          * Como funcionará o sistema de atualização de marcadores de um produto? 
          * Por enquanto, não faz nada.. Pensar nisso depois. 
          * Alterando, atualmente, apenas descrição e imagem do produto.
-         * Atualmente não verifica a mudança de imagem, insere mesmo que não tenha mudado.
          */
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.Produto produto)
