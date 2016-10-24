@@ -98,9 +98,11 @@
     </Compile>
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\DALCarrinho.cs" />
+    <Compile Include="DAL\DALEnderecoUsuario.cs" />
     <Compile Include="DAL\DALItem.cs" />
     <Compile Include="DAL\DALItemCarrinho.cs" />
     <Compile Include="DAL\DALItemEncomenda.cs" />
+    <Compile Include="DAL\DALLocalEntrega.cs" />
     <Compile Include="DAL\DALMarcador.cs" />
     <Compile Include="DAL\DALMensagem.cs" />
     <Compile Include="DAL\DALProduto.cs" />
@@ -117,6 +119,7 @@
     </Compile>
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
+    <Compile Include="Modelo\EnderecoUsuario.cs" />
     <Compile Include="Modelo\Item.cs" />
     <Compile Include="Modelo\itemCarrinho.cs" />
     <Compile Include="Modelo\itemEncomenda.cs" />

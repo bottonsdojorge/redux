@@ -27,12 +27,19 @@ namespace WebApplication1.Modelo
             set { _nome = value; }
         }
         private List<Telefone> _telefones;
-
         public List<Telefone> telefones
         {
             get { return _telefones; }
             set { _telefones = value; }
         }
+
+        private List<EnderecoUsuario> _enderecos;
+        public List<EnderecoUsuario> enderecos
+        {
+            get { return _enderecos; }
+            set { _enderecos = value; }
+        }
+        
         
         public Usuario()
         {
@@ -40,13 +47,15 @@ namespace WebApplication1.Modelo
             this.aspnet_id = "";
             this.nome = "";
             this.telefones = new List<Telefone>();
+            this.enderecos = new List<EnderecoUsuario();
         }
-        public Usuario(int id, string aspnet_id, string nome, List<Telefone> telefones)
+        public Usuario(int id, string aspnet_id, string nome, List<Telefone> telefones, List<EnderecoUsuario> enderecos)
         {
             this.id = id;
             this.aspnet_id = aspnet_id;
             this.nome = nome;
             this.telefones = telefones;
+            this.enderecos = enderecos;
         }
 
     }
