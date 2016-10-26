@@ -39,9 +39,12 @@ namespace WebApplication1.DAL
                                 string nome = drUsuarios["nome"].ToString();
 
                                 DALTelefone dalTelefone = new DALTelefone();
-                                List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
+                                DALEnderecoUsuario dalEnderecoUsuario = new DALEnderecoUsuario();
 
-                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones);
+                                List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
+                                List<Modelo.EnderecoUsuario> enderecos = dalEnderecoUsuario.SelectFromUsuario(id);
+
+                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos);
                                 usuarios.Add(usuario);
                             }
                         }
@@ -83,9 +86,12 @@ namespace WebApplication1.DAL
                                 string nome = drUsuario["nome"].ToString();
 
                                 DALTelefone dalTelefone = new DALTelefone();
-                                List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
+                                DALEnderecoUsuario dalEnderecoUsuario = new DALEnderecoUsuario();
 
-                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones);
+                                List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
+                                List<Modelo.EnderecoUsuario> enderecos = dalEnderecoUsuario.SelectFromUsuario(id);
+
+                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos);
                             }
                         }
                     }

@@ -59,6 +59,7 @@
   <ItemGroup>
     <Content Include="Adms\CRUDProdutoInsert.aspx" />
     <Content Include="Adms\CRUDProdutoSelect.aspx" />
+    <Content Include="App_Themes\main\main.css" />
     <Content Include="Cliente\carrinho.aspx" />
     <Content Include="index.csproj.user" />
     <Content Include="Public\Cadastro.aspx" />

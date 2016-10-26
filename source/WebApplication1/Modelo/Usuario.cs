@@ -47,7 +47,7 @@ namespace WebApplication1.Modelo
             this.aspnet_id = "";
             this.nome = "";
             this.telefones = new List<Telefone>();
-            this.enderecos = new List<EnderecoUsuario();
+            this.enderecos = new List<EnderecoUsuario>();
         }
         public Usuario(int id, string aspnet_id, string nome, List<Telefone> telefones, List<EnderecoUsuario> enderecos)
         {
