@@ -99,6 +99,7 @@
     </Compile>
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\DALCarrinho.cs" />
+    <Compile Include="DAL\DALEncomenda.cs" />
     <Compile Include="DAL\DALEnderecoUsuario.cs" />
     <Compile Include="DAL\DALItem.cs" />
     <Compile Include="DAL\DALItemCarrinho.cs" />
@@ -111,12 +112,12 @@
     <Compile Include="DAL\DALTamanho.cs" />
     <Compile Include="DAL\DALTelefone.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
-    <Compile Include="MasterPage.Master.cs">
-      <DependentUpon>MasterPage.Master</DependentUpon>
+    <Compile Include="mainMaster.Master.cs">
+      <DependentUpon>mainMaster.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="MasterPage.Master.designer.cs">
-      <DependentUpon>MasterPage.Master</DependentUpon>
+    <Compile Include="mainMaster.Master.designer.cs">
+      <DependentUpon>mainMaster.Master</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
@@ -171,7 +172,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Public\Web.config" />
-    <Content Include="MasterPage.Master" />
+    <Content Include="mainMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

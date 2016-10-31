@@ -10,30 +10,19 @@
     <form id="form1" runat="server">
     <div>
     Listagem de produtos<hr />
-        <asp:GridView ID="grvProdutos" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1" AllowPaging="True" AllowSorting="True">
+        <asp:GridView ID="grvProdutos" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceProduto" AllowPaging="True" AllowSorting="True">
             <Columns>
-                <asp:BoundField DataField="id" HeaderText="Código" InsertVisible="False" ReadOnly="True" SortExpression="id" />
-                <asp:BoundField DataField="descricao" HeaderText="Produto" SortExpression="descricao" />
-                <asp:BoundField DataField="preco" DataFormatString="{0:C2}" HeaderText="Preço" SortExpression="preco" />
-                <asp:BoundField DataField="imagem" HeaderText="Endereço da imagem" SortExpression="imagem" />
-                <asp:BoundField DataField="tamanho" HeaderText="Tamanho" SortExpression="tamanho" />
-                <asp:CommandField CancelText="Cancelar" DeleteText="Deletar" EditText="Editar" InsertText="Inserir" ShowDeleteButton="True" ShowEditButton="True" />
+                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+                <asp:BoundField DataField="descricao" HeaderText="Descrição" SortExpression="descricao" />
+                <asp:BoundField DataField="imagem" HeaderText="URL Imagem" SortExpression="imagem" />
+                <asp:ImageField DataImageUrlField="imagem" HeaderText="Preview Imagem">
+                    <ItemStyle CssClass="img-responsive" />
+                </asp:ImageField>
             </Columns>
         </asp:GridView>
 
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BottonsDoJorgeConnectionString %>" SelectCommand="SELECT * FROM [Produto]" DeleteCommand="DELETE FROM Produto WHERE id = @id" UpdateCommand="UPDATE Produto SET descricao = @descricao, preco = @preco, imagem = @imagem WHERE id = @id">
-            <DeleteParameters>
-                <asp:Parameter Name="id" />
-            </DeleteParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="descricao" />
-                <asp:Parameter Name="preco" Type="Double" />
-                <asp:Parameter Name="imagem" />
-                <asp:Parameter Name="id" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
-
     </div>
+        <asp:ObjectDataSource ID="dataSourceProduto" runat="server" DataObjectTypeName="WebApplication1.Modelo.Produto" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebApplication1.DAL.DALProduto" UpdateMethod="Update"></asp:ObjectDataSource>
     </form>
 </body>
 </html>

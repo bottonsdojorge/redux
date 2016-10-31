@@ -7,6 +7,13 @@ namespace WebApplication1.Modelo
 {
     public class Encomenda
     {
+        private int _id;
+        public int id
+        {
+            get { return _id; }
+            set { _id = value; }
+        }
+        
         private Usuario _Usuario;
         public Usuario Usuario 
         {
@@ -65,10 +72,10 @@ namespace WebApplication1.Modelo
             this.dataEntrega = default(DateTime);
             this.localEntrega = new localEntrega();
             this.Status = new Status();
-            calcularPreco();
+            calcularPrecoTotal();
         }
 
-        private void calcularPreco()
+        private void calcularPrecoTotal()
         {
             double preco = 0;
             foreach (var item in this.itens)

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="namespace_web_application1_1_1_modelo" kind="namespace" language="C#">
+    <compoundname>WebApplication1::Modelo</compoundname>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_carrinho" prot="public">WebApplication1::Modelo::Carrinho</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_encomenda" prot="public">WebApplication1::Modelo::Encomenda</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_endereco_usuario" prot="public">WebApplication1::Modelo::EnderecoUsuario</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_item" prot="public">WebApplication1::Modelo::Item</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1item_carrinho" prot="public">WebApplication1::Modelo::itemCarrinho</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1item_encomenda" prot="public">WebApplication1::Modelo::itemEncomenda</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1local_entrega" prot="public">WebApplication1::Modelo::localEntrega</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_marcador" prot="public">WebApplication1::Modelo::Marcador</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_mensagem" prot="public">WebApplication1::Modelo::Mensagem</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_produto" prot="public">WebApplication1::Modelo::Produto</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_status" prot="public">WebApplication1::Modelo::Status</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_tamanho" prot="public">WebApplication1::Modelo::Tamanho</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_telefone" prot="public">WebApplication1::Modelo::Telefone</innerclass>
+    <innerclass refid="class_web_application1_1_1_modelo_1_1_usuario" prot="public">WebApplication1::Modelo::Usuario</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Carrinho.cs" line="7" column="1"/>
+  </compounddef>
+</doxygen>

@@ -111,12 +111,39 @@ namespace WebApplication1.DAL
                 using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                        // O SQL
-                        string sqlTamanho = "DELETE FROM Carrinho WHERE id = @id";
-                        SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
-                        cmdTamanho.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                        cmdTamanho.ExecuteNonQuery();
-                    
+                    // O SQL
+                    string sqlCarrinho = "DELETE FROM Carrinho WHERE id = @id";
+                    SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
+                    cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cmdCarrinho.ExecuteNonQuery();
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Limpar(Modelo.Carrinho carrinho)
+        {
+            int id = (Int32)carrinho.Usuario_id;
+            try
+            {
+                using (conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sqlCarrinho = "UPDATE Carrinho SET precoTotal = 0 WHERE Usuario_id = @id";
+                    SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
+                    cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                    cmdCarrinho.ExecuteNonQuery();
+
+                    DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+                    foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
+                    {
+                        dalItemCarrinho.Delete(itemCarrinho);
+                    }
                 }
             }
             catch (SystemException)

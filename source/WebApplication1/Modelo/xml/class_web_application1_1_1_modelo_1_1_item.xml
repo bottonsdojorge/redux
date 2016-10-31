@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_web_application1_1_1_modelo_1_1_item" kind="class" language="C#" prot="public">
+    <compoundname>WebApplication1::Modelo::Item</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_item_1a1af21597bb30869c8e3bb08492444fbd" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_produto" kindref="compound">Produto</ref></type>
+        <definition>Produto WebApplication1.Modelo.Item._produto</definition>
+        <argsstring></argsstring>
+        <name>_produto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Item.cs" line="10" column="1" bodyfile="Item.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_item_1a3e3d6e563658aebf2dba685328b8123e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_tamanho" kindref="compound">Tamanho</ref></type>
+        <definition>Tamanho WebApplication1.Modelo.Item._tamanho</definition>
+        <argsstring></argsstring>
+        <name>_tamanho</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Item.cs" line="17" column="1" bodyfile="Item.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_item_1a3ab7bb8b52b72183913670d36b6de8cb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_produto" kindref="compound">Produto</ref></type>
+        <definition>Produto WebApplication1.Modelo.Item.produto</definition>
+        <argsstring></argsstring>
+        <name>produto</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Item.cs" line="11" column="1" bodyfile="Item.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_item_1ae783d188865e3ff1139723564833849b" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_tamanho" kindref="compound">Tamanho</ref></type>
+        <definition>Tamanho WebApplication1.Modelo.Item.tamanho</definition>
+        <argsstring></argsstring>
+        <name>tamanho</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Item.cs" line="18" column="1" bodyfile="Item.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1_item_1a19db0d2163e0c29a8781d99e02aa9168" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.Item.Item</definition>
+        <argsstring>()</argsstring>
+        <name>Item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Item.cs" line="24" column="1" bodyfile="Item.cs" bodystart="24" bodyend="28"/>
+      </memberdef>
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1_item_1a5e1026c2fd07acf3a733ab2f36326ea4" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.Item.Item</definition>
+        <argsstring>(Produto produto, Tamanho tamanho)</argsstring>
+        <name>Item</name>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_produto" kindref="compound">Produto</ref></type>
+          <declname>produto</declname>
+        </param>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_tamanho" kindref="compound">Tamanho</ref></type>
+          <declname>tamanho</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Item.cs" line="30" column="1" bodyfile="Item.cs" bodystart="30" bodyend="34"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Item.cs" line="9" column="1" bodyfile="Item.cs" bodystart="8" bodyend="36"/>
+    <listofallmembers>
+      <member refid="class_web_application1_1_1_modelo_1_1_item_1a1af21597bb30869c8e3bb08492444fbd" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Item</scope><name>_produto</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_item_1a3e3d6e563658aebf2dba685328b8123e" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Item</scope><name>_tamanho</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_item_1a19db0d2163e0c29a8781d99e02aa9168" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Item</scope><name>Item</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_item_1a5e1026c2fd07acf3a733ab2f36326ea4" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Item</scope><name>Item</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_item_1a3ab7bb8b52b72183913670d36b6de8cb" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Item</scope><name>produto</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_item_1ae783d188865e3ff1139723564833849b" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Item</scope><name>tamanho</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

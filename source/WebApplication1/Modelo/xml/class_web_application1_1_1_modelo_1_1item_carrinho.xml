@@ -1,0 +1,185 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_web_application1_1_1_modelo_1_1item_carrinho" kind="class" language="C#" prot="public">
+    <compoundname>WebApplication1::Modelo::itemCarrinho</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_carrinho_1a13e96c8f3e30c7322453b21cd02c0661" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemCarrinho._carrinhoId</definition>
+        <argsstring></argsstring>
+        <name>_carrinhoId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="10" column="1" bodyfile="itemCarrinho.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_carrinho_1af677635186475b1436984dec3c27e43d" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_item" kindref="compound">Item</ref></type>
+        <definition>Item WebApplication1.Modelo.itemCarrinho._item</definition>
+        <argsstring></argsstring>
+        <name>_item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="17" column="1" bodyfile="itemCarrinho.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_carrinho_1a5b29dfb059a14f747b855fe97a9db660" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemCarrinho._quantidade</definition>
+        <argsstring></argsstring>
+        <name>_quantidade</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="24" column="1" bodyfile="itemCarrinho.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_carrinho_1adc28772ed0ed5b559065fb686242c5c7" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.itemCarrinho._subTotal</definition>
+        <argsstring></argsstring>
+        <name>_subTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="31" column="1" bodyfile="itemCarrinho.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_carrinho_1a36898a96c574e82f9c6abc4401becd8c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemCarrinho.carrinhoId</definition>
+        <argsstring></argsstring>
+        <name>carrinhoId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="11" column="1" bodyfile="itemCarrinho.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_carrinho_1aea161e15cce9dfc95f0ab6c8898f7fcb" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_item" kindref="compound">Item</ref></type>
+        <definition>Item WebApplication1.Modelo.itemCarrinho.item</definition>
+        <argsstring></argsstring>
+        <name>item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="18" column="1" bodyfile="itemCarrinho.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_carrinho_1a6e0b0767a4f6d87d8454e01ef10fe4d6" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemCarrinho.quantidade</definition>
+        <argsstring></argsstring>
+        <name>quantidade</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="25" column="1" bodyfile="itemCarrinho.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_carrinho_1ae8725e0bec2e67b1660424406c54c5ae" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.itemCarrinho.subTotal</definition>
+        <argsstring></argsstring>
+        <name>subTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="32" column="1" bodyfile="itemCarrinho.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1item_carrinho_1a11b1e9a86cad0de2e7aebe1b3eed9384" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.itemCarrinho.itemCarrinho</definition>
+        <argsstring>()</argsstring>
+        <name>itemCarrinho</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="39" column="1" bodyfile="itemCarrinho.cs" bodystart="39" bodyend="44"/>
+      </memberdef>
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1item_carrinho_1a6cddcc0289abbe8a0f95a44bee246bbf" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.itemCarrinho.itemCarrinho</definition>
+        <argsstring>(int carrinhoId, Item item, int quantidade)</argsstring>
+        <name>itemCarrinho</name>
+        <param>
+          <type>int</type>
+          <declname>carrinhoId</declname>
+        </param>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_item" kindref="compound">Item</ref></type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quantidade</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="46" column="1" bodyfile="itemCarrinho.cs" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1item_carrinho_1adb1f0900b86e762f53eb92aaa98387a8" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebApplication1.Modelo.itemCarrinho.calcularSubTotal</definition>
+        <argsstring>()</argsstring>
+        <name>calcularSubTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemCarrinho.cs" line="54" column="1" bodyfile="itemCarrinho.cs" bodystart="54" bodyend="57"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="itemCarrinho.cs" line="9" column="1" bodyfile="itemCarrinho.cs" bodystart="8" bodyend="58"/>
+    <listofallmembers>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a13e96c8f3e30c7322453b21cd02c0661" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>_carrinhoId</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1af677635186475b1436984dec3c27e43d" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>_item</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a5b29dfb059a14f747b855fe97a9db660" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>_quantidade</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1adc28772ed0ed5b559065fb686242c5c7" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>_subTotal</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1adb1f0900b86e762f53eb92aaa98387a8" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>calcularSubTotal</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a36898a96c574e82f9c6abc4401becd8c" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>carrinhoId</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1aea161e15cce9dfc95f0ab6c8898f7fcb" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>item</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a11b1e9a86cad0de2e7aebe1b3eed9384" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>itemCarrinho</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a6cddcc0289abbe8a0f95a44bee246bbf" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>itemCarrinho</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a6e0b0767a4f6d87d8454e01ef10fe4d6" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>quantidade</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1ae8725e0bec2e67b1660424406c54c5ae" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemCarrinho</scope><name>subTotal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

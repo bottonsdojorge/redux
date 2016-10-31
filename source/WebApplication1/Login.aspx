@@ -1,21 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.Login" %>
+﻿<%@ Page Title="Login | Bottons do Jorge" MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.Login" Theme="main" %>
+<asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 
-<!DOCTYPE html>
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-            <div>
-        <asp:Login ID="Login1" runat="server" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt">
-            <TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
-        </asp:Login>
-                <asp:HyperLink ID="HyperLink5" runat="server" NavigateUrl="~/Public/Cadastro.aspx">Não tem uma conta? Cadastre-se</asp:HyperLink>
-    </div>
-        
-    </form>
-</body>
-</html>
+<asp:Content ID="contentBody" ContentPlaceHolderID="contentPlaceHolderCorpo" runat="server">
+<div>
+	<asp:Login ID="Login1" runat="server" BackColor="#F7F7DE" BorderColor="#CCCC99" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="10pt">
+		<TitleTextStyle BackColor="#6B696B" Font-Bold="True" ForeColor="#FFFFFF" />
+	</asp:Login>
+	<a href="/Public/Cadastro.aspx">Não tem uma conta? Cadastre-se</a>
+</div>
+</asp:Content>

@@ -23,9 +23,6 @@ namespace WebApplication1.DAL
             // A lista de retorno
             List<Modelo.itemCarrinho> itensCarrinho = new List<Modelo.itemCarrinho>();
 
-            
-            
-
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -71,9 +68,6 @@ namespace WebApplication1.DAL
             //O itemCarrinho
             Modelo.itemCarrinho itemCarrinho = null;
 
-            
-            
-
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -118,9 +112,6 @@ namespace WebApplication1.DAL
             Modelo.itemCarrinho itemCarrinho = null;
             //A lista de retorno
             List<Modelo.itemCarrinho> itensCarrinho = new List<Modelo.itemCarrinho>();
-            
-            
-            
 
             try
             {
@@ -203,6 +194,29 @@ namespace WebApplication1.DAL
             }
         }
 
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Delete(Modelo.itemCarrinho itemCarrinho)
+        {
+            try
+            {
+                using (conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sqlItemCarrinho = "DELETE FROM itemCarrinho WHERE carrinho_id = @idCarrinho AND Item_Tamanho_id = @idTamanho AND Item_Produto_id = @idProduto";
+                    SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
+                    cmdItemCarrinho.Parameters.Add("@idCarrinho", SqlDbType.Int).Value = itemCarrinho.carrinhoId;
+                    cmdItemCarrinho.Parameters.Add("@idTamanho", SqlDbType.Int).Value = itemCarrinho.item.tamanho.id;
+                    cmdItemCarrinho.Parameters.Add("@idProduto", SqlDbType.Int).Value = itemCarrinho.item.produto.id;
+                    cmdItemCarrinho.ExecuteNonQuery();
+                }
+            }
+            catch (SystemException)
+            {   
+                throw;
+            }
+        }
+
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.itemCarrinho itemCarrinho)
         {
@@ -226,7 +240,6 @@ namespace WebApplication1.DAL
             {
                 throw;
             }
-
         }
     }
 }

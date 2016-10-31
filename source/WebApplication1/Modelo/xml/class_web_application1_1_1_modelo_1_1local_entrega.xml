@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_web_application1_1_1_modelo_1_1local_entrega" kind="class" language="C#" prot="public">
+    <compoundname>WebApplication1::Modelo::localEntrega</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1local_entrega_1ab60e733ae35101eb95756ce7dc3c323e" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.localEntrega._id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="10" column="1" bodyfile="localEntrega.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1local_entrega_1a75b52bbff0810c6d617ce99e7c0697bb" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega._rua</definition>
+        <argsstring></argsstring>
+        <name>_rua</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="16" column="1" bodyfile="localEntrega.cs" bodystart="16" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1local_entrega_1a2b3a63474000f35346e43b9ac1a0a997" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.localEntrega._numero</definition>
+        <argsstring></argsstring>
+        <name>_numero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="22" column="1" bodyfile="localEntrega.cs" bodystart="22" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1local_entrega_1a0e3da5e3a9503f6df5f3b5e5d8f2e1e3" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega._bairro</definition>
+        <argsstring></argsstring>
+        <name>_bairro</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="28" column="1" bodyfile="localEntrega.cs" bodystart="28" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1local_entrega_1abfa98711b028df5d90e8f620c51851ea" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega._complemento</definition>
+        <argsstring></argsstring>
+        <name>_complemento</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="34" column="1" bodyfile="localEntrega.cs" bodystart="34" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1local_entrega_1a7c4185193708439c9905447be263c08e" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega._descricao</definition>
+        <argsstring></argsstring>
+        <name>_descricao</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="40" column="1" bodyfile="localEntrega.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1local_entrega_1afdae7b81d44f78ef74832765f786ff0b" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega._cep</definition>
+        <argsstring></argsstring>
+        <name>_cep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="46" column="1" bodyfile="localEntrega.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1local_entrega_1af2ede58fa1666393040d02aaacca043d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.localEntrega.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="11" column="1" bodyfile="localEntrega.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1local_entrega_1ab75a82b5aee80030f3521a7225bd671c" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega.rua</definition>
+        <argsstring></argsstring>
+        <name>rua</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="17" column="1" bodyfile="localEntrega.cs" bodystart="18" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1local_entrega_1add5b100a124a8ad33ab780a16360b76f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.localEntrega.numero</definition>
+        <argsstring></argsstring>
+        <name>numero</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="23" column="1" bodyfile="localEntrega.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1local_entrega_1addd2e4f547e156fb84e3d601f22ba21e" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega.bairro</definition>
+        <argsstring></argsstring>
+        <name>bairro</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="29" column="1" bodyfile="localEntrega.cs" bodystart="30" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1local_entrega_1af9ed65aad5973f8bcea83f4b0a8e6d23" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega.complemento</definition>
+        <argsstring></argsstring>
+        <name>complemento</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="35" column="1" bodyfile="localEntrega.cs" bodystart="36" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1local_entrega_1ae79e981af94ec579f271934ea077e0b5" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega.descricao</definition>
+        <argsstring></argsstring>
+        <name>descricao</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="41" column="1" bodyfile="localEntrega.cs" bodystart="42" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1local_entrega_1a24f3cce1fb4266e8f35fb07e83529ea8" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.localEntrega.cep</definition>
+        <argsstring></argsstring>
+        <name>cep</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="47" column="1" bodyfile="localEntrega.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1local_entrega_1a01fbb739d26a8d63d9011a4f892d7384" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.localEntrega.localEntrega</definition>
+        <argsstring>()</argsstring>
+        <name>localEntrega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="53" column="1" bodyfile="localEntrega.cs" bodystart="53" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1local_entrega_1af156977754dd244294ef6e7902a5e77d" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.localEntrega.localEntrega</definition>
+        <argsstring>(int id, int numero, string rua, string descricao, string bairro, string cep, string complemento)</argsstring>
+        <name>localEntrega</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>numero</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>rua</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>descricao</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>bairro</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>cep</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>complemento</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="localEntrega.cs" line="64" column="1" bodyfile="localEntrega.cs" bodystart="64" bodyend="73"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="localEntrega.cs" line="9" column="1" bodyfile="localEntrega.cs" bodystart="8" bodyend="74"/>
+    <listofallmembers>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a0e3da5e3a9503f6df5f3b5e5d8f2e1e3" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>_bairro</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1afdae7b81d44f78ef74832765f786ff0b" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>_cep</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1abfa98711b028df5d90e8f620c51851ea" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>_complemento</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a7c4185193708439c9905447be263c08e" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>_descricao</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1ab60e733ae35101eb95756ce7dc3c323e" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>_id</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a2b3a63474000f35346e43b9ac1a0a997" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>_numero</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a75b52bbff0810c6d617ce99e7c0697bb" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>_rua</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1addd2e4f547e156fb84e3d601f22ba21e" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>bairro</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a24f3cce1fb4266e8f35fb07e83529ea8" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>cep</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1af9ed65aad5973f8bcea83f4b0a8e6d23" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>complemento</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1ae79e981af94ec579f271934ea077e0b5" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>descricao</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1af2ede58fa1666393040d02aaacca043d" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>id</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a01fbb739d26a8d63d9011a4f892d7384" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>localEntrega</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1af156977754dd244294ef6e7902a5e77d" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>localEntrega</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1add5b100a124a8ad33ab780a16360b76f" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>numero</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1ab75a82b5aee80030f3521a7225bd671c" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::localEntrega</scope><name>rua</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

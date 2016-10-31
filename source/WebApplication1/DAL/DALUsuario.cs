@@ -40,11 +40,13 @@ namespace WebApplication1.DAL
 
                                 DALTelefone dalTelefone = new DALTelefone();
                                 DALEnderecoUsuario dalEnderecoUsuario = new DALEnderecoUsuario();
+                                DALCarrinho dalCarrinho = new DALCarrinho();
 
                                 List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
                                 List<Modelo.EnderecoUsuario> enderecos = dalEnderecoUsuario.SelectFromUsuario(id);
+                                Modelo.Carrinho carrinho = dalCarrinho.Select(id);
 
-                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos);
+                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos, carrinho);
                                 usuarios.Add(usuario);
                             }
                         }
@@ -87,11 +89,13 @@ namespace WebApplication1.DAL
 
                                 DALTelefone dalTelefone = new DALTelefone();
                                 DALEnderecoUsuario dalEnderecoUsuario = new DALEnderecoUsuario();
+                                DALCarrinho dalCarrinho = new DALCarrinho();
 
                                 List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
                                 List<Modelo.EnderecoUsuario> enderecos = dalEnderecoUsuario.SelectFromUsuario(id);
+                                Modelo.Carrinho carrinho = dalCarrinho.Select(id);
 
-                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos);
+                                usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos, carrinho);
                             }
                         }
                     }

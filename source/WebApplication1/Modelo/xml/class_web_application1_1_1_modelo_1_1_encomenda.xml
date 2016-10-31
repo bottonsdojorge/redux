@@ -1,0 +1,251 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_web_application1_1_1_modelo_1_1_encomenda" kind="class" language="C#" prot="public">
+    <compoundname>WebApplication1::Modelo::Encomenda</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_encomenda_1a2d481ed4fd87e3cd5167774209e180e1" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+        <definition>Usuario WebApplication1.Modelo.Encomenda._Usuario</definition>
+        <argsstring></argsstring>
+        <name>_Usuario</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="10" column="1" bodyfile="Encomenda.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_encomenda_1ac46214c59a5b01bc0f7bff0a4c1aa297" prot="private" static="no" mutable="no">
+        <type>List&lt; <ref refid="class_web_application1_1_1_modelo_1_1item_encomenda" kindref="compound">itemEncomenda</ref> &gt;</type>
+        <definition>List&lt;itemEncomenda&gt; WebApplication1.Modelo.Encomenda._itens</definition>
+        <argsstring></argsstring>
+        <name>_itens</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="17" column="1" bodyfile="Encomenda.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_encomenda_1ab65e7f27968ef90eda4138812406a8ca" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.Encomenda._precoTotal</definition>
+        <argsstring></argsstring>
+        <name>_precoTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="24" column="1" bodyfile="Encomenda.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_encomenda_1ac8e8c5ff68cd0da009720f83a5a88e2b" prot="private" static="no" mutable="no">
+        <type>DateTime</type>
+        <definition>DateTime WebApplication1.Modelo.Encomenda._dataEntrega</definition>
+        <argsstring></argsstring>
+        <name>_dataEntrega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="31" column="1" bodyfile="Encomenda.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_encomenda_1ae3d28effaf092945b1d2215f02191ce9" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1local_entrega" kindref="compound">localEntrega</ref></type>
+        <definition>localEntrega WebApplication1.Modelo.Encomenda._localEntrega</definition>
+        <argsstring></argsstring>
+        <name>_localEntrega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="38" column="1" bodyfile="Encomenda.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_encomenda_1a37ecfdbec2f54a7fc6b15591272c790b" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_status" kindref="compound">Status</ref></type>
+        <definition>Status WebApplication1.Modelo.Encomenda._Status</definition>
+        <argsstring></argsstring>
+        <name>_Status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="45" column="1" bodyfile="Encomenda.cs" bodystart="45" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_encomenda_1a164ab71945f0b29594c98140a2ca9a19" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+        <definition>Usuario WebApplication1.Modelo.Encomenda.Usuario</definition>
+        <argsstring></argsstring>
+        <name>Usuario</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="11" column="1" bodyfile="Encomenda.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_encomenda_1a83e280c4e9ff3b6f08354d8bff04c4ce" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>List&lt; <ref refid="class_web_application1_1_1_modelo_1_1item_encomenda" kindref="compound">itemEncomenda</ref> &gt;</type>
+        <definition>List&lt;itemEncomenda&gt; WebApplication1.Modelo.Encomenda.itens</definition>
+        <argsstring></argsstring>
+        <name>itens</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="18" column="1" bodyfile="Encomenda.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_encomenda_1a0a9c6e25ad5774b3d58733eef9eeda48" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.Encomenda.precoTotal</definition>
+        <argsstring></argsstring>
+        <name>precoTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="25" column="1" bodyfile="Encomenda.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_encomenda_1a0329ff59e9f9144fab54fd7f4e7c7e76" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime WebApplication1.Modelo.Encomenda.dataEntrega</definition>
+        <argsstring></argsstring>
+        <name>dataEntrega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="32" column="1" bodyfile="Encomenda.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_encomenda_1a657e32b7b57f2b4c572fbea703c4400d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1local_entrega" kindref="compound">localEntrega</ref></type>
+        <definition>localEntrega WebApplication1.Modelo.Encomenda.localEntrega</definition>
+        <argsstring></argsstring>
+        <name>localEntrega</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="39" column="1" bodyfile="Encomenda.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_encomenda_1afd5c58a341497bc7a1074744bd98617f" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_status" kindref="compound">Status</ref></type>
+        <definition>Status WebApplication1.Modelo.Encomenda.Status</definition>
+        <argsstring></argsstring>
+        <name>Status</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="46" column="1" bodyfile="Encomenda.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1_encomenda_1a8150169376a7286f6d2d573ed33139cd" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.Encomenda.Encomenda</definition>
+        <argsstring>()</argsstring>
+        <name>Encomenda</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="51" column="1" bodyfile="Encomenda.cs" bodystart="51" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1_encomenda_1a6d806c8e0ddc4b64a1ddd37bef352e66" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.Encomenda.Encomenda</definition>
+        <argsstring>(Usuario usuario, List&lt; itemEncomenda &gt; itens, DateTime dataentrega, localEntrega localEntrega, Status status)</argsstring>
+        <name>Encomenda</name>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+          <declname>usuario</declname>
+        </param>
+        <param>
+          <type>List&lt; <ref refid="class_web_application1_1_1_modelo_1_1item_encomenda" kindref="compound">itemEncomenda</ref> &gt;</type>
+          <declname>itens</declname>
+        </param>
+        <param>
+          <type>DateTime</type>
+          <declname>dataentrega</declname>
+        </param>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1local_entrega" kindref="compound">localEntrega</ref></type>
+          <declname>localEntrega</declname>
+        </param>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_status" kindref="compound">Status</ref></type>
+          <declname>status</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="61" column="1" bodyfile="Encomenda.cs" bodystart="61" bodyend="69"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1_encomenda_1a8333273805de2d120160b2c1d3d0c2b6" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebApplication1.Modelo.Encomenda.calcularPreco</definition>
+        <argsstring>()</argsstring>
+        <name>calcularPreco</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Encomenda.cs" line="71" column="1" bodyfile="Encomenda.cs" bodystart="71" bodyend="78"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Encomenda.cs" line="9" column="1" bodyfile="Encomenda.cs" bodystart="8" bodyend="79"/>
+    <listofallmembers>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ac8e8c5ff68cd0da009720f83a5a88e2b" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>_dataEntrega</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ac46214c59a5b01bc0f7bff0a4c1aa297" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>_itens</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ae3d28effaf092945b1d2215f02191ce9" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>_localEntrega</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ab65e7f27968ef90eda4138812406a8ca" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>_precoTotal</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a37ecfdbec2f54a7fc6b15591272c790b" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>_Status</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a2d481ed4fd87e3cd5167774209e180e1" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>_Usuario</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a8333273805de2d120160b2c1d3d0c2b6" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>calcularPreco</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a0329ff59e9f9144fab54fd7f4e7c7e76" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>dataEntrega</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a8150169376a7286f6d2d573ed33139cd" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>Encomenda</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a6d806c8e0ddc4b64a1ddd37bef352e66" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>Encomenda</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a83e280c4e9ff3b6f08354d8bff04c4ce" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>itens</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a657e32b7b57f2b4c572fbea703c4400d" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>localEntrega</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a0a9c6e25ad5774b3d58733eef9eeda48" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>precoTotal</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1afd5c58a341497bc7a1074744bd98617f" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>Status</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a164ab71945f0b29594c98140a2ca9a19" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Encomenda</scope><name>Usuario</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

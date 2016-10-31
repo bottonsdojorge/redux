@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.12">
+  <compound refid="class_web_application1_1_1_modelo_1_1_carrinho" kind="class"><name>WebApplication1::Modelo::Carrinho</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1ada5c3845e551ec44fa418612dc7e1c35" kind="variable"><name>_Usuario_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1a8f052fdf447e46b19449ee9833eb2549" kind="variable"><name>_itens</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1adcbdfc5e6ea4bc07bad30e3d8f2b7995" kind="variable"><name>_precoTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1a842e336045ce4eeb7839073b517106be" kind="property"><name>Usuario_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1aeb4b0f029b11f5890b00d742a16ef5af" kind="property"><name>itens</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1a81fa7ff2bf8b84453e1a9e10156139c5" kind="property"><name>precoTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1a5585aff2cd2e404bba1ab91f67dd69df" kind="function"><name>Carrinho</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1a84e15c8a5a12a760b24fb66f364a5c9e" kind="function"><name>Carrinho</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_carrinho_1a166a385bfd0c9af99fcdd3e0b378d271" kind="function"><name>calcularPrecoTotal</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_encomenda" kind="class"><name>WebApplication1::Modelo::Encomenda</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a2d481ed4fd87e3cd5167774209e180e1" kind="variable"><name>_Usuario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ac46214c59a5b01bc0f7bff0a4c1aa297" kind="variable"><name>_itens</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ab65e7f27968ef90eda4138812406a8ca" kind="variable"><name>_precoTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ac8e8c5ff68cd0da009720f83a5a88e2b" kind="variable"><name>_dataEntrega</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1ae3d28effaf092945b1d2215f02191ce9" kind="variable"><name>_localEntrega</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a37ecfdbec2f54a7fc6b15591272c790b" kind="variable"><name>_Status</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a164ab71945f0b29594c98140a2ca9a19" kind="property"><name>Usuario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a83e280c4e9ff3b6f08354d8bff04c4ce" kind="property"><name>itens</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a0a9c6e25ad5774b3d58733eef9eeda48" kind="property"><name>precoTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a0329ff59e9f9144fab54fd7f4e7c7e76" kind="property"><name>dataEntrega</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a657e32b7b57f2b4c572fbea703c4400d" kind="property"><name>localEntrega</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1afd5c58a341497bc7a1074744bd98617f" kind="property"><name>Status</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a8150169376a7286f6d2d573ed33139cd" kind="function"><name>Encomenda</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a6d806c8e0ddc4b64a1ddd37bef352e66" kind="function"><name>Encomenda</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_encomenda_1a8333273805de2d120160b2c1d3d0c2b6" kind="function"><name>calcularPreco</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_endereco_usuario" kind="class"><name>WebApplication1::Modelo::EnderecoUsuario</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_endereco_usuario_1a30098449d0fcaf45e1e8a1cbfc0ea218" kind="variable"><name>_localEntrega</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_endereco_usuario_1a6c6d9af422804f536c3d4c7c1ade1edb" kind="variable"><name>_usuarioId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_endereco_usuario_1ac9d4ffc0e38751db77d1284512aec15c" kind="property"><name>localEntrega</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_endereco_usuario_1a4c33ebbc6c8d788927e979f4d30871b1" kind="property"><name>usuarioId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_endereco_usuario_1a56137d4d1bc9b98bcb49efa77ef4151d" kind="function"><name>EnderecoUsuario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_endereco_usuario_1a887bd28bc0b62d23c4964b5e5419f9af" kind="function"><name>EnderecoUsuario</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_item" kind="class"><name>WebApplication1::Modelo::Item</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_item_1a1af21597bb30869c8e3bb08492444fbd" kind="variable"><name>_produto</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_item_1a3e3d6e563658aebf2dba685328b8123e" kind="variable"><name>_tamanho</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_item_1a3ab7bb8b52b72183913670d36b6de8cb" kind="property"><name>produto</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_item_1ae783d188865e3ff1139723564833849b" kind="property"><name>tamanho</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_item_1a19db0d2163e0c29a8781d99e02aa9168" kind="function"><name>Item</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_item_1a5e1026c2fd07acf3a733ab2f36326ea4" kind="function"><name>Item</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1item_carrinho" kind="class"><name>WebApplication1::Modelo::itemCarrinho</name>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a13e96c8f3e30c7322453b21cd02c0661" kind="variable"><name>_carrinhoId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1af677635186475b1436984dec3c27e43d" kind="variable"><name>_item</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a5b29dfb059a14f747b855fe97a9db660" kind="variable"><name>_quantidade</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1adc28772ed0ed5b559065fb686242c5c7" kind="variable"><name>_subTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a36898a96c574e82f9c6abc4401becd8c" kind="property"><name>carrinhoId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1aea161e15cce9dfc95f0ab6c8898f7fcb" kind="property"><name>item</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a6e0b0767a4f6d87d8454e01ef10fe4d6" kind="property"><name>quantidade</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1ae8725e0bec2e67b1660424406c54c5ae" kind="property"><name>subTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a11b1e9a86cad0de2e7aebe1b3eed9384" kind="function"><name>itemCarrinho</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1a6cddcc0289abbe8a0f95a44bee246bbf" kind="function"><name>itemCarrinho</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_carrinho_1adb1f0900b86e762f53eb92aaa98387a8" kind="function"><name>calcularSubTotal</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1item_encomenda" kind="class"><name>WebApplication1::Modelo::itemEncomenda</name>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aec92fe2ed4f1fa0b2cd4fa67cc04e4fb" kind="variable"><name>_encomendaId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aef43751b72ce4879ee4b680e904f103e" kind="variable"><name>_item</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1acee8492689dfef5b55d890c847eb95af" kind="variable"><name>_precoIndividual</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1a8fd3ce16c422d1c3faa2f9d32b732193" kind="variable"><name>_quantidade</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aee65536c16565e08e84bf020f5155f05" kind="variable"><name>_subTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1ac7c8a2346484d8fe4375098a6a93cb14" kind="property"><name>encomendaId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aa134e93a425bd6be331bf86d9a381033" kind="property"><name>item</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1af1b309bf108f4a82dc897e86fc22addf" kind="property"><name>precoIndividual</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1a1dd4956ca1ea5b461bd1f6f6eca795ea" kind="property"><name>quantidade</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1ab0d0b24d7c67fbd9fd9d9e7b5d2fe759" kind="property"><name>subTotal</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1adf5b13fae9712b9fd26bbdf1194da51b" kind="function"><name>itemEncomenda</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1acc047d21cb9ae2d3a1baee4e4c50b67e" kind="function"><name>itemEncomenda</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1a4d99a16ad84f207ae78fbcc2a82f615a" kind="function"><name>calcSubTotal</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1local_entrega" kind="class"><name>WebApplication1::Modelo::localEntrega</name>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1ab60e733ae35101eb95756ce7dc3c323e" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a75b52bbff0810c6d617ce99e7c0697bb" kind="variable"><name>_rua</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a2b3a63474000f35346e43b9ac1a0a997" kind="variable"><name>_numero</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a0e3da5e3a9503f6df5f3b5e5d8f2e1e3" kind="variable"><name>_bairro</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1abfa98711b028df5d90e8f620c51851ea" kind="variable"><name>_complemento</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a7c4185193708439c9905447be263c08e" kind="variable"><name>_descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1afdae7b81d44f78ef74832765f786ff0b" kind="variable"><name>_cep</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1af2ede58fa1666393040d02aaacca043d" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1ab75a82b5aee80030f3521a7225bd671c" kind="property"><name>rua</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1add5b100a124a8ad33ab780a16360b76f" kind="property"><name>numero</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1addd2e4f547e156fb84e3d601f22ba21e" kind="property"><name>bairro</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1af9ed65aad5973f8bcea83f4b0a8e6d23" kind="property"><name>complemento</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1ae79e981af94ec579f271934ea077e0b5" kind="property"><name>descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a24f3cce1fb4266e8f35fb07e83529ea8" kind="property"><name>cep</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1a01fbb739d26a8d63d9011a4f892d7384" kind="function"><name>localEntrega</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1local_entrega_1af156977754dd244294ef6e7902a5e77d" kind="function"><name>localEntrega</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_marcador" kind="class"><name>WebApplication1::Modelo::Marcador</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_marcador_1a6a4dc0c2891c6f1699f7b0b3fb1ff80b" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_marcador_1abe1de7105bdb478b3ddbbb0ec2283c73" kind="variable"><name>_descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_marcador_1ad47e8e9d1fa4b5911a3dc12ba487b42e" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_marcador_1a05773dbdc7b40fa48ee7aac2f56bd719" kind="property"><name>descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_marcador_1a6a48c35db9851d054c2cd2922ae72d9c" kind="function"><name>Marcador</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_marcador_1a84c2d506c935828d1fc15702577f48f4" kind="function"><name>Marcador</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_mensagem" kind="class"><name>WebApplication1::Modelo::Mensagem</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a876280560830a19df71492cecfe8faf3" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a27a7cea2bdf4d394894a04ebe208a78e" kind="variable"><name>_data</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ad166b790402e7dd77764ff4d7ef24235" kind="variable"><name>_corpo</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a86a39f2ef9b1d242b18b813adbc49a17" kind="variable"><name>_visualizada</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1af59cfcfdd2bff2fd7f77262caa549139" kind="variable"><name>_destinatario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a2037dc59040370f2759e2ad030bd9ecd" kind="variable"><name>_remetente</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ab74a34838b53561bda28b39390f29eca" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a3c37620da0e92c0e38e3c428ef9593a3" kind="property"><name>data</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ae4da940b8d047bfb61f854420eb8b53d" kind="property"><name>corpo</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a6ef16372408e01badd35f6f8586a44da" kind="property"><name>visualizada</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a0feba3542e1b80f286b2cae41d3d7c84" kind="property"><name>destinatario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a848845c1b71f6e4dddba12be4e2acd20" kind="property"><name>remetente</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1aa0dc20b9b6864d11a63e414fe2c5277b" kind="function"><name>Mensagem</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ac3c70f6ce259ae6692d1ae27f8dee9b7" kind="function"><name>Mensagem</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_produto" kind="class"><name>WebApplication1::Modelo::Produto</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a2f69a4234bb0f6692362e091805b6c14" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1ae2c0b44f53d1e3896eae65765d64ddf7" kind="variable"><name>_descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1af5b014f9125f8a648f9e052b0fce0a90" kind="variable"><name>_imagem</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a99edd5b4f6a757cfe9bae24a3e24daa7" kind="variable"><name>_marcadores</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a02233b7f545fe00786042f3c0c9b5d7d" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a506a19d0bc44db5a65096e3a15b4f6b2" kind="property"><name>descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a24f5a0352fe7bc7933c2432064d7b15f" kind="property"><name>imagem</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a4d6c0e55661a729c6843f0ce2eedda9e" kind="property"><name>marcadores</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1af59f21dd2919d3f66d02ff6afb9925c3" kind="function"><name>Produto</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a51fce3b5b02f9a542a8849f6e1cd7396" kind="function"><name>Produto</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1a386d7fbc5879997ef39ee492dc6684b5" kind="function"><name>Produto</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_produto_1af11a9abb61becdf185fa50d40122a072" kind="function"><name>InsertImage</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_status" kind="class"><name>WebApplication1::Modelo::Status</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_status_1a2b4e2ab3d944a99b21241baee448d34f" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_status_1a496ea876863348e9716b406b776c6c88" kind="variable"><name>_descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_status_1aa1ff1f6c5aa1af0d483fa25dbac86eb4" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_status_1aea023fca8745a6b2cfc2824a83bb1a36" kind="property"><name>descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_status_1a80fdc5c5a4574d119c57d1de2a329206" kind="function"><name>Status</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_status_1a9db419b1a101983a5d6ff71e4a680f73" kind="function"><name>Status</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_tamanho" kind="class"><name>WebApplication1::Modelo::Tamanho</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1a9b54ac6e5293550c9f6d146f7603b801" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1a4943e2af5b3dc8abc487dd2c2091576f" kind="variable"><name>_descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1ab50b13da2678ad2ed9a2f13fadec4e71" kind="variable"><name>_precoUnitario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1a4141c2ccf6a097fe6b68b143c1530283" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1a936daa86f48f024a93fb6961746d255c" kind="property"><name>descricao</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1a125490df6f16fa2750256a0db890e6df" kind="property"><name>precoUnitario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1a12878b09b845badd1fc7a15e6909d84d" kind="function"><name>Tamanho</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_tamanho_1a6a1ac749c03a0f631a87b6c3128e8533" kind="function"><name>Tamanho</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_telefone" kind="class"><name>WebApplication1::Modelo::Telefone</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1ac9a9b62c70affc92422c4696889805ac" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1a6a82304a01dd6b539d8f0722ad093f27" kind="variable"><name>_numero</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1a517129522e0121c3d5b9851b0bc2625f" kind="variable"><name>_usuarioId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1a13b155d8c3938748fa60f61d599903de" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1ae3d3b934f6140294b9ba7c54f44cfc50" kind="property"><name>numero</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1ae202f81ce5524d6fad69570dff8843fb" kind="property"><name>usuarioId</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1acddeaf2957d16a55d381f0ea2e68f899" kind="function"><name>Telefone</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_telefone_1a6c53ae617b24a7256a385720c7047d4b" kind="function"><name>Telefone</name></member>
+  </compound>
+  <compound refid="class_web_application1_1_1_modelo_1_1_usuario" kind="class"><name>WebApplication1::Modelo::Usuario</name>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a65212023bfff8787270af743b7dce95a" kind="variable"><name>_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a1d714ea69e29d30442cb2e3c0dc713f7" kind="variable"><name>_aspnet_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a293ae286466fb4459199f6b4bf56fad9" kind="variable"><name>_nome</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a6f806de64f4feccb4f669df1b4835e34" kind="variable"><name>_telefones</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1ab17bc4b8f4c96f7347b083c7985e37d2" kind="variable"><name>_enderecos</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a0fa3e0ffbeb695bd1fc693edfa6ddaee" kind="property"><name>id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1adbed648f5a3e1b164cef45c7f92c1229" kind="property"><name>aspnet_id</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a1e0f2d374db14f86dfb15b17a2178445" kind="property"><name>nome</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a5126a14800fec144e707b716f7f2f685" kind="property"><name>telefones</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1ad61d1f2c208fc9c11b58f9b072f1f50d" kind="property"><name>enderecos</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1af221c9ca7dbb8d2c91de5c409079a08a" kind="function"><name>Usuario</name></member>
+    <member refid="class_web_application1_1_1_modelo_1_1_usuario_1a3481a82449ac38d81735dbf777c5dc2e" kind="function"><name>Usuario</name></member>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_collections_1_1_generic" kind="namespace"><name>System::Collections::Generic</name>
+  </compound>
+  <compound refid="namespace_system_1_1_drawing" kind="namespace"><name>System::Drawing</name>
+  </compound>
+  <compound refid="namespace_system_1_1_drawing_1_1_imaging" kind="namespace"><name>System::Drawing::Imaging</name>
+  </compound>
+  <compound refid="namespace_system_1_1_linq" kind="namespace"><name>System::Linq</name>
+  </compound>
+  <compound refid="namespace_system_1_1_web" kind="namespace"><name>System::Web</name>
+  </compound>
+  <compound refid="namespace_web_application1" kind="namespace"><name>WebApplication1</name>
+  </compound>
+  <compound refid="namespace_web_application1_1_1_modelo" kind="namespace"><name>WebApplication1::Modelo</name>
+  </compound>
+  <compound refid="_carrinho_8cs" kind="file"><name>Carrinho.cs</name>
+  </compound>
+  <compound refid="_encomenda_8cs" kind="file"><name>Encomenda.cs</name>
+  </compound>
+  <compound refid="_endereco_usuario_8cs" kind="file"><name>EnderecoUsuario.cs</name>
+  </compound>
+  <compound refid="_item_8cs" kind="file"><name>Item.cs</name>
+  </compound>
+  <compound refid="item_carrinho_8cs" kind="file"><name>itemCarrinho.cs</name>
+  </compound>
+  <compound refid="item_encomenda_8cs" kind="file"><name>itemEncomenda.cs</name>
+  </compound>
+  <compound refid="local_entrega_8cs" kind="file"><name>localEntrega.cs</name>
+  </compound>
+  <compound refid="_marcador_8cs" kind="file"><name>Marcador.cs</name>
+  </compound>
+  <compound refid="_mensagem_8cs" kind="file"><name>Mensagem.cs</name>
+  </compound>
+  <compound refid="_produto_8cs" kind="file"><name>Produto.cs</name>
+  </compound>
+  <compound refid="_status_8cs" kind="file"><name>Status.cs</name>
+  </compound>
+  <compound refid="_tamanho_8cs" kind="file"><name>Tamanho.cs</name>
+  </compound>
+  <compound refid="_telefone_8cs" kind="file"><name>Telefone.cs</name>
+  </compound>
+  <compound refid="_usuario_8cs" kind="file"><name>Usuario.cs</name>
+  </compound>
+</doxygenindex>

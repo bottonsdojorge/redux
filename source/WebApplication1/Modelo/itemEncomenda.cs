@@ -57,10 +57,10 @@ namespace WebApplication1.Modelo
             this.item = item;
             this.precoIndividual = item.tamanho.precoUnitario;
             this.quantidade = quantidade;
-            calcSubTotal();
+            calcularSubTotal();
         }
 
-        private void calcSubTotal()
+        private void calcularSubTotal()
         {
             this.subTotal = quantidade * precoIndividual;
         }

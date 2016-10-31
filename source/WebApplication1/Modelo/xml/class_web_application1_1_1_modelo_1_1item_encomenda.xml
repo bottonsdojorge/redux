@@ -1,0 +1,219 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_web_application1_1_1_modelo_1_1item_encomenda" kind="class" language="C#" prot="public">
+    <compoundname>WebApplication1::Modelo::itemEncomenda</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_encomenda_1aec92fe2ed4f1fa0b2cd4fa67cc04e4fb" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemEncomenda._encomendaId</definition>
+        <argsstring></argsstring>
+        <name>_encomendaId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="10" column="1" bodyfile="itemEncomenda.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_encomenda_1aef43751b72ce4879ee4b680e904f103e" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_item" kindref="compound">Item</ref></type>
+        <definition>Item WebApplication1.Modelo.itemEncomenda._item</definition>
+        <argsstring></argsstring>
+        <name>_item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="17" column="1" bodyfile="itemEncomenda.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_encomenda_1acee8492689dfef5b55d890c847eb95af" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.itemEncomenda._precoIndividual</definition>
+        <argsstring></argsstring>
+        <name>_precoIndividual</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="24" column="1" bodyfile="itemEncomenda.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_encomenda_1a8fd3ce16c422d1c3faa2f9d32b732193" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemEncomenda._quantidade</definition>
+        <argsstring></argsstring>
+        <name>_quantidade</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="31" column="1" bodyfile="itemEncomenda.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1item_encomenda_1aee65536c16565e08e84bf020f5155f05" prot="private" static="no" mutable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.itemEncomenda._subTotal</definition>
+        <argsstring></argsstring>
+        <name>_subTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="38" column="1" bodyfile="itemEncomenda.cs" bodystart="38" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_encomenda_1ac7c8a2346484d8fe4375098a6a93cb14" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemEncomenda.encomendaId</definition>
+        <argsstring></argsstring>
+        <name>encomendaId</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="11" column="1" bodyfile="itemEncomenda.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_encomenda_1aa134e93a425bd6be331bf86d9a381033" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_item" kindref="compound">Item</ref></type>
+        <definition>Item WebApplication1.Modelo.itemEncomenda.item</definition>
+        <argsstring></argsstring>
+        <name>item</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="18" column="1" bodyfile="itemEncomenda.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_encomenda_1af1b309bf108f4a82dc897e86fc22addf" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.itemEncomenda.precoIndividual</definition>
+        <argsstring></argsstring>
+        <name>precoIndividual</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="25" column="1" bodyfile="itemEncomenda.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_encomenda_1a1dd4956ca1ea5b461bd1f6f6eca795ea" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.itemEncomenda.quantidade</definition>
+        <argsstring></argsstring>
+        <name>quantidade</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="32" column="1" bodyfile="itemEncomenda.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1item_encomenda_1ab0d0b24d7c67fbd9fd9d9e7b5d2fe759" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>double</type>
+        <definition>double WebApplication1.Modelo.itemEncomenda.subTotal</definition>
+        <argsstring></argsstring>
+        <name>subTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="39" column="1" bodyfile="itemEncomenda.cs" bodystart="40" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1item_encomenda_1adf5b13fae9712b9fd26bbdf1194da51b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.itemEncomenda.itemEncomenda</definition>
+        <argsstring>()</argsstring>
+        <name>itemEncomenda</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="46" column="1" bodyfile="itemEncomenda.cs" bodystart="46" bodyend="52"/>
+      </memberdef>
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1item_encomenda_1acc047d21cb9ae2d3a1baee4e4c50b67e" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.itemEncomenda.itemEncomenda</definition>
+        <argsstring>(int encomendaId, Item item, double precoIndividual, int quantidade)</argsstring>
+        <name>itemEncomenda</name>
+        <param>
+          <type>int</type>
+          <declname>encomendaId</declname>
+        </param>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_item" kindref="compound">Item</ref></type>
+          <declname>item</declname>
+        </param>
+        <param>
+          <type>double</type>
+          <declname>precoIndividual</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>quantidade</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="54" column="1" bodyfile="itemEncomenda.cs" bodystart="54" bodyend="61"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1item_encomenda_1a4d99a16ad84f207ae78fbcc2a82f615a" prot="private" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void WebApplication1.Modelo.itemEncomenda.calcSubTotal</definition>
+        <argsstring>()</argsstring>
+        <name>calcSubTotal</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="itemEncomenda.cs" line="63" column="1" bodyfile="itemEncomenda.cs" bodystart="63" bodyend="66"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="itemEncomenda.cs" line="9" column="1" bodyfile="itemEncomenda.cs" bodystart="8" bodyend="67"/>
+    <listofallmembers>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aec92fe2ed4f1fa0b2cd4fa67cc04e4fb" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>_encomendaId</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aef43751b72ce4879ee4b680e904f103e" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>_item</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1acee8492689dfef5b55d890c847eb95af" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>_precoIndividual</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1a8fd3ce16c422d1c3faa2f9d32b732193" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>_quantidade</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aee65536c16565e08e84bf020f5155f05" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>_subTotal</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1a4d99a16ad84f207ae78fbcc2a82f615a" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>calcSubTotal</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1ac7c8a2346484d8fe4375098a6a93cb14" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>encomendaId</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1aa134e93a425bd6be331bf86d9a381033" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>item</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1adf5b13fae9712b9fd26bbdf1194da51b" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>itemEncomenda</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1acc047d21cb9ae2d3a1baee4e4c50b67e" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>itemEncomenda</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1af1b309bf108f4a82dc897e86fc22addf" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>precoIndividual</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1a1dd4956ca1ea5b461bd1f6f6eca795ea" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>quantidade</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1item_encomenda_1ab0d0b24d7c67fbd9fd9d9e7b5d2fe759" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::itemEncomenda</scope><name>subTotal</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

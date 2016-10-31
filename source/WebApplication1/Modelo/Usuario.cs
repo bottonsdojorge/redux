@@ -20,12 +20,14 @@ namespace WebApplication1.Modelo
             get { return _aspnet_id; }
             set { _aspnet_id = value; }
         }
+
         private string _nome;
         public string nome 
         {
             get { return _nome; }
             set { _nome = value; }
         }
+
         private List<Telefone> _telefones;
         public List<Telefone> telefones
         {
@@ -39,7 +41,13 @@ namespace WebApplication1.Modelo
             get { return _enderecos; }
             set { _enderecos = value; }
         }
-        
+
+        private Carrinho _carrinho;
+        public Carrinho carrinho
+        {
+            get { return _carrinho; }
+            set { _carrinho = value; }
+        }
         
         public Usuario()
         {
@@ -48,14 +56,17 @@ namespace WebApplication1.Modelo
             this.nome = "";
             this.telefones = new List<Telefone>();
             this.enderecos = new List<EnderecoUsuario>();
+            this.carrinho = new Carrinho();
         }
-        public Usuario(int id, string aspnet_id, string nome, List<Telefone> telefones, List<EnderecoUsuario> enderecos)
+
+        public Usuario(int id, string aspnet_id, string nome, List<Telefone> telefones, List<EnderecoUsuario> enderecos, Carrinho carrinho)
         {
             this.id = id;
             this.aspnet_id = aspnet_id;
             this.nome = nome;
             this.telefones = telefones;
             this.enderecos = enderecos;
+            this.carrinho = carrinho;
         }
 
     }

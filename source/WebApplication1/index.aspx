@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Index" Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebApplication1.WebForm1" MasterPageFile="~/MasterPage.Master" Theme="main" %>
+﻿<%@ Page Title="Home | Bottons do Jorge" Language="C#" AutoEventWireup="true" CodeBehind="index.aspx.cs" Inherits="WebApplication1.WebForm1" MasterPageFile="~/mainMaster.Master" Theme="main" %>
 
 <asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 

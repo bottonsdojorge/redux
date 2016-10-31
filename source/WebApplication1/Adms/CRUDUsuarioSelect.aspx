@@ -10,25 +10,15 @@
     <form id="form1" runat="server">
     <div>
         Lista de Usuários <hr />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="id" DataSourceID="SqlDataSource1">
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceUsuario">
             <Columns>
-                <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
-                <asp:BoundField DataField="id" HeaderText="id" ReadOnly="True" SortExpression="id" />
+                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+                <asp:BoundField DataField="aspnet_id" HeaderText="aspnet_id" SortExpression="aspnet_id" />
                 <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
             </Columns>
         </asp:GridView>
-
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:BottonsDoJorgeConnectionString %>" SelectCommand="SELECT id, nome FROM Usuario" DeleteCommand="DELETE FROM Usuario WHERE id = @id" UpdateCommand="UPDATE Usuario SET nome = @nome WHERE id = @id">
-            <DeleteParameters>
-                <asp:Parameter Name="id" />
-            </DeleteParameters>
-            <UpdateParameters>
-                <asp:Parameter Name="nome" />
-                <asp:Parameter Name="id" />
-            </UpdateParameters>
-        </asp:SqlDataSource>
-
     </div>
+        <asp:ObjectDataSource ID="dataSourceUsuario" runat="server" DataObjectTypeName="WebApplication1.Modelo.Usuario" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebApplication1.DAL.DALUsuario" UpdateMethod="Update"></asp:ObjectDataSource>
     </form>
 </body>
 </html>

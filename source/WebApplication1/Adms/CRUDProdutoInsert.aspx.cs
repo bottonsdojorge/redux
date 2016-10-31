@@ -19,25 +19,13 @@ namespace WebApplication1
 
         protected void btnCadastrarProduto_Click(object sender, EventArgs e)
         {
-            string aSQLConecStr;
-            // Lendo a conexão de dados do Web.Config
-            aSQLConecStr = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
+            DAL.DALProduto dalProduto = new DAL.DALProduto();
+            Modelo.Produto produto = new Modelo.Produto();
 
-            // Abrindo a Conexão com o banco de dados
-            SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
-            aSQLCon.Open();
-
-            // Executando o comando
-            SqlCommand aSQL = new SqlCommand("INSERT INTO Produto(descricao, preco, imagem, tamanho) VALUES (@descricao, @preco, @imagem, @tamanho)", aSQLCon);
-           
-            aSQL.Parameters.AddWithValue("@descricao", txtDescricao.Text);
-            aSQL.Parameters.Add("@preco", SqlDbType.Float).Value = txtPreco.Text;
-            aSQL.Parameters.AddWithValue("@imagem", txtEnderecoImg.Text);
-            aSQL.Parameters.AddWithValue("@tamanho", txtTamanho.Text);
-            aSQL.ExecuteNonQuery();
+            produto = new Modelo.Produto(0, txtDescricao.Text, txtEnderecoImg.Text, null);
+            dalProduto.Insert(produto);           
 
             Response.Redirect("~/Adms/CRUDProdutoSelect.aspx");
-        
         }
     }
 }

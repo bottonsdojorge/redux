@@ -1,0 +1,239 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.12">
+  <compounddef id="class_web_application1_1_1_modelo_1_1_mensagem" kind="class" language="C#" prot="public">
+    <compoundname>WebApplication1::Modelo::Mensagem</compoundname>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_mensagem_1a876280560830a19df71492cecfe8faf3" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.Mensagem._id</definition>
+        <argsstring></argsstring>
+        <name>_id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="10" column="1" bodyfile="Mensagem.cs" bodystart="10" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_mensagem_1a27a7cea2bdf4d394894a04ebe208a78e" prot="private" static="no" mutable="no">
+        <type>DateTime</type>
+        <definition>DateTime WebApplication1.Modelo.Mensagem._data</definition>
+        <argsstring></argsstring>
+        <name>_data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="17" column="1" bodyfile="Mensagem.cs" bodystart="17" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_mensagem_1ad166b790402e7dd77764ff4d7ef24235" prot="private" static="no" mutable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.Mensagem._corpo</definition>
+        <argsstring></argsstring>
+        <name>_corpo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="24" column="1" bodyfile="Mensagem.cs" bodystart="24" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_mensagem_1a86a39f2ef9b1d242b18b813adbc49a17" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool WebApplication1.Modelo.Mensagem._visualizada</definition>
+        <argsstring></argsstring>
+        <name>_visualizada</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="31" column="1" bodyfile="Mensagem.cs" bodystart="31" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_mensagem_1af59cfcfdd2bff2fd7f77262caa549139" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+        <definition>Usuario WebApplication1.Modelo.Mensagem._destinatario</definition>
+        <argsstring></argsstring>
+        <name>_destinatario</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="39" column="1" bodyfile="Mensagem.cs" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_web_application1_1_1_modelo_1_1_mensagem_1a2037dc59040370f2759e2ad030bd9ecd" prot="private" static="no" mutable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+        <definition>Usuario WebApplication1.Modelo.Mensagem._remetente</definition>
+        <argsstring></argsstring>
+        <name>_remetente</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="46" column="1" bodyfile="Mensagem.cs" bodystart="46" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="property">
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_mensagem_1ab74a34838b53561bda28b39390f29eca" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>int</type>
+        <definition>int WebApplication1.Modelo.Mensagem.id</definition>
+        <argsstring></argsstring>
+        <name>id</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="11" column="1" bodyfile="Mensagem.cs" bodystart="12" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_mensagem_1a3c37620da0e92c0e38e3c428ef9593a3" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>DateTime</type>
+        <definition>DateTime WebApplication1.Modelo.Mensagem.data</definition>
+        <argsstring></argsstring>
+        <name>data</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="18" column="1" bodyfile="Mensagem.cs" bodystart="19" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_mensagem_1ae4da940b8d047bfb61f854420eb8b53d" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>string</type>
+        <definition>string WebApplication1.Modelo.Mensagem.corpo</definition>
+        <argsstring></argsstring>
+        <name>corpo</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="25" column="1" bodyfile="Mensagem.cs" bodystart="26" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_mensagem_1a6ef16372408e01badd35f6f8586a44da" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type>bool</type>
+        <definition>bool WebApplication1.Modelo.Mensagem.visualizada</definition>
+        <argsstring></argsstring>
+        <name>visualizada</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="32" column="1" bodyfile="Mensagem.cs" bodystart="33" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_mensagem_1a0feba3542e1b80f286b2cae41d3d7c84" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+        <definition>Usuario WebApplication1.Modelo.Mensagem.destinatario</definition>
+        <argsstring></argsstring>
+        <name>destinatario</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="40" column="1" bodyfile="Mensagem.cs" bodystart="41" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="property" id="class_web_application1_1_1_modelo_1_1_mensagem_1a848845c1b71f6e4dddba12be4e2acd20" prot="public" static="no" readable="no" writable="no" gettable="yes" privategettable="no" protectedgettable="no" settable="yes" privatesettable="no" protectedsettable="no">
+        <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+        <definition>Usuario WebApplication1.Modelo.Mensagem.remetente</definition>
+        <argsstring></argsstring>
+        <name>remetente</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="47" column="1" bodyfile="Mensagem.cs" bodystart="48" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1_mensagem_1aa0dc20b9b6864d11a63e414fe2c5277b" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.Mensagem.Mensagem</definition>
+        <argsstring>()</argsstring>
+        <name>Mensagem</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="53" column="1" bodyfile="Mensagem.cs" bodystart="53" bodyend="61"/>
+      </memberdef>
+      <memberdef kind="function" id="class_web_application1_1_1_modelo_1_1_mensagem_1ac3c70f6ce259ae6692d1ae27f8dee9b7" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>WebApplication1.Modelo.Mensagem.Mensagem</definition>
+        <argsstring>(int id, DateTime data, string corpo, bool visualizada, Usuario destinatario, Usuario remetente)</argsstring>
+        <name>Mensagem</name>
+        <param>
+          <type>int</type>
+          <declname>id</declname>
+        </param>
+        <param>
+          <type>DateTime</type>
+          <declname>data</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>corpo</declname>
+        </param>
+        <param>
+          <type>bool</type>
+          <declname>visualizada</declname>
+        </param>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+          <declname>destinatario</declname>
+        </param>
+        <param>
+          <type><ref refid="class_web_application1_1_1_modelo_1_1_usuario" kindref="compound">Usuario</ref></type>
+          <declname>remetente</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Mensagem.cs" line="62" column="1" bodyfile="Mensagem.cs" bodystart="62" bodyend="70"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Mensagem.cs" line="9" column="1" bodyfile="Mensagem.cs" bodystart="8" bodyend="72"/>
+    <listofallmembers>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ad166b790402e7dd77764ff4d7ef24235" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>_corpo</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a27a7cea2bdf4d394894a04ebe208a78e" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>_data</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1af59cfcfdd2bff2fd7f77262caa549139" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>_destinatario</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a876280560830a19df71492cecfe8faf3" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>_id</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a2037dc59040370f2759e2ad030bd9ecd" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>_remetente</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a86a39f2ef9b1d242b18b813adbc49a17" prot="private" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>_visualizada</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ae4da940b8d047bfb61f854420eb8b53d" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>corpo</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a3c37620da0e92c0e38e3c428ef9593a3" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>data</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a0feba3542e1b80f286b2cae41d3d7c84" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>destinatario</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ab74a34838b53561bda28b39390f29eca" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>id</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1aa0dc20b9b6864d11a63e414fe2c5277b" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>Mensagem</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1ac3c70f6ce259ae6692d1ae27f8dee9b7" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>Mensagem</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a848845c1b71f6e4dddba12be4e2acd20" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>remetente</name></member>
+      <member refid="class_web_application1_1_1_modelo_1_1_mensagem_1a6ef16372408e01badd35f6f8586a44da" prot="public" virt="non-virtual"><scope>WebApplication1::Modelo::Mensagem</scope><name>visualizada</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

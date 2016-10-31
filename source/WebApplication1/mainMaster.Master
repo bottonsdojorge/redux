@@ -1,7 +1,6 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="WebApplication1.index" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="mainMaster.Master.cs" Inherits="WebApplication1.index" %>
 
 <!DOCTYPE html>
-
 <html lang="pt-br">
 <head runat="server">
     <meta content="IE=edge" http-equiv=X-UA-Compatible>
