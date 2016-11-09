@@ -17,14 +17,14 @@
                 <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                     <i class="fa fa-bars" aria-hidden="true"></i>
                 </button>
-                <a href="#" class="navbar-brand">Bottons do Jorge</a>
+                <a href="<% Response.Write(String.Format("http://{0}/index.aspx", HttpContext.Current.Request.Url.Authority)); %>" class="navbar-brand">Bottons do Jorge</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
             	<ul class="nav navbar-nav navbar-right">
                     <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
-                    <li><p class="navbar-text">Bem vindo, <%= User.Identity.Name %></p></li>
-                    <li><a href="#">Meu carrinho</a></li>
-                    <li><a href="#">Sair</a></li>
+                    <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
+                    <li><a href="<%= String.Format("http://{0}/Cliente/carrinho.aspx", HttpContext.Current.Request.Url.Authority) %>">Meu carrinho</a></li>
+                    <li><asp:LoginStatus ID="loginStatus" runat="server" LogoutText="Sair" /></li>
                     <% } else { %>
                     <li><a>Login</a></li>
                     <li><a>Cadastre-se</a></li>
@@ -42,9 +42,11 @@
     </form>
     <footer>
         <p class="text-center">
-            Bottons do Jorge &copy; 2016.<br>
-            Não emitimos notas fiscais.<br>
-            Em posto é roubo.<br>
+            <small>
+                Bottons do Jorge &copy; 2016.<br>
+                Não emitimos notas fiscais.<br>
+                Em posto é roubo.<br>
+            </small>
         </p>
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

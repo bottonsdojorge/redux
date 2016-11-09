@@ -1,1 +1,8 @@
-@import 'stylesheets/bootstrap'
+@import 'stylesheets/bootstrap';
+
+footer{
+	background: $brand-primary;
+	color: #fff;
+	padding: 20px;
+	margin-top: 50px;
+}

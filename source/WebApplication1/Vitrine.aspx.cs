@@ -31,6 +31,7 @@ namespace WebApplication1
         {
             DAL.DALItem dalItem = new DAL.DALItem();
             this.itens = dalItem.SelectAll();
+
         }
     }
 }

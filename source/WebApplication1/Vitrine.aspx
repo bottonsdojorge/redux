@@ -1,14 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Vitrine.aspx.cs" Inherits="WebApplication1.Vitrine" %>
+﻿<%@ Page Title="Vitrine | Bottons do Jorge" MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Vitrine.aspx.cs" Inherits="WebApplication1.Vitrine" Theme="main" %>
+<asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 
-<!DOCTYPE html>
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title>Vitrine - Bottons do Jorge</title>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
-</head>
-<body>
-    <form id="form1" runat="server">
+<asp:Content ID="contentBody" ContentPlaceHolderID="contentPlaceHolderCorpo" runat="server">
     <div class="container">
         <div class="row">
             <div class="col-xs-12">
@@ -25,6 +20,4 @@
             <% } %>
         </div>
     </div>
-    </form>
-</body>
-</html>
+</asp:Content>

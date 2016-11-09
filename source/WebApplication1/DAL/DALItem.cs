@@ -107,6 +107,57 @@ namespace WebApplication1.DAL
             return item;
         }
 
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Item> SelectToVitrine(List<Modelo.Marcador> marcadores, int pagina)
+        {
+            /* Verificar o que o sql server retorna se o offset for maior do que o numero de itens.*/
+
+            int itensPorPagina = 30;
+            int offset = pagina * 30;
+            
+            List<Modelo.Item> itens = new List<Modelo.Item>();
+            Modelo.Item item = null;
+
+            try
+            {
+                using (conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    string sqlItens = String.Format("SELECT Item.Tamanho_id, Item.Produto_id FROM Item ORDER BY Item.id OFFSET {0} ROWS FETCH NEXT {1} ONLY INNER JOIN Produto ON Produto.id = Item.Produto_id  INNER JOIN marcadorProduto ON marcadorProduto.Marcador_id = ", offset, itensPorPagina);
+                    SqlCommand cmdItens = new SqlCommand(sqlItens, conn);
+                    SqlDataReader drItens;
+
+                    using (drItens = cmdItens.ExecuteReader())
+                    {
+                        if (drItens.HasRows)
+                        {
+                            while (drItens.Read())
+                            {
+
+                                int idProduto = Convert.ToInt32(drItens["Produto_id"]);
+                                int idTamanho = Convert.ToInt32(drItens["Tamanho_id"]);
+
+                                DALProduto dalProduto = new DALProduto();
+                                DALTamanho dalTamanho = new DALTamanho();
+
+                                Modelo.Produto produto = dalProduto.Select(idProduto);
+                                Modelo.Tamanho tamanho = dalTamanho.Select(idTamanho);
+
+                                item = new Modelo.Item(produto, tamanho);
+                                itens.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {   
+                throw;
+            }
+
+            return itens;
+        }
+
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Item item)
         {
