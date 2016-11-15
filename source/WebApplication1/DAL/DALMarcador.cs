@@ -111,49 +111,31 @@ namespace WebApplication1.DAL
             // A lista de retorno
             List<Modelo.Marcador> marcadores = new List<Modelo.Marcador>();
 
-            
-            
             try
             {
                 using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     // O SQL da tabela relacional
-                    string sqlRelacional = "SELECT * FROM marcadorProduto WHERE Produto_id = @idProduto";
-                    SqlCommand cmdRelacional = new SqlCommand(sqlRelacional, conn);
-                    cmdRelacional.Parameters.Add("@idProduto", SqlDbType.Int).Value = idProduto;
-                    SqlDataReader drRelacional;
+                    string sqlMarcador = "SELECT * FROM Marcador m INNER JOIN marcadorProduto mp ON mp.Marcador_id = m.id WHERE mp.Produto_id = @idProduto";
+                    SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);
+                    cmdMarcador.Parameters.Add("@idProduto", SqlDbType.Int).Value = idProduto;
+                    SqlDataReader drMarcador;
 
-                    using (drRelacional = cmdRelacional.ExecuteReader())
+                    using (drMarcador = cmdMarcador.ExecuteReader())
                     {
                         // Leitura do resultado
-                        if (drRelacional.HasRows)
+                        if (drMarcador.HasRows)
                         {
-                            while (drRelacional.Read())
+                            while (drMarcador.Read())
                             {
-                                int idMarcador = Convert.ToInt32(drRelacional["Marcador_id"]);
-                                // O SQL da tabela Marcador
-                                string sqlMarcador = "SELECT * FROM Marcador WHERE id = @idMarcador";
-                                SqlCommand cmdMarcador = new SqlCommand(sqlMarcador, conn);
-                                cmdRelacional.Parameters.Add("@idMarcador", SqlDbType.Int).Value = idMarcador;
-                                SqlDataReader drMarcador;
+                                int id = Convert.ToInt32(drMarcador["id"]);
+                                string descricao = drMarcador["descricao"].ToString();
 
-                                using (drMarcador = cmdMarcador.ExecuteReader())
-                                {
-                                    // Leitura do resultado
-                                    if (drMarcador.HasRows)
-                                    {
-                                        while (drMarcador.Read())
-                                        {
-                                            int id = Convert.ToInt32(drMarcador["id"]);
-                                            string descricao = drMarcador["descricao"].ToString();
-
-                                            // Instanciamento do marcador.
-                                            marcador = new Modelo.Marcador(id, descricao);
-                                            marcadores.Add(marcador);
-                                        }
-                                    }
-                                }
+                                // Instanciamento do marcador.
+                                marcador = new Modelo.Marcador(id, descricao);
+                                marcadores.Add(marcador);
+                             
                             }
                         }
                     }

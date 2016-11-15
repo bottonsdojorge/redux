@@ -15,10 +15,54 @@ namespace WebApplication1
             get { return _itens; }
             set { _itens = value; }
         }
+
+        private List<Modelo.Marcador> _marcadores;
+        public List<Modelo.Marcador> marcadores
+        {
+            get { return _marcadores; }
+            set { _marcadores = value; }
+        }
+
+        private List<int> _filtro;
+        public List<int> filtro
+        {
+            get { return _filtro; }
+            set { _filtro = value; }
+        }
+
+        private int _numPaginas;
+        public int numPaginas
+        {
+            get { return _numPaginas; }
+            set { _numPaginas = value; }
+        }
+        
+        private int _pagina;
+        public int pagina
+        {
+            get { return _pagina; }
+            set { _pagina = value; }
+        }
         
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            // Vai dar erro se o bobão colocar uma string
+
+            if (Request.QueryString["p"] != null)
+            {
+                try
+                {
+                    this.pagina = Convert.ToInt32(Request.QueryString["p"]);
+                }
+                catch (FormatException)
+                {
+                    this.pagina = 1;
+                }
+            }
+            else
+                this.pagina = 1;
+            this.initMarcadores();
             this.getVitrine();
         }
 
@@ -30,8 +74,25 @@ namespace WebApplication1
         protected void getVitrine()
         {
             DAL.DALItem dalItem = new DAL.DALItem();
-            this.itens = dalItem.SelectAll();
+            this.itens = dalItem.SelectToVitrine(this.filtro, this.pagina);
+        }
 
+        /*
+         * Vai iniciar os marcadores selecionados (filtro) e os gerais também.
+         */
+        protected void initMarcadores()
+        {
+            DAL.DALMarcador dalMarcador = new DAL.DALMarcador();
+            this.marcadores = dalMarcador.SelectAll();
+            this.filtro = new List<int>();
+
+            if (Request.Form["marcadores"] != null)
+            {
+                foreach (string marcador in Request.Form.GetValues("marcadores"))
+                {
+                    this.filtro.Add(Convert.ToInt32(marcador));
+                }
+            }
         }
     }
 }

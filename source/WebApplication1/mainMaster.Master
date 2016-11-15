@@ -11,45 +11,44 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-static-top">
-    	<div class="container-fluid">
-            <div class="navbar-header">
-                <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-                    <i class="fa fa-bars" aria-hidden="true"></i>
-                </button>
-                <a href="<% Response.Write(String.Format("http://{0}/index.aspx", HttpContext.Current.Request.Url.Authority)); %>" class="navbar-brand">Bottons do Jorge</a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar-collapse">
-            	<ul class="nav navbar-nav navbar-right">
-                    <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
-                    <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
-                    <li><a href="<%= String.Format("http://{0}/Cliente/carrinho.aspx", HttpContext.Current.Request.Url.Authority) %>">Meu carrinho</a></li>
-                    <li><asp:LoginStatus ID="loginStatus" runat="server" LogoutText="Sair" /></li>
-                    <% } else { %>
-                    <li><a>Login</a></li>
-                    <li><a>Cadastre-se</a></li>
-                    <% } %>
-            	</ul>
-            </div>
-    	</div>
-    </nav>
     <form id="form1" runat="server">
-    <div>
-        <asp:ContentPlaceHolder ID="contentPlaceHolderCorpo" runat="server">
+        <nav class="navbar navbar-inverse navbar-static-top">
+    	    <div class="container-fluid">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                    </button>
+                    <a href="<% Response.Write(String.Format("http://{0}/index.aspx", HttpContext.Current.Request.Url.Authority)); %>" class="navbar-brand">Bottons do Jorge</a>
+                </div>
+                <div class="collapse navbar-collapse" id="navbar-collapse">
+            	    <ul class="nav navbar-nav navbar-right">
+                        <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
+                        <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
+                        <li><a href="<%= String.Format("http://{0}/Cliente/carrinho.aspx", HttpContext.Current.Request.Url.Authority) %>">Meu carrinho</a></li>
+                        <% } else { %>
+                        <li><a href="<%= String.Format("http://{0}/Public/Cadastro.aspx", HttpContext.Current.Request.Url.Authority) %>">Cadastre-se</a></li>
+                        <% } %>
+                        <li><asp:LoginStatus ID="loginStatus" runat="server" LogoutText="Sair" LoginText="Entrar" /></li>
+            	    </ul>
+                </div>
+    	    </div>
+        </nav>
+        <div>
+            <asp:ContentPlaceHolder ID="contentPlaceHolderCorpo" runat="server">
         
-        </asp:ContentPlaceHolder>
-    </div>
+            </asp:ContentPlaceHolder>
+        </div>
+        <footer>
+            <p class="text-center">
+                <small>
+                    Bottons do Jorge &copy; 2016.<br>
+                    Não emitimos notas fiscais.<br>
+                    Em posto é roubo.<br>
+                </small>
+            </p>
+        </footer>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script src="App_Themes/main/bootstrap.min.js"></script>
     </form>
-    <footer>
-        <p class="text-center">
-            <small>
-                Bottons do Jorge &copy; 2016.<br>
-                Não emitimos notas fiscais.<br>
-                Em posto é roubo.<br>
-            </small>
-        </p>
-    </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="App_Themes/main/bootstrap.min.js"></script>
 </body>
 </html>

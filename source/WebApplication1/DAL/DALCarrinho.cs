@@ -63,7 +63,7 @@ namespace WebApplication1.DAL
         public Modelo.Carrinho Select(int idCarrinho)
         {
             // O carrinho retorno
-            Modelo.Carrinho carrinho = null;
+            Modelo.Carrinho carrinho = new Modelo.Carrinho();
 
             try
             {

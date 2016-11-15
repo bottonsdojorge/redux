@@ -45,7 +45,7 @@ namespace WebApplication1
          */
         protected void getUsuarioId()
         {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString);
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["pedroPcConnectionString"].ConnectionString);
             try
             {
                 MembershipUser usuario = Membership.GetUser();
