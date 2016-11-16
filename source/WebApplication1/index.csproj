@@ -61,6 +61,7 @@
     <Content Include="Adms\CRUDProdutoSelect.aspx" />
     <Content Include="App_Themes\main\main.css" />
     <Content Include="Cliente\carrinho.aspx" />
+    <Content Include="Cliente\personalizar.aspx" />
     <Content Include="index.csproj.user" />
     <Content Include="Public\Cadastro.aspx" />
     <Content Include="Adms\CRUDUsuarioSelect.aspx" />
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="Cliente\carrinho.aspx.designer.cs">
       <DependentUpon>carrinho.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\personalizar.aspx.cs">
+      <DependentUpon>personalizar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\personalizar.aspx.designer.cs">
+      <DependentUpon>personalizar.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL.cs" />
     <Compile Include="DAL\DALCarrinho.cs" />

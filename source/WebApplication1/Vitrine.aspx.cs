@@ -48,7 +48,10 @@ namespace WebApplication1
         protected void Page_Load(object sender, EventArgs e)
         {
             // Vai dar erro se o bobão colocar uma string
-
+            if (IsPostBack)
+            {
+                Session["marcadores"] = null;
+            }
             if (Request.QueryString["p"] != null)
             {
                 try
@@ -60,8 +63,10 @@ namespace WebApplication1
                     this.pagina = 1;
                 }
             }
-            else
-                this.pagina = 1;
+
+            if (pagina < 1)
+                pagina = 1;
+
             this.initMarcadores();
             this.getVitrine();
         }
@@ -74,11 +79,20 @@ namespace WebApplication1
         protected void getVitrine()
         {
             DAL.DALItem dalItem = new DAL.DALItem();
+            this.numPaginas = dalItem.SelectNumPaginas(this.filtro);
             this.itens = dalItem.SelectToVitrine(this.filtro, this.pagina);
         }
 
         /*
          * Vai iniciar os marcadores selecionados (filtro) e os gerais também.
+         * Não funciona com paginação.
+         * Para funcionar:
+         * 1 - Verifica se existe post 
+         * 2 - Se não existir post, pode ser:
+         *  A) Primeiro Acesso
+         *  B) O usuario navegou.
+         * 3 - Se existir POST, usuario pesquisou. Ai deveria salvar na sessão.
+         * 4 - Definir a partir da sessão os marcadores.
          */
         protected void initMarcadores()
         {
@@ -88,7 +102,11 @@ namespace WebApplication1
 
             if (Request.Form["marcadores"] != null)
             {
-                foreach (string marcador in Request.Form.GetValues("marcadores"))
+                Session["marcadores"] = Request.Form.GetValues("marcadores");
+            }
+            if (Session["marcadores"] != null)
+            { 
+                foreach (string marcador in (string[])Session["marcadores"])
                 {
                     this.filtro.Add(Convert.ToInt32(marcador));
                 }

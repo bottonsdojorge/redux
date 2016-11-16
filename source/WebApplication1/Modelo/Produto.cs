@@ -69,12 +69,13 @@ namespace WebApplication1.Modelo
 
         private void InsertImage(Image image)
         {
+            Bitmap imgBitmap = new Bitmap(image);
             string unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
-            string nome = "btupcliente" + unixTimestamp;
-            string path = "~/Upload/imagem-produto/";
+            string nome = "btupcliente" + unixTimestamp + ".jpg";
+            string path = HttpContext.Current.Request.PhysicalApplicationPath + "/Upload/imagem-produto/" + nome;
             try
             {
-                image.Save(path + nome, ImageFormat.Jpeg);
+                imgBitmap.Save(path);
                 this.imagem = nome;
             }
             catch (SystemException)

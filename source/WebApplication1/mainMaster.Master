@@ -25,6 +25,7 @@
                         <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
                         <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
                         <li><a href="<%= String.Format("http://{0}/Cliente/carrinho.aspx", HttpContext.Current.Request.Url.Authority) %>">Meu carrinho</a></li>
+                        <li><a href="<%= String.Format("http://{0}/Cliente/personalizar.aspx", HttpContext.Current.Request.Url.Authority) %>">Personalizar</a></li>
                         <% } else { %>
                         <li><a href="<%= String.Format("http://{0}/Public/Cadastro.aspx", HttpContext.Current.Request.Url.Authority) %>">Cadastre-se</a></li>
                         <% } %>

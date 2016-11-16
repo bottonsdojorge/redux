@@ -177,12 +177,11 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Item> SelectNumPaginas(List<int> marcadores)
+        public int SelectNumPaginas(List<int> marcadores)
         {
-
-            List<Modelo.Item> itens = new List<Modelo.Item>();
-            Modelo.Item item = null;
-
+            int itensPorPagina = Convert.ToInt32(ConfigurationManager.AppSettings["itensPorPagina"]);
+            int count = 0;
+            
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -204,7 +203,7 @@ namespace WebApplication1.DAL
                     {
                         where += String.Format(" OR mp.Marcador_id ={0} ", marcador);
                     }
-                    string sqlItens = String.Format("SELECT COUNT(i.Tamanho_id, i.Produto_id) FROM ( SELECT i.Tamanho_id, i.Produto_id FROM Item i INNER JOIN marcadorProduto mp on mp.Produto_id = i.Produto_id {0} ) i ORDER BY i.Tamanho_id, i.Produto_id", where);
+                    string sqlItens = String.Format("SELECT COUNT(i.Tamanho_id) FROM ( SELECT i.Tamanho_id, i.Produto_id FROM Item i INNER JOIN marcadorProduto mp on mp.Produto_id = i.Produto_id {0} ) i", where);
                     SqlCommand cmdItens = new SqlCommand(sqlItens, conn);
                     SqlDataReader drItens;
 
@@ -214,18 +213,7 @@ namespace WebApplication1.DAL
                         {
                             while (drItens.Read())
                             {
-
-                                int idProduto = Convert.ToInt32(drItens["Produto_id"]);
-                                int idTamanho = Convert.ToInt32(drItens["Tamanho_id"]);
-
-                                DALProduto dalProduto = new DALProduto();
-                                DALTamanho dalTamanho = new DALTamanho();
-
-                                Modelo.Produto produto = dalProduto.Select(idProduto);
-                                Modelo.Tamanho tamanho = dalTamanho.Select(idTamanho);
-
-                                item = new Modelo.Item(produto, tamanho);
-                                itens.Add(item);
+                                count = (int)drItens[0];
                             }
                         }
                     }
@@ -236,7 +224,7 @@ namespace WebApplication1.DAL
                 throw;
             }
 
-            return itens;
+            return ((int)Math.Ceiling((double)count / itensPorPagina));
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]

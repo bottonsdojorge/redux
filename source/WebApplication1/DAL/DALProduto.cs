@@ -139,7 +139,7 @@ namespace WebApplication1.DAL
                 {
                     conn.Open();
                     // O SQL da inserção do produto
-                    string sqlProduto = "INSERT INTO Tamanho (descricao, imagem) VALUES ('@descricao', '@imagem') SET @ID = SCOPE_IDENTITY();";
+                    string sqlProduto = "INSERT INTO Produto (descricao, imagem) VALUES (@descricao, @imagem) SET @ID = SCOPE_IDENTITY();";
                     SqlCommand cmdProduto = new SqlCommand(sqlProduto, conn);
                     cmdProduto.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
                     cmdProduto.Parameters.Add("@imagem", SqlDbType.VarChar).Value = imagem;
