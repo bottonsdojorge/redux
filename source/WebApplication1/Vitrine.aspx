@@ -29,48 +29,7 @@
             <div class="col-xs-12">
                 <nav aria-label="Navegação">
                   <ul class="pagination">
-                    <% if (pagina != 1) { %>
-                      <li>
-                      <a href="#" aria-label="Anterior">
-                        <span aria-hidden="true">&laquo;</span>
-                      </a>
-                    </li>
-                    <% } %>
-                    <% if (numPaginas <= 6)
-                       {
-                           for (int i = 1; i <= numPaginas; i++)
-                           {
-                               %>
-                                    <li <% if (i == pagina) Response.Write("class='active'");  %>><a href="<%= String.Format("http://{0}/Vitrine.aspx?p={1}", HttpContext.Current.Request.Url.Authority, i) %>" ><%= i %></a></li>
-                               <%
-                           }
-                       }
-                       else
-                       {
-                           for (int i = 1; i < 4; i++)
-                           {
-                               %>
-                                    <li <% if (i == pagina) Response.Write("class='active'");  %>><a href="<%= String.Format("http://{0}/Vitrine.aspx?p={1}", HttpContext.Current.Request.Url.Authority, i) %>" ><%= i %></a></li>
-                               <%
-                           }
-                           %>
-                           <li><a>...</a></li>
-                           <%
-                           for (int i = numPaginas - 2; i <= numPaginas; i++)
-                           {
-                               %>
-                                    <li <% if (i == pagina) Response.Write("class='active'");  %>><a href="<%= String.Format("http://{0}/Vitrine.aspx?p={1}", HttpContext.Current.Request.Url.Authority, i) %>" ><%= i %></a></li>
-                               <%
-                           }
-                       } 
-                       
-                    if (pagina != numPaginas){%>
-                    <li>
-                      <a href="<%= String.Format("http://{0}/Vitrine.aspx?p={1}", HttpContext.Current.Request.Url.Authority, pagina+1) %>" aria-label="Próximo">
-                        <span aria-hidden="true">&raquo;</span>
-                      </a>  
-                    </li>
-                    <% } %>
+                    <%= paginacao %>
                   </ul>
                 </nav>
             </div>

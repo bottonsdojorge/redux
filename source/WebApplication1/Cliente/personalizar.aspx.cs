@@ -25,6 +25,9 @@ namespace WebApplication1.Cliente
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
+            /**
+             * Limite de arquivo de 5mb. Tem que ver aí as paradas do retorno de mensagem. 
+             */
             imagem = System.Drawing.Image.FromStream(fileProduto.PostedFile.InputStream);
             int tamanhoArquivo = fileProduto.PostedFile.ContentLength;
             string tipoArquivo = fileProduto.PostedFile.ContentType;

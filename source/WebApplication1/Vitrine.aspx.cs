@@ -43,6 +43,13 @@ namespace WebApplication1
             get { return _pagina; }
             set { _pagina = value; }
         }
+
+        private string _paginacao;
+        public string paginacao
+        {
+            get { return _paginacao; }
+            set { _paginacao = value; }
+        }
         
         
         protected void Page_Load(object sender, EventArgs e)
@@ -67,8 +74,9 @@ namespace WebApplication1
             if (pagina < 1)
                 pagina = 1;
 
-            this.initMarcadores();
-            this.getVitrine();
+            initMarcadores();
+            getVitrine();
+            paginar();
         }
 
         /*
@@ -111,6 +119,68 @@ namespace WebApplication1
                     this.filtro.Add(Convert.ToInt32(marcador));
                 }
             }
+        }
+
+        protected void paginar()
+        {
+            string urlVitrine = String.Format("http://{0}/Vitrine.aspx?p=", HttpContext.Current.Request.Url.Authority);
+            bool ativo;
+            string classeAtivo = "class='active'";
+
+            string btnAnterior = (pagina != 1) ? String.Format(@"<li>
+                                                    <a href='{0}{1}' aria-label='Anterior'>
+                                                        <span aria-hidden='true'>&laquo;</span>
+                                                    </a>
+                                                   </li>", urlVitrine, pagina - 1) : "";
+
+            string btnProx = (pagina != numPaginas) ? String.Format(@"<li>
+                                                    <a href='{0}{1}' aria-label='Próximo'>
+                                                        <span aria-hidden='true'>&raquo;</span>
+                                                    </a>
+                                                   </li>", urlVitrine, pagina + 1) : "";
+
+            paginacao += btnAnterior;
+            if (numPaginas <= 10 || pagina < 5)
+            {
+                for (int i = 1; i < 11; i++)
+                {
+                    ativo = (i == pagina) ? true : false;
+                    paginacao += String.Format(@"<li {2}>
+                                                    <a href='{0}{1}'>{1}</a>
+                                                </li>
+                                                ", urlVitrine, i, (ativo) ? classeAtivo : "");
+                }
+            }
+            else
+            {
+                for (int i = pagina - 5; i < pagina; i++)
+                {
+                    if (i > 0)
+                    {
+                        paginacao += String.Format(@"<li>
+                                                    <a href='{0}{1}'>{1}</a>
+                                                </li>
+                                                ", urlVitrine, i);
+
+                    }
+                }
+                paginacao += String.Format(@"<li {2}>
+                                                    <a href='{0}{1}'>{1}</a>
+                                                </li>
+                                                ", urlVitrine, pagina, classeAtivo);
+                for (int i = 1; i < 6; i++)
+                {
+                    if (pagina + i <= numPaginas)
+                    {
+                        paginacao += String.Format(@"<li>
+                                                    <a href='{0}{1}'>{1}</a>
+                                                </li>
+                                                ", urlVitrine, pagina+i);
+                    }
+                }
+                    
+            }
+            paginacao += btnProx;
         }
     }
 }
