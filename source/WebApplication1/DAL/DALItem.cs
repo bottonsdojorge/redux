@@ -137,7 +137,7 @@ namespace WebApplication1.DAL
                         where = "WHERE 1 = 2";
                     foreach (int marcador in marcadores)
                     {
-                        where += String.Format(" OR mp.Marcador_id ={0} ", marcador);
+                        where += String.Format(" OR mp.Marcador_id = {0} ", marcador);
                     }
                     string sqlItens = String.Format("SELECT i.Tamanho_id, i.Produto_id FROM ( SELECT i.Tamanho_id, i.Produto_id FROM Item i INNER JOIN marcadorProduto mp on mp.Produto_id = i.Produto_id {0} ) i ORDER BY i.Tamanho_id, i.Produto_id OFFSET @offSet ROWS FETCH NEXT @itensPorPagina ROWS ONLY", where);
                     SqlCommand cmdItens = new SqlCommand(sqlItens, conn);
@@ -251,25 +251,25 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Insert(Modelo.Item item)
         {
-
-            try
+            if (Select(item.produto.id, item.tamanho.id) != item)
             {
-                using (conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-                    if (Select(item.produto.id, item.tamanho.id) != item)
+                    using (conn = new SqlConnection(connectionString))
                     {
+                        conn.Open();
                         string sqlItem = "INSERT INTO Item (Tamanho_id, Produto_id) VALUES (@idTamanho, @idProduto)";
                         SqlCommand cmdItem = new SqlCommand(sqlItem, conn);
                         cmdItem.Parameters.Add("@idTamanho", SqlDbType.Int).Value = item.tamanho.id;
                         cmdItem.Parameters.Add("@idProduto", SqlDbType.Int).Value = item.produto.id;
                         cmdItem.ExecuteNonQuery();
+
                     }
                 }
-            }
-            catch (SystemException)
-            {
-                throw;
+                catch (SystemException)
+                {
+                    throw;
+                }
             }
         }
     }

@@ -60,7 +60,7 @@
     <Content Include="Adms\CRUDProdutoInsert.aspx" />
     <Content Include="Adms\CRUDProdutoSelect.aspx" />
     <Content Include="App_Themes\main\main.css" />
-    <Content Include="Cliente\carrinho.aspx" />
+    <Content Include="Cliente\cart.aspx" />
     <Content Include="Cliente\personalizar.aspx" />
     <Content Include="index.csproj.user" />
     <Content Include="Public\Cadastro.aspx" />
@@ -91,12 +91,12 @@
     <Compile Include="Adms\CRUDProdutoSelect.aspx.designer.cs">
       <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\carrinho.aspx.cs">
-      <DependentUpon>carrinho.aspx</DependentUpon>
+    <Compile Include="Cliente\cart.aspx.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cliente\carrinho.aspx.designer.cs">
-      <DependentUpon>carrinho.aspx</DependentUpon>
+    <Compile Include="Cliente\cart.aspx.designer.cs">
+      <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\personalizar.aspx.cs">
       <DependentUpon>personalizar.aspx</DependentUpon>
@@ -127,6 +127,7 @@
     <Compile Include="mainMaster.Master.designer.cs">
       <DependentUpon>mainMaster.Master</DependentUpon>
     </Compile>
+    <Compile Include="MetodosExtensao.cs" />
     <Compile Include="Modelo\Carrinho.cs" />
     <Compile Include="Modelo\Encomenda.cs" />
     <Compile Include="Modelo\EnderecoUsuario.cs" />

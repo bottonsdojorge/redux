@@ -119,7 +119,7 @@ namespace WebApplication1.DAL
                 {
                     conn.Open();
                     // O SQL
-                    string sqlItemCarrinho = "SELECT * FROM ItemCarrinho WHERE Carrinho_id = @id";
+                    string sqlItemCarrinho = "SELECT * FROM ItemCarrinho WHERE Carrinho_id = @id AND quantidade > 0";
                     SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
                     cmdItemCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = idCarrinho;
                     SqlDataReader drItemCarrinho;
@@ -162,10 +162,8 @@ namespace WebApplication1.DAL
         public void Insert(Modelo.itemCarrinho itemCarrinho)
         {
             Modelo.itemCarrinho itemAnterior = this.Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id);
-            if ( itemAnterior == null || itemAnterior.quantidade == 0)
+            if ( itemAnterior == null )
             {
-                
-                
                 try
                 {
                     using (conn = new SqlConnection(connectionString))
@@ -189,7 +187,7 @@ namespace WebApplication1.DAL
             }
             else
             {
-                itemCarrinho.quantidade = itemAnterior.quantidade + itemCarrinho.quantidade;
+                itemCarrinho.quantidade = (itemCarrinho.quantidade != 0) ? itemAnterior.quantidade + itemCarrinho.quantidade : 0;
                 this.Update(itemCarrinho);
             }
         }
@@ -220,25 +218,28 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.itemCarrinho itemCarrinho)
         {
-            try
+            if (Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id) != itemCarrinho)
             {
-                using (conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-                    // O SQL 
-                    string sqlItemCarrinho = "UPDATE itemCarrinho SET quantidade = @quantidade WHERE carrinho_id = @idCarrinho AND Item_Tamanho_id = @idTamanho AND Item_Produto_id = @idProduto";
-                    SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
-                    cmdItemCarrinho.Parameters.Add("@quantidade", SqlDbType.Int).Value = itemCarrinho.quantidade;
-                    cmdItemCarrinho.Parameters.Add("@idCarrinho", SqlDbType.Int).Value = itemCarrinho.carrinhoId;
-                    cmdItemCarrinho.Parameters.Add("@idTamanho", SqlDbType.Int).Value = itemCarrinho.item.tamanho.id;
-                    cmdItemCarrinho.Parameters.Add("@idProduto", SqlDbType.Int).Value = itemCarrinho.item.produto.id;
+                    using (conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        // O SQL 
+                        string sqlItemCarrinho = "UPDATE itemCarrinho SET quantidade = @quantidade WHERE carrinho_id = @idCarrinho AND Item_Tamanho_id = @idTamanho AND Item_Produto_id = @idProduto";
+                        SqlCommand cmdItemCarrinho = new SqlCommand(sqlItemCarrinho, conn);
+                        cmdItemCarrinho.Parameters.Add("@quantidade", SqlDbType.Int).Value = itemCarrinho.quantidade;
+                        cmdItemCarrinho.Parameters.Add("@idCarrinho", SqlDbType.Int).Value = itemCarrinho.carrinhoId;
+                        cmdItemCarrinho.Parameters.Add("@idTamanho", SqlDbType.Int).Value = itemCarrinho.item.tamanho.id;
+                        cmdItemCarrinho.Parameters.Add("@idProduto", SqlDbType.Int).Value = itemCarrinho.item.produto.id;
 
-                    cmdItemCarrinho.ExecuteNonQuery();
+                        cmdItemCarrinho.ExecuteNonQuery();
+                    }
                 }
-            }
-            catch (SystemException)
-            {
-                throw;
+                catch (SystemException)
+                {
+                    throw;
+                }
             }
         }
     }

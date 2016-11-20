@@ -128,7 +128,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Produto produto)
+        public int Insert(Modelo.Produto produto)
         {
             int idProduto;
             string descricao = produto.descricao;
@@ -166,6 +166,7 @@ namespace WebApplication1.DAL
             {
                 throw;
             }
+            return idProduto;
         }
 
 

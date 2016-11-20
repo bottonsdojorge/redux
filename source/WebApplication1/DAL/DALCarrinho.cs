@@ -191,26 +191,33 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Update(Modelo.Carrinho carrinho)
         {
-            try
+            if (Select(carrinho.Usuario_id) != carrinho)
             {
-                using (conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-                    if (Select(carrinho.Usuario_id) != carrinho)
+                    using (conn = new SqlConnection(connectionString))
                     {
-                        // O SQL
-                        string sqlCarrinho = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
-                        SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
-                        cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
-                        cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
-                        cmdCarrinho.ExecuteNonQuery();
+                        conn.Open();
+                            // O SQL
+                            string sqlCarrinho = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
+                            SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
+                            cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
+                            cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
+                            cmdCarrinho.ExecuteNonQuery();
 
+                            // Atualizar os produtos
+                            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+                            foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
+                            {
+                                dalItemCarrinho.Update(itemCarrinho);
+                            }
+                    
                     }
                 }
-            }
-            catch (SystemException)
-            {
-                throw;
+                catch (SystemException)
+                {
+                    throw;
+                }
             }
         }
     }

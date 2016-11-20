@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Drawing;
+using System.Collections.Specialized;
 
 namespace WebApplication1.Cliente
 {
@@ -35,11 +36,27 @@ namespace WebApplication1.Cliente
             if (!(tamanhoArquivo > 5000000 || (tipoArquivo != "image/jpg" && tipoArquivo != "image/jpeg" && tipoArquivo != "image/png")))
             {
                 DAL.DALProduto dalProduto = new DAL.DALProduto();
+                DAL.DALItem dalItem = new DAL.DALItem();
+                DAL.DALTamanho dalTamanho = new DAL.DALTamanho();
+
                 Modelo.Produto produto = new Modelo.Produto(0, nomeUpload.Value, imagem, new List<Modelo.Marcador>());
+                produto.id = dalProduto.Insert(produto);
+                
+                Modelo.Item item = new Modelo.Item(produto, dalTamanho.Select(Convert.ToInt32(Request.Form["tid"])));
+                dalItem.Insert(item);
 
-                dalProduto.Insert(produto);
+                NameValueCollection query = new NameValueCollection()
+                {
+                    {"addtid", item.tamanho.id.ToString()},
+                    {"addpid", item.produto.id.ToString()},
+                    {"addq", Request.Form["q"]}
+                };
 
-                Response.Write("Inserido");
+                MetodosExtensao.Redirecionar("Cliente/cart", query);
+            }
+            else
+            {
+                Response.Write("Algo aconteceu. Tente novamente");
             }
         }
     }

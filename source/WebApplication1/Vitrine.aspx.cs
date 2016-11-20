@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -123,12 +124,12 @@ namespace WebApplication1
 
         protected void paginar()
         {
-            string urlVitrine = String.Format("http://{0}/Vitrine.aspx?p=", HttpContext.Current.Request.Url.Authority);
+            string urlVitrine = WebApplication1.MetodosExtensao.GetLink("Vitrine") + "?p=";
             bool ativo;
             string classeAtivo = "class='active'";
 
             string btnAnterior = (pagina != 1) ? String.Format(@"<li>
-                                                    <a href='{0}{1}' aria-label='Anterior'>
+                                                    <a href='{0}' aria-label='Anterior'>
                                                         <span aria-hidden='true'>&laquo;</span>
                                                     </a>
                                                    </li>", urlVitrine, pagina - 1) : "";
@@ -142,7 +143,7 @@ namespace WebApplication1
             paginacao += btnAnterior;
             if (numPaginas <= 10 || pagina < 5)
             {
-                for (int i = 1; i < 11; i++)
+                for (int i = 1; i <= numPaginas; i++)
                 {
                     ativo = (i == pagina) ? true : false;
                     paginacao += String.Format(@"<li {2}>
