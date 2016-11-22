@@ -24,8 +24,8 @@
             	    <ul class="nav navbar-nav navbar-right">
                         <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
                         <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
-                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("Cliente/cart") %>">Meu carrinho</a></li>
-                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("Cliente/personalizar") %>">Personalizar</a></li>
+                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/cart") %>">Meu carrinho</a></li>
+                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/personalizar") %>">Personalizar</a></li>
                         <% } else { %>
                         <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("Public/Cadastro") %>">Cadastre-se</a></li>
                         <% } %>

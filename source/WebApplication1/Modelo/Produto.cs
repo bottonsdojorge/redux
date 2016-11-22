@@ -72,7 +72,7 @@ namespace WebApplication1.Modelo
             Bitmap imgBitmap = new Bitmap(image);
             string unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
             string nome = "btupcliente" + unixTimestamp + ".jpg";
-            string path = HttpContext.Current.Request.PhysicalApplicationPath + "Upload\\imagem-produto\\" + nome;
+            string path = HttpContext.Current.Request.PhysicalApplicationPath + "upload\\imagem-produto\\" + nome;
             try
             {
                 imgBitmap.Save(path);

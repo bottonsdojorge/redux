@@ -127,7 +127,7 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Limpar(Modelo.Carrinho carrinho)
         {
-            int id = (Int32)carrinho.Usuario_id;
+            int id = carrinho.Usuario_id;
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -188,6 +188,9 @@ namespace WebApplication1.DAL
 
         }
 
+        /*
+         * Será que aqui deveria ser calculado o preco do carrinho antes de incluir?
+         */
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public void Update(Modelo.Carrinho carrinho)
         {
@@ -198,20 +201,19 @@ namespace WebApplication1.DAL
                     using (conn = new SqlConnection(connectionString))
                     {
                         conn.Open();
-                            // O SQL
-                            string sqlCarrinho = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
-                            SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
-                            cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
-                            cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
-                            cmdCarrinho.ExecuteNonQuery();
+                        // O SQL
+                        string sqlCarrinho = "UPDATE Carrinho SET precoTotal = @preco WHERE Usuario_id = @id";
+                        SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
+                        cmdCarrinho.Parameters.Add("@preco", SqlDbType.Decimal).Value = carrinho.precoTotal;
+                        cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
+                        cmdCarrinho.ExecuteNonQuery();
 
-                            // Atualizar os produtos
-                            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-                            foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
-                            {
-                                dalItemCarrinho.Update(itemCarrinho);
-                            }
-                    
+                        // Atualizar os produtos
+                        DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+                        foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
+                        {
+                            dalItemCarrinho.Update(itemCarrinho);
+                        }
                     }
                 }
                 catch (SystemException)
@@ -219,6 +221,40 @@ namespace WebApplication1.DAL
                     throw;
                 }
             }
+        }
+
+        public void InserirItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
+        {
+            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+            dalItemCarrinho.Insert(itemCarrinho);
+        }
+
+        public void InserirItem(int idProduto, int idTamanho, int quantidade, Modelo.Carrinho carrinho)
+        {
+            DALItem dalItem = new DALItem();
+            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+
+            Modelo.Item item = dalItem.Select(idProduto, idTamanho);
+            Modelo.itemCarrinho itemCarrinho = new Modelo.itemCarrinho(carrinho.Usuario_id, item, quantidade);
+
+            dalItemCarrinho.Insert(itemCarrinho);
+        }
+
+        public void RemoverItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
+        {
+            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+            dalItemCarrinho.Delete(itemCarrinho);
+        }
+
+        public void RemoverItem(int idProduto, int idTamanho, Modelo.Carrinho carrinho)
+        {
+            DALItem dalItem = new DALItem();
+            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+
+            Modelo.Item item = dalItem.Select(idProduto, idTamanho);
+            Modelo.itemCarrinho itemCarrinho = dalItemCarrinho.Select(carrinho.Usuario_id, idTamanho, idProduto);
+
+            dalItemCarrinho.Delete(itemCarrinho);
         }
     }
 }

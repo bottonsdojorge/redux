@@ -21,9 +21,9 @@
                 </div>
             <% foreach (WebApplication1.Modelo.Item item in itens){ %>
                 <div class="col-xs-12 col-sm-4">
-                    <img class="img-responsive img-circle" src="/Upload/imagem-produto/<% Response.Write(item.produto.imagem); %>" />
+                    <img class="img-responsive img-circle" src="/upload/imagem-produto/<% Response.Write(item.produto.imagem); %>" />
                     <p><% Response.Write(item.produto.descricao); %>, Tamanho <% Response.Write(item.tamanho.descricao); %></p>
-                    <a href="/Cliente/cart.aspx?addq=1&addpid=<% Response.Write(item.produto.id);%>&addtid=<% Response.Write(item.tamanho.id); %>">Adicionar ao Carrinho</a>
+                    <a href="/usuario/cart.aspx?addq=1&addpid=<% Response.Write(item.produto.id);%>&addtid=<% Response.Write(item.tamanho.id); %>">Adicionar ao Carrinho</a>
                 </div>       
             <% } %>
             <div class="col-xs-12">

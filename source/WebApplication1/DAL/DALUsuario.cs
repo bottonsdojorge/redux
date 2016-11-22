@@ -24,7 +24,7 @@ namespace WebApplication1.DAL
                 {
                     conn.Open();
 
-                    string sqlUsuarios = "SELECT * FROM Usuarios";
+                    string sqlUsuarios = "SELECT * FROM Usuario";
                     SqlCommand cmdUsuarios = new SqlCommand(sqlUsuarios, conn);
                     SqlDataReader drUsuarios;
 

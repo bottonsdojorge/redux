@@ -14,11 +14,11 @@
 				<asp:LoginStatus ID="LoginStatus1" runat="server" />
 			</td>
 			<td>
-				<asp:HyperLink ID="HyperLink2"  runat="server" NavigateUrl="~/Adms/CRUDUsuarioSelect.aspx">Visualização de Usuario</asp:HyperLink>
+				<asp:HyperLink ID="HyperLink2"  runat="server" NavigateUrl="~/admin/CRUDUsuarioSelect.aspx">Visualização de Usuario</asp:HyperLink>
 				<br />
-				<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/Adms/CRUDProdutoInsert.aspx">Cadastro de Produto</asp:HyperLink>
+				<asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/CRUDProdutoInsert.aspx">Cadastro de Produto</asp:HyperLink>
 				<br />
-				<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/Adms/CRUDProdutoSelect.aspx">Visualização de Produto</asp:HyperLink>
+				<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/CRUDProdutoSelect.aspx">Visualização de Produto</asp:HyperLink>
 				<br />
 				<asp:HyperLink ID="linkVitrine" runat="server" NavigateUrl="~/Vitrine.aspx">Vitrine</asp:HyperLink>
 			</td>

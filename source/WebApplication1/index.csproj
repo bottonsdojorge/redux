@@ -57,19 +57,19 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Adms\CRUDProdutoInsert.aspx" />
-    <Content Include="Adms\CRUDProdutoSelect.aspx" />
+    <Content Include="admin\CRUDProdutoInsert.aspx" />
+    <Content Include="admin\CRUDProdutoSelect.aspx" />
     <Content Include="App_Themes\main\main.css" />
-    <Content Include="Cliente\cart.aspx" />
-    <Content Include="Cliente\personalizar.aspx" />
+    <Content Include="usuario\cart.aspx" />
+    <Content Include="usuario\personalizar.aspx" />
     <Content Include="index.csproj.user" />
-    <Content Include="Public\Cadastro.aspx" />
-    <Content Include="Adms\CRUDUsuarioSelect.aspx" />
+    <Content Include="public\Cadastro.aspx" />
+    <Content Include="admin\CRUDUsuarioSelect.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="Upload\imagem-produto\botton-default.jpg" />
-    <Content Include="Upload\imagem-produto\botton1.gif" />
-    <Content Include="Upload\imagem-produto\botton2.gif" />
-    <Content Include="Upload\imagem-produto\offline-stream.png" />
+    <Content Include="upload\imagem-produto\botton-default.jpg" />
+    <Content Include="upload\imagem-produto\botton1.gif" />
+    <Content Include="upload\imagem-produto\botton2.gif" />
+    <Content Include="upload\imagem-produto\offline-stream.png" />
     <Content Include="Vitrine.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -77,32 +77,32 @@
     <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Adms\CRUDProdutoInsert.aspx.cs">
+    <Compile Include="admin\CRUDProdutoInsert.aspx.cs">
       <DependentUpon>CRUDProdutoInsert.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Adms\CRUDProdutoInsert.aspx.designer.cs">
+    <Compile Include="admin\CRUDProdutoInsert.aspx.designer.cs">
       <DependentUpon>CRUDProdutoInsert.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Adms\CRUDProdutoSelect.aspx.cs">
+    <Compile Include="admin\CRUDProdutoSelect.aspx.cs">
       <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Adms\CRUDProdutoSelect.aspx.designer.cs">
+    <Compile Include="admin\CRUDProdutoSelect.aspx.designer.cs">
       <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\cart.aspx.cs">
+    <Compile Include="usuario\cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cliente\cart.aspx.designer.cs">
+    <Compile Include="usuario\cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\personalizar.aspx.cs">
+    <Compile Include="usuario\personalizar.aspx.cs">
       <DependentUpon>personalizar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Cliente\personalizar.aspx.designer.cs">
+    <Compile Include="usuario\personalizar.aspx.designer.cs">
       <DependentUpon>personalizar.aspx</DependentUpon>
     </Compile>
     <Compile Include="DAL\DAL.cs" />
@@ -142,18 +142,18 @@
     <Compile Include="Modelo\Tamanho.cs" />
     <Compile Include="Modelo\Telefone.cs" />
     <Compile Include="Modelo\Usuario.cs" />
-    <Compile Include="Public\Cadastro.aspx.cs">
+    <Compile Include="public\Cadastro.aspx.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Public\Cadastro.aspx.designer.cs">
+    <Compile Include="public\Cadastro.aspx.designer.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Adms\CRUDUsuarioSelect.aspx.cs">
+    <Compile Include="admin\CRUDUsuarioSelect.aspx.cs">
       <DependentUpon>CRUDUsuarioSelect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Adms\CRUDUsuarioSelect.aspx.designer.cs">
+    <Compile Include="admin\CRUDUsuarioSelect.aspx.designer.cs">
       <DependentUpon>CRUDUsuarioSelect.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
@@ -180,7 +180,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Public\Web.config" />
+    <Content Include="public\Web.config" />
     <Content Include="mainMaster.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

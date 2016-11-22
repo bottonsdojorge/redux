@@ -107,7 +107,7 @@ namespace WebApplication1.DAL
             {
                 using (conn = new SqlConnection(connectionString))
                 {
-                    // O SQL
+                    conn.Open();
                     string sqlTelefones = "SELECT * FROM Telefone WHERE Usuario_id = @idUsuario";
                     SqlCommand cmdTelefones = new SqlCommand(sqlTelefones, conn);
                     cmdTelefones.Parameters.Add("@idUsuario", SqlDbType.Int).Value = idUsuario;
