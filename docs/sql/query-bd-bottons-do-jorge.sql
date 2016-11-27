@@ -36,6 +36,15 @@ CREATE TABLE EnderecoUsuario(
 	FOREIGN KEY (Usuario_id) REFERENCES Usuario(id),
 	FOREIGN KEY (localEntrega_id) REFERENCES localEntrega(id),
 )
+CREATE TRIGGER ChecarCep ON LocalEntrega
+FOR INSERT AS
+declare @cep char(8)
+if(@cep NOT LIKE '[0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]') 
+	BEGIN
+		RAISERROR('cep inválido', 16, 1)
+		ROLLBACK TRANSACTION
+	END
+GO
 CREATE TABLE Status(	
 	id INT IDENTITY PRIMARY KEY,
 	descricao VARCHAR(20) NOT NULL
