@@ -61,6 +61,7 @@
     <Content Include="admin\CRUDProdutoSelect.aspx" />
     <Content Include="App_Themes\main\main.css" />
     <Content Include="usuario\cart.aspx" />
+    <Content Include="usuario\checkout.aspx" />
     <Content Include="usuario\personalizar.aspx" />
     <Content Include="index.csproj.user" />
     <Content Include="public\Cadastro.aspx" />
@@ -97,6 +98,13 @@
     </Compile>
     <Compile Include="usuario\cart.aspx.designer.cs">
       <DependentUpon>cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usuario\checkout.aspx.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usuario\checkout.aspx.designer.cs">
+      <DependentUpon>checkout.aspx</DependentUpon>
     </Compile>
     <Compile Include="usuario\personalizar.aspx.cs">
       <DependentUpon>personalizar.aspx</DependentUpon>

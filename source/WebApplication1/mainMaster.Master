@@ -24,7 +24,7 @@
             	    <ul class="nav navbar-nav navbar-right">
                         <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
                         <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
-                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/cart") %>">Meu carrinho</a></li>
+                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/cart") %>">Meu carrinho <span class="badge">20</span></a></li>
                         <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/personalizar") %>">Personalizar</a></li>
                         <% } else { %>
                         <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("Public/Cadastro") %>">Cadastre-se</a></li>
@@ -44,7 +44,7 @@
                 <small>
                     Bottons do Jorge &copy; 2016.<br>
                     Não emitimos notas fiscais.<br>
-                    Em posto é roubo.<br>
+                    Em posto, eu só nego.<br>
                 </small>
             </p>
         </footer>

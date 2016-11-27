@@ -39,8 +39,11 @@
                         </tr>
                     </tbody>
                 </table>
-                <a href="#" class="btn btn-warning">Fazer encomenda</a>
-                <asp:Button ID="btnLimparCarrinho" runat="server" Text="Limpar carrinho" CssClass="btn btn-default" UseSubmitBehavior="True" OnClick="btnLimparCarrinho_Click"/>
+                <% if (carro.itens.Count > 0) {  %>
+                    <a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/checkout") %>" class="btn btn-warning">Fazer encomenda</a>
+                    <asp:Button ID="btnLimparCarrinho" runat="server" Text="Limpar carrinho" CssClass="btn btn-default" UseSubmitBehavior="True" OnClick="btnLimparCarrinho_Click"/>
+                <% } %>
+                <a href="<%= WebApplication1.MetodosExtensao.GetLink("Vitrine") %>">Continuar comprando</a>
             </div>
             <!-- Fim Items -->
         </div>        
