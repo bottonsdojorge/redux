@@ -37,9 +37,13 @@ CREATE TABLE EnderecoUsuario(
 	FOREIGN KEY (localEntrega_id) REFERENCES localEntrega(id),
 )
 CREATE TRIGGER ChecarCep ON LocalEntrega
-FOR INSERT AS
-declare @cep char(8)
-if(@cep NOT LIKE '[0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9]') 
+FOR INSERT, UPDATE AS
+DECLARE @cep VARCHAR(8)
+
+SELECT @cep = cep
+	FROM inserted
+
+IF(@cep NOT LIKE '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]') 
 	BEGIN
 		RAISERROR('cep inválido', 16, 1)
 		ROLLBACK TRANSACTION
