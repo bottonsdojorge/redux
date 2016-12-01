@@ -24,10 +24,12 @@
             	    <ul class="nav navbar-nav navbar-right">
                         <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
                         <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
-                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/cart") %>">Meu carrinho <span class="badge">20</span></a></li>
+                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/cart") %>"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <span class="badge">20</span></a></li>
+                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/dashboard") %>"><i class="fa fa-user" aria-hidden="true"></i>
+ Dashboard</a></li>
                         <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/personalizar") %>">Personalizar</a></li>
                         <% } else { %>
-                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("Public/Cadastro") %>">Cadastre-se</a></li>
+                        <li><a href="<%= WebApplication1.MetodosExtensao.GetLink("public/Cadastro") %>">Cadastre-se</a></li>
                         <% } %>
                         <li><asp:LoginStatus ID="loginStatus" runat="server" LogoutText="Sair" LoginText="Entrar" /></li>
             	    </ul>

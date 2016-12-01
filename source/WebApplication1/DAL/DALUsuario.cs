@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Security;
 
 namespace WebApplication1.DAL
 {
@@ -65,14 +66,13 @@ namespace WebApplication1.DAL
         public Modelo.Usuario Select(int idUsuario)
         {
             Modelo.Usuario usuario = null;
-
             try
             {
                 using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
                     
-                    string sqlUsuario = "SELECT * FROM Usuarios WHERE id = @id";
+                    string sqlUsuario = "SELECT * FROM Usuario WHERE id = @id";
                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, conn);
                     cmdUsuario.Parameters.Add("@id", SqlDbType.Int).Value = idUsuario;
                     SqlDataReader drUsuario;
@@ -192,6 +192,37 @@ namespace WebApplication1.DAL
                     throw;
                 }
             }
+        }
+
+        public int GetCurrentUserId(string aspnetid)
+        {
+            int id = 0;
+            try
+            {
+                using (conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    //MembershipUser usuario = Membership.Providers["pedroPcConnectionString"].GetUser(HttpContext.Current.User.Identity.Name, false);
+                    string sqlUsuario = "SELECT id FROM Usuario WHERE aspnet_id = @aspnet_id";
+                    SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, conn);
+                    cmdUsuario.Parameters.Add("@aspnet_id", System.Data.SqlDbType.VarChar).Value = aspnetid;
+                    SqlDataReader drUsuario;
+
+                    using (drUsuario = cmdUsuario.ExecuteReader())
+                    {
+                        if (drUsuario.HasRows)
+                        {
+                            drUsuario.Read();
+                            id = Convert.ToInt32(drUsuario["id"]);
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {   
+                throw;
+            }
+            return id;
         }
     }
 }

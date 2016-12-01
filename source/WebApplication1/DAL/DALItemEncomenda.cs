@@ -177,18 +177,21 @@ namespace WebApplication1.DAL
         {
             try
             {
-                conn.Open();
+                using (conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
 
-                string sqlItemEncomenda = "INSERT INTO itemEncomenda (Encomenda_id, Item_Tamanho_id, Item_Produto_id, precoUnitario, quantidade) VALUES (@idEncomenda, @idTamanho, @idProduto, @preco, @quantidade)";
-                SqlCommand cmdItemEncomenda = new SqlCommand(sqlItemEncomenda, conn);
-                cmdItemEncomenda.Parameters.Add("@idEncomenda", SqlDbType.Int).Value = itemEncomenda.encomendaId;
-                cmdItemEncomenda.Parameters.Add("@idTamanho", SqlDbType.Int).Value = itemEncomenda.item.tamanho.id;
-                cmdItemEncomenda.Parameters.Add("@idProduto", SqlDbType.Int).Value = itemEncomenda.item.produto.id;
-                cmdItemEncomenda.Parameters.Add("@preco", SqlDbType.Int).Value = itemEncomenda.precoIndividual;
-                cmdItemEncomenda.Parameters.Add("@quantidade", SqlDbType.Int).Value = itemEncomenda.quantidade;
+                    string sqlItemEncomenda = "INSERT INTO itemEncomenda (Encomenda_id, Item_Tamanho_id, Item_Produto_id, precoUnitario, quantidade) VALUES (@idEncomenda, @idTamanho, @idProduto, @preco, @quantidade)";
+                    SqlCommand cmdItemEncomenda = new SqlCommand(sqlItemEncomenda, conn);
+                    cmdItemEncomenda.Parameters.Add("@idEncomenda", SqlDbType.Int).Value = itemEncomenda.encomendaId;
+                    cmdItemEncomenda.Parameters.Add("@idTamanho", SqlDbType.Int).Value = itemEncomenda.item.tamanho.id;
+                    cmdItemEncomenda.Parameters.Add("@idProduto", SqlDbType.Int).Value = itemEncomenda.item.produto.id;
+                    cmdItemEncomenda.Parameters.Add("@preco", SqlDbType.Int).Value = itemEncomenda.precoIndividual;
+                    cmdItemEncomenda.Parameters.Add("@quantidade", SqlDbType.Int).Value = itemEncomenda.quantidade;
 
-                cmdItemEncomenda.ExecuteNonQuery();
-            }
+                    cmdItemEncomenda.ExecuteNonQuery();
+                }
+              }
             catch (SystemException)
             {   
                 throw;

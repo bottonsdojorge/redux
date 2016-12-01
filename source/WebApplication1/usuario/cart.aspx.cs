@@ -30,44 +30,10 @@ namespace WebApplication1.usuario
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            getUsuarioId();
+            usuarioId = new DAL.DALUsuario().GetCurrentUserId(Membership.GetUser().ProviderUserKey.ToString());
+            Session["uid"] = usuarioId;
             initCarrinho();
             checkAcoes();
-        }
-
-        /*
-         * Apenas paleativo. Mover isto para o DAL usuario.
-         */
-        protected void getUsuarioId()
-        {
-            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["pedroPcConnectionString"].ConnectionString);
-            try
-            {
-                MembershipUser usuario = Membership.GetUser();
-                string usuarioAspnet_id = Convert.ToString(usuario.ProviderUserKey);
-                using (conn)
-                {
-                    conn.Open();
-                    // O SQL do id do usuario.
-                    string sqlUsuario = "SELECT id FROM Usuario WHERE aspnet_id = @aspnet_id";
-                    SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, conn);
-                    cmdUsuario.Parameters.Add("@aspnet_id", System.Data.SqlDbType.VarChar).Value = usuarioAspnet_id;
-                    SqlDataReader drUsuario;
-
-                    using (drUsuario = cmdUsuario.ExecuteReader())
-                    {
-                        if (drUsuario.HasRows)
-                        {
-                            drUsuario.Read();
-                            usuarioId = Convert.ToInt32(drUsuario["id"]);
-                        }
-                    }
-                }
-            }
-            catch (SystemException)
-            {
-                throw;
-            }
         }
 
         protected void initCarrinho()

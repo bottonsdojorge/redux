@@ -53,15 +53,15 @@ CREATE TABLE Status(
 	id INT IDENTITY PRIMARY KEY,
 	descricao VARCHAR(20) NOT NULL
 )
-CREATE TABLE Encomenda(
-	Usuario_id INT PRIMARY KEY,
-	precoTotal NUMERIC(10,2) NOT NULL,
-	dataEntrega DATETIME,
-	localEntrega_id INT NOT NULL,
-	Status_id INT NOT NULL,
+create table Encomenda(
+	id int identity primary key,
+	Usuario_id int not null,
+	precoTotal numeric(10,2) not null,
+	localEntrega_id int not null,
+	Status_id int not null,
 	FOREIGN KEY (Usuario_id) REFERENCES Usuario(id),
 	FOREIGN KEY (localEntrega_id) REFERENCES localEntrega(id),
-	FOREIGN KEY (Status_id) REFERENCES Status(id)
+	FOREIGN KEY (Status_id) REFERENCES Status(id),
 )
 CREATE TABLE Marcador(
 	id INT IDENTITY PRIMARY KEY,

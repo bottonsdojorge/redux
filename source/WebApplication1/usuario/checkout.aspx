@@ -5,11 +5,13 @@
     <div class="container">
         <div class="row">
         	<div class="col-xs-12">
-                <h3>Escolha o local de entrega, zé ruela</h3>
-                <select>
+                <h3>Estamos quase lá.</h3>
+                <h4>Escolha onde você deseja receber sua encomenda.</h4>
+                <select name="leid">
                     <% foreach (WebApplication1.Modelo.localEntrega localEntrega in locaisEntrega) { %>
                     <option value="<%= localEntrega.id %>"><%= String.Format("{4} - {0}, número {1}, {2}, {3}", localEntrega.rua, localEntrega.numero, localEntrega.complemento, localEntrega.bairro, localEntrega.descricao) %></option><% } %>
                 </select>
+                <asp:Button Text="Confirmar" CssClass="btn btn-info" runat="server" OnClick="RegistrarEncomenda" />
         	</div>
         </div>
     </div>

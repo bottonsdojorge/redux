@@ -13,12 +13,12 @@ namespace WebApplication1 {
     public partial class Login {
         
         /// <summary>
-        /// Login1 control.
+        /// frmLogin control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Login Login1;
+        protected global::System.Web.UI.WebControls.Login frmLogin;
     }
 }

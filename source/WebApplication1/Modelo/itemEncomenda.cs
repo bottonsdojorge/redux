@@ -36,6 +36,7 @@ namespace WebApplication1.Modelo
         }
 
         private double _subTotal;
+        private string p;
         public double subTotal
         {
             get { return _subTotal; }

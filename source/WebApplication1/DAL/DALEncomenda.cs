@@ -46,7 +46,7 @@ namespace WebApplication1.DAL
                         Modelo.localEntrega localEntrega = dalLocalEntrega.Select((int)drEncomendas["localEntrega_id"]);
                         Modelo.Status status = dalStatus.Select((int)drEncomendas["Status_id"]);
 
-                        encomenda = new Modelo.Encomenda(usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                        encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
                         encomendas.Add(encomenda);
                     }
                 }
@@ -89,7 +89,7 @@ namespace WebApplication1.DAL
                         Modelo.localEntrega localEntrega = dalLocalEntrega.Select((int)drEncomenda["localEntrega_id"]);
                         Modelo.Status status = dalStatus.Select((int)drEncomenda["Status_id"]);
 
-                        encomenda = new Modelo.Encomenda(usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                        encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
                     }
                 }
             }
@@ -112,6 +112,7 @@ namespace WebApplication1.DAL
                     string sqlEncomenda = "DELETE FROM Encomenda WHERE id = @id";
                     SqlCommand cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
                     cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Value = encomenda.id;
+                    cmdEncomenda.ExecuteNonQuery();
                 }
             }
             catch (SystemException)
@@ -138,7 +139,7 @@ namespace WebApplication1.DAL
                         cmdEncomenda.Parameters.Add("@dataEntrega", SqlDbType.DateTime).Value = encomenda.dataEntrega;
                         cmdEncomenda.Parameters.Add("@localEntrega", SqlDbType.Int).Value = encomenda.localEntrega.id;
                         cmdEncomenda.Parameters.Add("@status", SqlDbType.Int).Value = encomenda.Status.id;
-
+                        cmdEncomenda.ExecuteNonQuery();
                         DALItemEncomenda dalItemEncomenda = new DALItemEncomenda();
                         foreach (Modelo.itemEncomenda item in encomenda.itens)
                         {
@@ -161,17 +162,28 @@ namespace WebApplication1.DAL
                 using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-
-                    string sqlEncomenda = "UPDATE Encomenda SET precoTotal = @preco, dataEntrega = @dataEntrega, localEntrega_id = @localEntrega, Status_id = @status";
-                    SqlCommand cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
+                    SqlCommand cmdEncomenda;
+                    if (encomenda.dataEntrega != null)
+                    {
+                        string sqlEncomenda = "INSERT INTO Encomenda (Usuario_id, precoTotal, dataEntrega, localEntrega_id, Status_id) VALUES (@idUsuario, @preco, @dataEntrega, @localEntrega,@status) SET @id = SCOPE_IDENTITY()";
+                        cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
+                        cmdEncomenda.Parameters.Add("@dataEntrega", SqlDbType.DateTime).Value = encomenda.dataEntrega;
+                    }
+                    else
+                    {
+                        string sqlEncomenda = "INSERT INTO Encomenda (Usuario_id, precoTotal, localEntrega_id, Status_id) VALUES (@idUsuario, @preco, @localEntrega,@status) SET @id = SCOPE_IDENTITY()";
+                        cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
+                    }
+                    cmdEncomenda.Parameters.Add("@idUsuario", SqlDbType.Int).Value = encomenda.Usuario.id;
                     cmdEncomenda.Parameters.Add("@preco", SqlDbType.Decimal).Value = encomenda.precoTotal;
-                    cmdEncomenda.Parameters.Add("@dataEntrega", SqlDbType.DateTime).Value = encomenda.dataEntrega;
                     cmdEncomenda.Parameters.Add("@localEntrega", SqlDbType.Int).Value = encomenda.localEntrega.id;
                     cmdEncomenda.Parameters.Add("@status", SqlDbType.Int).Value = encomenda.Status.id;
-
+                    cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
+                    cmdEncomenda.ExecuteNonQuery();
                     DALItemEncomenda dalItemEncomenda = new DALItemEncomenda();
                     foreach (Modelo.itemEncomenda item in encomenda.itens)
                     {
+                        item.encomendaId = Convert.ToInt32(cmdEncomenda.Parameters["@id"].Value);
                         dalItemEncomenda.Insert(item);
                     }
                 }
@@ -180,6 +192,26 @@ namespace WebApplication1.DAL
             {
                 throw;
             }
+        }
+
+        public void RegistrarEncomenda(int uid, int leid)
+        {
+            Modelo.Encomenda encomenda;
+            Modelo.Usuario usuario;
+            Modelo.itemEncomenda itemEncomenda;
+            List<Modelo.itemEncomenda> itensEncomenda = new List<Modelo.itemEncomenda>();
+            DALUsuario dalUsuario = new DALUsuario();
+            DALCarrinho dalCarrinho = new DALCarrinho();
+            DALItemEncomenda dalItemEncomenda = new DALItemEncomenda();
+            usuario = dalUsuario.Select(uid);
+            foreach (Modelo.itemCarrinho item in usuario.carrinho.itens)
+            {
+                itemEncomenda = new Modelo.itemEncomenda(0, item.item, item.item.tamanho.precoUnitario, item.quantidade);
+                itensEncomenda.Add(itemEncomenda);
+            }
+            encomenda = new Modelo.Encomenda(0, usuario, itensEncomenda, new DALLocalEntrega().Select(leid), new DALStatus().Select(1));
+            Insert(encomenda);
+            dalCarrinho.Limpar(usuario.carrinho);
         }
     }
 }

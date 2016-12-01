@@ -35,8 +35,8 @@ namespace WebApplication1.Modelo
             set { _precoTotal = value; }
         }
 
-        private DateTime _dataEntrega;
-        public DateTime dataEntrega 
+        private DateTime? _dataEntrega;
+        public DateTime? dataEntrega 
         {
             get { return _dataEntrega; }
             set { _dataEntrega = value; }
@@ -57,6 +57,7 @@ namespace WebApplication1.Modelo
 
         public Encomenda()
         {
+            this.id = 0;
             this.Usuario = new Usuario();
             this.itens = new List<itemEncomenda>();
             this.precoTotal = 0;
@@ -65,22 +66,34 @@ namespace WebApplication1.Modelo
             this.Status = new Status();
         }
 
-        public Encomenda(Usuario usuario, List<itemEncomenda> itens, DateTime dataentrega, localEntrega localEntrega, Status status)
+        public Encomenda(int id, Usuario usuario, List<itemEncomenda> itens, DateTime dataentrega, localEntrega localEntrega, Status status)
         {
-            this.Usuario = new Usuario();
+            this.id = id;
+            this.Usuario = usuario;
             this.itens = itens;
-            this.dataEntrega = default(DateTime);
-            this.localEntrega = new localEntrega();
-            this.Status = new Status();
+            this.dataEntrega = dataentrega;
+            this.localEntrega = localEntrega;
+            this.Status = status;
+            calcularPrecoTotal();
+        }
+
+        public Encomenda(int id,Usuario usuario, List<itemEncomenda> itens, localEntrega localEntrega, Status status)
+        {
+            this.id = id;
+            this.Usuario = usuario;
+            this.itens = itens;
+            this.dataEntrega = null;
+            this.localEntrega = localEntrega;
+            this.Status = status;
             calcularPrecoTotal();
         }
 
         private void calcularPrecoTotal()
         {
-            double preco = 0;
+            precoTotal = 0;
             foreach (var item in this.itens)
             {
-                preco += item.precoIndividual * item.quantidade;
+                precoTotal += item.precoIndividual * item.quantidade;
             }
         }
     }
