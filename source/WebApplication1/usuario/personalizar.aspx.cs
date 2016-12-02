@@ -26,37 +26,42 @@ namespace WebApplication1.usuario
 
         protected void btnupload_Click(object sender, EventArgs e)
         {
-            /**
-             * Limite de arquivo de 5mb. Tem que ver aí as paradas do retorno de mensagem. 
-             */
-            imagem = System.Drawing.Image.FromStream(fileProduto.PostedFile.InputStream);
-            int tamanhoArquivo = fileProduto.PostedFile.ContentLength;
-            string tipoArquivo = fileProduto.PostedFile.ContentType;
-
-            if (!(tamanhoArquivo > 5000000 || (tipoArquivo != "image/jpg" && tipoArquivo != "image/jpeg" && tipoArquivo != "image/png")))
+            try
             {
-                DAL.DALProduto dalProduto = new DAL.DALProduto();
-                DAL.DALItem dalItem = new DAL.DALItem();
-                DAL.DALTamanho dalTamanho = new DAL.DALTamanho();
+                imagem = System.Drawing.Image.FromStream(fileProduto.PostedFile.InputStream);
+                int tamanhoArquivo = fileProduto.PostedFile.ContentLength;
+                string tipoArquivo = fileProduto.PostedFile.ContentType;
 
-                Modelo.Produto produto = new Modelo.Produto(0, nomeupload.Value, imagem, new List<Modelo.Marcador>());
-                produto.id = dalProduto.Insert(produto);
-                
-                Modelo.Item item = new Modelo.Item(produto, dalTamanho.Select(Convert.ToInt32(Request.Form["tid"])));
-                dalItem.Insert(item);
+                if (!(tipoArquivo != "image/jpg" && tipoArquivo != "image/jpeg" && tipoArquivo != "image/png"))
+                {
+                    DAL.DALProduto dalProduto = new DAL.DALProduto();
+                    DAL.DALItem dalItem = new DAL.DALItem();
+                    DAL.DALTamanho dalTamanho = new DAL.DALTamanho();
 
-                NameValueCollection query = new NameValueCollection()
+                    Modelo.Produto produto = new Modelo.Produto(0, nomeupload.Value, imagem, new List<Modelo.Marcador>());
+                    produto.id = dalProduto.Insert(produto);
+
+                    Modelo.Item item = new Modelo.Item(produto, dalTamanho.Select(Convert.ToInt32(Request.Form["tid"])));
+                    dalItem.Insert(item);
+
+                    NameValueCollection query = new NameValueCollection()
                 {
                     {"addtid", item.tamanho.id.ToString()},
                     {"addpid", item.produto.id.ToString()},
                     {"addq", Request.Form["q"]}
                 };
 
-                MetodosExtensao.Redirecionar("usuario/cart", query);
+                    MetodosExtensao.Redirecionar("usuario/cart", query);
+                }
+                else
+                {
+                    Response.Write("Algo aconteceu. Tente novamente");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Response.Write("Algo aconteceu. Tente novamente");
+                Response.Write(ex.Message);
+                throw;
             }
         }
     }

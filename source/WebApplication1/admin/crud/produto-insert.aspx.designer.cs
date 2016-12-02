@@ -40,40 +40,13 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validateDescricao;
         
         /// <summary>
-        /// txtPreco control.
+        /// fileProduto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPreco;
-        
-        /// <summary>
-        /// validatePreco control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validatePreco;
-        
-        /// <summary>
-        /// regexPreco control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator regexPreco;
-        
-        /// <summary>
-        /// txtEnderecoImg control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtEnderecoImg;
+        protected global::System.Web.UI.WebControls.FileUpload fileProduto;
         
         /// <summary>
         /// validateImagem control.
@@ -83,24 +56,6 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validateImagem;
-        
-        /// <summary>
-        /// txtTamanho control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTamanho;
-        
-        /// <summary>
-        /// validateTamanho control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validateTamanho;
         
         /// <summary>
         /// btnCadastrarProduto control.

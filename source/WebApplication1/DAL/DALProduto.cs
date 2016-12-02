@@ -65,7 +65,6 @@ namespace WebApplication1.DAL
         {
             // O Produto retorno
             Modelo.Produto produto = null;
-
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -96,7 +95,7 @@ namespace WebApplication1.DAL
                     }
                 }
             }
-            catch (SystemException)
+            catch (SystemException ex) 
             {
                 throw;
             }
@@ -106,8 +105,6 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Produto produto)
         {
-            
-            
             int id = Convert.ToInt32(produto.id);
             try
             {
@@ -130,45 +127,48 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public int Insert(Modelo.Produto produto)
         {
-            int idProduto;
-            string descricao = produto.descricao;
-            string imagem = produto.imagem;
-            try
+            if (produto != null)
             {
-                using (conn = new SqlConnection(connectionString))
+                int idProduto = 0;
+                string descricao = produto.descricao;
+                string imagem = produto.imagem;
+                try
                 {
-                    conn.Open();
-                    // O SQL da inserção do produto
-                    string sqlProduto = "INSERT INTO Produto (descricao, imagem) VALUES (@descricao, @imagem) SET @ID = SCOPE_IDENTITY();";
-                    SqlCommand cmdProduto = new SqlCommand(sqlProduto, conn);
-                    cmdProduto.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
-                    cmdProduto.Parameters.Add("@imagem", SqlDbType.VarChar).Value = imagem;
-                    cmdProduto.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
-                    cmdProduto.ExecuteNonQuery();
-
-                    //Pega o ID do produto registrado
-                    idProduto = (int)cmdProduto.Parameters["@ID"].Value;
-
-                    // O SQL da inserção dos Marcadores na tabela relacional.
-                    string sqlMarcadores = "INSERT INTO marcadorProduto (Produto_id, Marcador_id) VALUES (@produtoId, @marcadorId)";
-                    SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores, conn);
-                    cmdMarcadores.Parameters.Add("@produtoId", SqlDbType.Int).Value = idProduto;
-
-                    // Inserção de cada marcador na tabela relacional
-                    foreach (Modelo.Marcador marcador in produto.marcadores)
+                    using (conn = new SqlConnection(connectionString))
                     {
-                        cmdMarcadores.Parameters.Add("@marcadorId", SqlDbType.Int).Value = marcador.id;
-                        cmdMarcadores.ExecuteNonQuery();
+                        conn.Open();
+                        // O SQL da inserção do produto
+                        string sqlProduto = "INSERT INTO Produto (descricao, imagem) VALUES (@descricao, @imagem) SET @ID = SCOPE_IDENTITY();";
+                        SqlCommand cmdProduto = new SqlCommand(sqlProduto, conn);
+                        cmdProduto.Parameters.Add("@descricao", SqlDbType.VarChar).Value = descricao;
+                        cmdProduto.Parameters.Add("@imagem", SqlDbType.VarChar).Value = imagem;
+                        cmdProduto.Parameters.Add("@ID", SqlDbType.Int).Direction = ParameterDirection.Output;
+                        cmdProduto.ExecuteNonQuery();
+
+                        //Pega o ID do produto registrado
+                        idProduto = (int)cmdProduto.Parameters["@ID"].Value;
+
+                        // O SQL da inserção dos Marcadores na tabela relacional.
+                        string sqlMarcadores = "INSERT INTO marcadorProduto (Produto_id, Marcador_id) VALUES (@produtoId, @marcadorId)";
+                        SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores, conn);
+                        cmdMarcadores.Parameters.Add("@produtoId", SqlDbType.Int).Value = idProduto;
+
+                        // Inserção de cada marcador na tabela relacional
+                        foreach (Modelo.Marcador marcador in produto.marcadores)
+                        {
+                            cmdMarcadores.Parameters.Add("@marcadorId", SqlDbType.Int).Value = marcador.id;
+                            cmdMarcadores.ExecuteNonQuery();
+                        }
                     }
                 }
+                catch (SystemException)
+                {
+                    throw;
+                }
+                return idProduto;
             }
-            catch (SystemException)
-            {
-                throw;
-            }
-            return idProduto;
+            return 0;
         }
-
 
         /*
          * Como funcionará o sistema de atualização de marcadores de um produto? 
@@ -178,18 +178,16 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Update)]
         public void Update(Modelo.Produto produto)
         {
-            
-            
             int id = produto.id;
             string descricao = produto.descricao;
             string imagem = produto.imagem;
-            try
+            if (produto != null && this.Select(produto.id) != produto)
             {
-                using (conn = new SqlConnection(connectionString))
+                try
                 {
-                    conn.Open();
-                    if (this.Select(produto.id) != produto)
+                    using (conn = new SqlConnection(connectionString))
                     {
+                        conn.Open();
                         // O SQL
                         string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', imagem = '@imagem' WHERE ID = @id";
                         SqlCommand cmdTamanho = new SqlCommand(sqlTamanho, conn);
@@ -199,10 +197,11 @@ namespace WebApplication1.DAL
                         cmdTamanho.ExecuteNonQuery();
                     }
                 }
-            }
-            catch (SystemException)
-            {
-                throw;
+
+                catch (SystemException)
+                {
+                    throw;
+                }
             }
         }
     }

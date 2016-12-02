@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CRUDProdutoSelect.aspx.cs" Inherits="WebApplication1.CRUDProdutoSelect" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="produto-select.aspx.cs" Inherits="WebApplication1.CRUDProdutoSelect" %>
 
 <!DOCTYPE html>
 
