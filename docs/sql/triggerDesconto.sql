@@ -1,5 +1,6 @@
 ﻿ALTER TRIGGER [dbo].[Descontos] ON [dbo].[Carrinho]
-AFTER INSERT, UPDATE AS
+AFTER INSERT
+AS
 DECLARE 
 	@descontos INT,
 	@precototal NUMERIC(10,2),
@@ -8,8 +9,8 @@ DECLARE
  
 	SELECT @usuario_id = Usuario_id
 		FROM inserted
-	SELECT @qtditens = quantidade
-		FROM itemCarrinho 
+	SELECT @qtditens = SUM(quantidade)
+		FROM itemCarrinho
 		WHERE Carrinho_id = @usuario_id
 	SELECT @precototal = precoTotal
 		FROM Carrinho
