@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using System.Drawing;
 
-namespace WebApplication1
+namespace WebApplication1.admin.crud
 {
-    public partial class CRUDProdutoInsert : System.Web.UI.Page
+    public partial class produto_insert2 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,10 +22,19 @@ namespace WebApplication1
             Modelo.Item item;
             DAL.DALTamanho dalTamanho = new DAL.DALTamanho();
             Modelo.Tamanho tamanho;
+            DAL.DALMarcador dalMarcador = new DAL.DALMarcador();
+            Modelo.Marcador marcador;
+            List<Modelo.Marcador> marcadores = new List<Modelo.Marcador>();
+
             try
             {
+                foreach (string mid in Request.Form.GetValues("mid"))
+                {
+                    marcador = dalMarcador.Select(Convert.ToInt32(mid));
+                    marcadores.Add(marcador);
+                }
                 System.Drawing.Image imagem = System.Drawing.Image.FromStream(fileProduto.PostedFile.InputStream);
-                produto = new Modelo.Produto(0, txtDescricao.Text, imagem, null);
+                produto = new Modelo.Produto(0, txtDescricao.Text, imagem, marcadores);
                 int idProduto = dalProduto.Insert(produto);
                 produto = dalProduto.Select(idProduto);
                 foreach (string tid in Request.Form.GetValues("tid"))

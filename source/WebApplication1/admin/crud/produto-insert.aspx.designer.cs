@@ -7,19 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1 {
+namespace WebApplication1.admin.crud {
     
     
-    public partial class CRUDProdutoInsert {
-        
-        /// <summary>
-        /// form1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+    public partial class produto_insert2 {
         
         /// <summary>
         /// txtDescricao control.
@@ -40,6 +31,15 @@ namespace WebApplication1 {
         protected global::System.Web.UI.WebControls.RequiredFieldValidator validateDescricao;
         
         /// <summary>
+        /// validateDescricaoLength control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator validateDescricaoLength;
+        
+        /// <summary>
         /// fileProduto control.
         /// </summary>
         /// <remarks>
@@ -47,15 +47,6 @@ namespace WebApplication1 {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fileProduto;
-        
-        /// <summary>
-        /// validateImagem control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator validateImagem;
         
         /// <summary>
         /// btnCadastrarProduto control.
