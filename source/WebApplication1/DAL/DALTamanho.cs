@@ -7,11 +7,11 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.DAL
+namespace redux.DAL
 {
-    public static class DALTamanho : DAL
+    public class DALTamanho : DAL
     {
-        public static DALTamanho() : base(){}
+        public DALTamanho() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<Modelo.Tamanho> SelectAll()

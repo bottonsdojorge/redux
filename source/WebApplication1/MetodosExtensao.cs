@@ -4,7 +4,7 @@ using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1
+namespace redux
 {
     public static class MetodosExtensao
     {

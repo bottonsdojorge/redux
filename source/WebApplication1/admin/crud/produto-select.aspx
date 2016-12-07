@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="produto-select.aspx.cs" Inherits="WebApplication1.admin.crud.produto_select" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="produto-select.aspx.cs" Inherits="redux.admin.crud.produto_select" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentPlaceHolderCorpo" runat="server">
@@ -17,5 +17,5 @@
             </div>
         </div>
     </div>
-    <asp:ObjectDataSource ID="dataSourceProduto" runat="server" DataObjectTypeName="WebApplication1.Modelo.Produto" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebApplication1.DAL.DALProduto" UpdateMethod="Update"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="dataSourceProduto" runat="server" DataObjectTypeName="redux.Modelo.Produto" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="redux.DAL.DALProduto" UpdateMethod="Update"></asp:ObjectDataSource>
 </asp:Content>

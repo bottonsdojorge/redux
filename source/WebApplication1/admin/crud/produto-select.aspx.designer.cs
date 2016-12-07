@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplication1.admin.crud {
+namespace redux.admin.crud {
     
     
     public partial class produto_select {

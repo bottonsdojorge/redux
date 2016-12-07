@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.Modelo
+namespace redux.Modelo
 {
     public class Encomenda
     {
@@ -61,17 +61,17 @@ namespace WebApplication1.Modelo
             this.Usuario = new Usuario();
             this.itens = new List<itemEncomenda>();
             this.precoTotal = 0;
-            this.dataEntrega = default(DateTime);
+            this.dataEntrega = default(DateTime?);
             this.localEntrega = new localEntrega();
             this.Status = new Status();
         }
 
-        public Encomenda(int id, Usuario usuario, List<itemEncomenda> itens, DateTime dataentrega, localEntrega localEntrega, Status status)
+        public Encomenda(int id, Usuario usuario, List<itemEncomenda> itens, DateTime? dataentrega, localEntrega localEntrega, Status status)
         {
             this.id = id;
             this.Usuario = usuario;
             this.itens = itens;
-            this.dataEntrega = dataentrega;
+            this.dataEntrega = (dataentrega == default(DateTime)) ? null : dataentrega;
             this.localEntrega = localEntrega;
             this.Status = status;
             calcularPrecoTotal();

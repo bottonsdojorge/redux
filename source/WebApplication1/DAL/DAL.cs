@@ -7,15 +7,15 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.DAL
+namespace redux.DAL
 {
     public class DAL
     {
-        protected static string connectionString = "";
+        protected static string connectionString = ConfigurationManager.ConnectionStrings["pedroPcConnectionString"].ConnectionString;
         static protected SqlConnection conn;
         public DAL()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["pedroPcConnectionString"].ConnectionString;
         }
     }
 }

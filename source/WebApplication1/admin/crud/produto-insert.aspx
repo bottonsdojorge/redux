@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Visualização de Produtos | Bottons do Jorge" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="produto-insert.aspx.cs" Inherits="WebApplication1.admin.crud.produto_insert2" %>
+﻿<%@ Page Title="Visualização de Produtos | Bottons do Jorge" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="produto-insert.aspx.cs" Inherits="redux.admin.crud.produto_insert2" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 </asp:Content>
@@ -14,8 +14,8 @@
                 <asp:FileUpload ID="fileProduto" runat="server" />
                 <h3>Tamanhos:</h3>
                 <%
-                    WebApplication1.DAL.DALTamanho dalTamanho = new WebApplication1.DAL.DALTamanho();
-                    List<WebApplication1.Modelo.Tamanho> tamanhos;
+                    redux.DAL.DALTamanho dalTamanho = new redux.DAL.DALTamanho();
+                    List<redux.Modelo.Tamanho> tamanhos;
 
                     tamanhos = dalTamanho.SelectAll();
 
@@ -28,8 +28,8 @@
                 %>
                 <h3>Marcadores:</h3>
                 <%
-                    WebApplication1.DAL.DALMarcador dalMarcador = new WebApplication1.DAL.DALMarcador();
-                    List<WebApplication1.Modelo.Marcador> marcadores;
+                    redux.DAL.DALMarcador dalMarcador = new redux.DAL.DALMarcador();
+                    List<redux.Modelo.Marcador> marcadores;
 
                     marcadores = dalMarcador.SelectAll();
 

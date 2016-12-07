@@ -5,7 +5,7 @@ using System.Web;
 using System.Drawing;
 using System.Drawing.Imaging;
 
-namespace WebApplication1.Modelo
+namespace redux.Modelo
 {
     public class Produto
     {

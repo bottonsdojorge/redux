@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Personalize seu Produto | Bottons do Jorge" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="personalizar.aspx.cs" Inherits="WebApplication1.usuario.personalizar" %>
+﻿<%@ Page Title="Personalize seu Produto | Bottons do Jorge" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="personalizar.aspx.cs" Inherits="redux.usuario.personalizar" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentPlaceHolderCorpo" runat="server">
@@ -13,10 +13,9 @@
         <label>Dê um nome: <input type="text" name="nomeupload" id="nomeupload" runat="server"></label>
         <input type="number" name="q" value="1" />
         <%
-            WebApplication1.DAL.DALTamanho dalTamanho = new WebApplication1.DAL.DALTamanho();
-            List<WebApplication1.Modelo.Tamanho> tamanhos;
+            List<redux.Modelo.Tamanho> tamanhos;
 
-            tamanhos = dalTamanho.SelectAll();
+            tamanhos = redux.DAL.DALTamanho.SelectAll();
 
             foreach (var tamanho in tamanhos)
             { %>

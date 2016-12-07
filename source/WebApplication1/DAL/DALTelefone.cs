@@ -6,7 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.DAL
+namespace redux.DAL
 {
     public class DALTelefone : DAL
     {

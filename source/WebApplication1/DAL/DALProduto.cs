@@ -9,7 +9,7 @@ using System.Drawing.Imaging;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.DAL
+namespace redux.DAL
 {
     public class DALProduto : DAL
     {

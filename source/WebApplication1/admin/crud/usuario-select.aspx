@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="usuario-select.aspx.cs" Inherits="WebApplication1.CRUDUsuarioSelect" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="usuario-select.aspx.cs" Inherits="redux.CRUDUsuarioSelect" %>
 
 <!DOCTYPE html>
 
@@ -18,7 +18,7 @@
             </Columns>
         </asp:GridView>
     </div>
-        <asp:ObjectDataSource ID="dataSourceUsuario" runat="server" DataObjectTypeName="WebApplication1.Modelo.Usuario" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebApplication1.DAL.DALUsuario" UpdateMethod="Update"></asp:ObjectDataSource>
+        <asp:ObjectDataSource ID="dataSourceUsuario" runat="server" DataObjectTypeName="redux.Modelo.Usuario" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="redux.DAL.DALUsuario" UpdateMethod="Update"></asp:ObjectDataSource>
     </form>
 </body>
 </html>

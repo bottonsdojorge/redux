@@ -6,7 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication1
+namespace redux
 {
     public partial class Vitrine : System.Web.UI.Page
     {
@@ -64,11 +64,11 @@ namespace WebApplication1
             {
                 try
                 {
-                    this.pagina = Convert.ToInt32(Request.QueryString["p"]);
+                    pagina = Convert.ToInt32(Request.QueryString["p"]);
                 }
                 catch (FormatException)
                 {
-                    this.pagina = 1;
+                    pagina = 1;
                 }
             }
 
@@ -87,9 +87,8 @@ namespace WebApplication1
          */
         protected void getVitrine()
         {
-            DAL.DALItem dalItem = new DAL.DALItem();
-            this.numPaginas = dalItem.SelectNumPaginas(this.filtro);
-            this.itens = dalItem.SelectToVitrine(this.filtro, this.pagina);
+            this.numPaginas = DAL.DALItem.SelectNumPaginas(filtro);
+            this.itens = DAL.DALItem.SelectToVitrine(filtro, pagina);
         }
 
         /*
@@ -105,9 +104,8 @@ namespace WebApplication1
          */
         protected void initMarcadores()
         {
-            DAL.DALMarcador dalMarcador = new DAL.DALMarcador();
-            this.marcadores = dalMarcador.SelectAll();
-            this.filtro = new List<int>();
+            marcadores = DAL.DALMarcador.SelectAll();
+            filtro = new List<int>();
 
             if (Request.Form["marcadores"] != null)
             {
@@ -117,14 +115,14 @@ namespace WebApplication1
             { 
                 foreach (string marcador in (string[])Session["marcadores"])
                 {
-                    this.filtro.Add(Convert.ToInt32(marcador));
+                    filtro.Add(Convert.ToInt32(marcador));
                 }
             }
         }
 
         protected void paginar()
         {
-            string urlVitrine = WebApplication1.MetodosExtensao.GetLink("Vitrine") + "?p=";
+            string urlVitrine = redux.MetodosExtensao.GetLink("Vitrine") + "?p=";
             bool ativo;
             string classeAtivo = "class='active'";
 

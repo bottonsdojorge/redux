@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="WebApplication1.CRUDUsuarioInsert" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="redux.CRUDUsuarioInsert" %>
 
 <!DOCTYPE html>
 

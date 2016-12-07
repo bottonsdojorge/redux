@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using System.Drawing;
 using System.Collections.Specialized;
 
-namespace WebApplication1.usuario
+namespace redux.usuario
 {
     public partial class personalizar : System.Web.UI.Page
     {
@@ -34,15 +34,11 @@ namespace WebApplication1.usuario
 
                 if (!(tipoArquivo != "image/jpg" && tipoArquivo != "image/jpeg" && tipoArquivo != "image/png"))
                 {
-                    DAL.DALProduto dalProduto = new DAL.DALProduto();
-                    DAL.DALItem dalItem = new DAL.DALItem();
-                    DAL.DALTamanho dalTamanho = new DAL.DALTamanho();
-
                     Modelo.Produto produto = new Modelo.Produto(0, nomeupload.Value, imagem, new List<Modelo.Marcador>());
-                    produto.id = dalProduto.Insert(produto);
+                    produto.id = DAL.DALProduto.Insert(produto);
 
-                    Modelo.Item item = new Modelo.Item(produto, dalTamanho.Select(Convert.ToInt32(Request.Form["tid"])));
-                    dalItem.Insert(item);
+                    Modelo.Item item = new Modelo.Item(produto, DAL.DALTamanho.Select(Convert.ToInt32(Request.Form["tid"])));
+                    DAL.DALItem.Insert(item);
 
                     NameValueCollection query = new NameValueCollection()
                 {

@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Login | Bottons do Jorge" MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="WebApplication1.Login" Theme="main" %>
+﻿<%@ Page Title="Login | Bottons do Jorge" MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="redux.Login" Theme="main" %>
 <asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 
 </asp:Content>

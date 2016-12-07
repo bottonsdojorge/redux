@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication1.usuario
+namespace redux.usuario
 {
     public partial class checkout : System.Web.UI.Page
     {

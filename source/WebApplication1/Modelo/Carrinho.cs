@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.Modelo
+namespace redux.Modelo
 {
 	public class Carrinho
 	{
@@ -21,6 +21,20 @@ namespace WebApplication1.Modelo
 			set { _itens = value; }
 		}
 
+		private double _subTotal;
+		public double subTotal
+		{
+			get { return _subTotal; }
+			set { _subTotal = value; }
+		}
+
+		private double _desconto;
+		public double desconto
+		{
+			get { return _desconto; }
+			set { _desconto = value; }
+		}
+		
 		private double _precoTotal;
 		public double precoTotal
 		{
@@ -30,27 +44,20 @@ namespace WebApplication1.Modelo
 
 		public Carrinho ()
 		{
-			this.itens = new List<itemCarrinho>();
-			this.precoTotal = 0;
-			this.Usuario_id = 0;
+			itens = new List<itemCarrinho>();
 			precoTotal = 0;
+			Usuario_id = 0;
+			subTotal = 0;
+			desconto = 0;
 		}
 
-		public Carrinho(List<itemCarrinho> itens, double precoTotal, int Usuario_id)
+		public Carrinho(List<itemCarrinho> itens, double precoTotal, double subTotal, double desconto, int Usuario_id)
 		{
 			this.itens = itens;
 			this.precoTotal = precoTotal;
+			this.subTotal = subTotal;
+			this.desconto = desconto;
 			this.Usuario_id = Usuario_id;
-			this.calcularPrecoTotal();
-		}
-
-		public void calcularPrecoTotal()
-		{
-			precoTotal = 0;
-			foreach (itemCarrinho item in itens)
-			{
-				precoTotal += item.subTotal;
-			}
 		}
 	}
 }

@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.DAL
+namespace redux.DAL
 {
     public class DALCarrinho : DAL
     {
@@ -40,11 +40,13 @@ namespace WebApplication1.DAL
                             {
                                 int idUsuario = Convert.ToInt32(drCarrinhos["Usuario_id"]);
                                 double precoTotal = Convert.ToDouble(drCarrinhos["precoTotal"]);
+                                double subTotal = Convert.ToDouble(drCarrinhos["subTotal"]);
+                                double desconto = Convert.ToDouble(drCarrinhos["desconto"]);
                                 List<Modelo.itemCarrinho> itensCarrinho;
 
                                 itensCarrinho = DALItemCarrinho.SelectFromCarrinho(idUsuario);
 
-                                carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, idUsuario);
+                                carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, subTotal, desconto, idUsuario);
                             }
                         }
                     }
@@ -83,11 +85,13 @@ namespace WebApplication1.DAL
                             {
                                 int idUsuario = Convert.ToInt32(drCarrinhos["Usuario_id"]);
                                 double precoTotal = Convert.ToDouble(drCarrinhos["precoTotal"]);
+                                double subTotal = Convert.ToDouble(drCarrinhos["subTotal"]);
+                                double desconto = Convert.ToDouble(drCarrinhos["desconto"]);
                                 List<Modelo.itemCarrinho> itensCarrinho;
 
                                 itensCarrinho = DALItemCarrinho.SelectFromCarrinho(idUsuario);
 
-                                carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, idUsuario);
+                                carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, subTotal, desconto, idUsuario);
                             }
                         }
                     }
@@ -218,7 +222,7 @@ namespace WebApplication1.DAL
             }
         }
 
-        public static void InserirItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
+        public static void InserirItem(Modelo.itemCarrinho itemCarrinho)
         {
             DALItemCarrinho.Insert(itemCarrinho);
         }
@@ -231,7 +235,7 @@ namespace WebApplication1.DAL
             DALItemCarrinho.Insert(itemCarrinho);
         }
 
-        public static void RemoverItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
+        public static void RemoverItem(Modelo.itemCarrinho itemCarrinho)
         {
             DALItemCarrinho.Delete(itemCarrinho);
         }

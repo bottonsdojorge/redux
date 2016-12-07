@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.Modelo
+namespace redux.Modelo
 {
     public class localEntrega
     {
@@ -49,7 +49,7 @@ namespace WebApplication1.Modelo
             get { return _cep; }
             set { _cep = value; }
         }
-
+        public string enderecoFormatado { get; set; }
         public localEntrega()
         {
             this.id = 0;
@@ -59,6 +59,7 @@ namespace WebApplication1.Modelo
             this.bairro = "";
             this.cep = "";
             this.complemento = "";
+            this.enderecoFormatado = "";
         }
 
         public localEntrega(int id, int numero, string rua, string descricao, string bairro, string cep, string complemento)
@@ -70,6 +71,7 @@ namespace WebApplication1.Modelo
             this.bairro = bairro;
             this.cep = cep;
             this.complemento = complemento;
+            enderecoFormatado = String.Format("{0} - {1}, {2}, {3} - {4}, {5}", descricao, rua, numero, complemento, bairro, cep);
         }  
     }
 }

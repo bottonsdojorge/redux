@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Carrinho | Bottons do Jorge" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="WebApplication1.usuario.cart" %>
+﻿<%@ Page Title="Carrinho | Bottons do Jorge" Language="C#" MasterPageFile="~/mainMaster.Master" AutoEventWireup="true" CodeBehind="cart.aspx.cs" Inherits="redux.usuario.cart" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentPlaceHolderCorpo" runat="server">
@@ -18,7 +18,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% foreach (WebApplication1.Modelo.itemCarrinho item in carro.itens){ %>
+                        <% foreach (redux.Modelo.itemCarrinho item in carro.itens){ %>
                         <tr>
                             <th>
                                 <% Response.Write(String.Format("{0}, {1}", item.item.produto.descricao, item.item.tamanho.descricao)); %>
@@ -34,16 +34,24 @@
                         </tr>
                         <% } %>
                         <tr class="info">
-                            <th colspan="2">Total dos produtos</th>
+                            <th colspan="2">Sub-total dos produtos</th>
+                            <th><%= String.Format("{0:C2}", carro.subTotal) %></th>
+                        </tr>
+                        <tr class="warning">
+                            <th colspan="2">Desconto</th>
+                            <th><%= String.Format("{0:C2}", carro.desconto) %></th>
+                        </tr>
+                        <tr class="success">
+                            <th colspan="2">Total</th>
                             <th><%= String.Format("{0:C2}", carro.precoTotal) %></th>
                         </tr>
                     </tbody>
                 </table>
                 <% if (carro.itens.Count > 0) {  %>
-                    <a href="<%= WebApplication1.MetodosExtensao.GetLink("usuario/checkout") %>" class="btn btn-warning">Fazer encomenda</a>
+                    <a href="<%= redux.MetodosExtensao.GetLink("usuario/checkout") %>" class="btn btn-warning">Fazer encomenda</a>
                     <asp:Button ID="btnLimparCarrinho" runat="server" Text="Limpar carrinho" CssClass="btn btn-default" UseSubmitBehavior="True" OnClick="btnLimparCarrinho_Click"/>
                 <% } %>
-                <a href="<%= WebApplication1.MetodosExtensao.GetLink("Vitrine") %>">Continuar comprando</a>
+                <a href="<%= redux.MetodosExtensao.GetLink("Vitrine") %>">Continuar comprando</a>
             </div>
             <!-- Fim Items -->
         </div>        

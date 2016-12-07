@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace WebApplication1.DAL
+namespace redux.DAL
 {
     public class DALEncomenda : DAL
     {
@@ -16,7 +16,7 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static List<Modelo.Encomenda> SelectAll()
         {
-            Modelo.Encomenda encomenda;
+            Modelo.Encomenda encomenda = new Modelo.Encomenda();
             List<Modelo.Encomenda> encomendas = new List<Modelo.Encomenda>();
 
             try
@@ -31,17 +31,23 @@ namespace WebApplication1.DAL
 
                     using (drEncomendas = cmdEncomendas.ExecuteReader())
                     {
-                        int id = (int)drEncomendas["id"];
-                        double precoTotal = (double)drEncomendas["precoTotal"];
-                        DateTime dataEntrega = (DateTime)drEncomendas["dataEntrega"];
+                        if (drEncomendas.HasRows)
+                        {
+                            while (drEncomendas.Read())
+                            {
+                                int id = (int)drEncomendas["id"];
+                                double precoTotal = (double)drEncomendas["precoTotal"];
+                                DateTime dataEntrega = (DateTime)drEncomendas["dataEntrega"];
 
-                        Modelo.Usuario usuario = DALUsuario.Select((int)drEncomendas["Usuario_id"]);
-                        List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
-                        Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomendas["localEntrega_id"]);
-                        Modelo.Status status = DALStatus.Select((int)drEncomendas["Status_id"]);
+                                Modelo.Usuario usuario = DALUsuario.Select((int)drEncomendas["Usuario_id"]);
+                                List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
+                                Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomendas["localEntrega_id"]);
+                                Modelo.Status status = DALStatus.Select((int)drEncomendas["Status_id"]);
 
-                        encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
-                        encomendas.Add(encomenda);
+                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                                encomendas.Add(encomenda);
+                            }
+                        }
                     }
                 }
             }
@@ -55,8 +61,7 @@ namespace WebApplication1.DAL
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static Modelo.Encomenda Select(int idEncomenda)
         {
-            Modelo.Encomenda encomenda;
-
+            Modelo.Encomenda encomenda = new Modelo.Encomenda();
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -69,16 +74,22 @@ namespace WebApplication1.DAL
 
                     using (drEncomenda = cmdEncomenda.ExecuteReader())
                     {
-                        int id = (int)drEncomenda["id"];
-                        double precoTotal = (double)drEncomenda["precoTotal"];
-                        DateTime dataEntrega = (DateTime)drEncomenda["dataEntrega"];
+                        if (drEncomenda.HasRows)
+                        {
+                            while (drEncomenda.Read())
+                            {
+                                int id = (int)drEncomenda["id"];
+                                double precoTotal = (double)drEncomenda["precoTotal"];
+                                DateTime dataEntrega = (DateTime)drEncomenda["dataEntrega"];
 
-                        Modelo.Usuario usuario = DALUsuario.Select((int)drEncomendas["Usuario_id"]);
-                        List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
-                        Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomendas["localEntrega_id"]);
-                        Modelo.Status status = DALStatus.Select((int)drEncomendas["Status_id"]);
+                                Modelo.Usuario usuario = DALUsuario.Select((int)drEncomenda["Usuario_id"]);
+                                List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
+                                Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomenda["localEntrega_id"]);
+                                Modelo.Status status = DALStatus.Select((int)drEncomenda["Status_id"]);
 
-                        encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                            }
+                        }
                     }
                 }
             }
@@ -87,6 +98,54 @@ namespace WebApplication1.DAL
                 throw;
             }
             return encomenda;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static List<Modelo.Encomenda> SelectFromUsuario(int idUsuario)
+        {
+            Modelo.Encomenda encomenda;
+            List<Modelo.Encomenda> encomendas = new List<Modelo.Encomenda>();
+
+            try
+            {
+                using (conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    string sqlEncomendas = "SELECT * FROM Encomenda WHERE Usuario_id = @idUsuario";
+                    SqlCommand cmdEncomendas = new SqlCommand(sqlEncomendas, conn);
+                    cmdEncomendas.Parameters.Add("@idUsuario", SqlDbType.Int).Value = idUsuario;
+                    SqlDataReader drEncomendas;
+
+                    using (drEncomendas = cmdEncomendas.ExecuteReader())
+                    {
+                        if (drEncomendas.HasRows)
+                        {
+                            while (drEncomendas.Read())
+                            {
+                                int id = (int)drEncomendas["id"];
+                                double precoTotal = Convert.ToDouble(drEncomendas["precoTotal"]);
+                                DateTime dataEntrega;
+                                DateTime.TryParse(drEncomendas["dataEntrega"].ToString(), out dataEntrega);
+
+                                Modelo.Usuario usuario = DALUsuario.Select((int)drEncomendas["Usuario_id"]);
+                                List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
+                                Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomendas["localEntrega_id"]);
+                                Modelo.Status status = DALStatus.Select((int)drEncomendas["Status_id"]);
+
+                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                                encomendas.Add(encomenda);
+                    
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+            return encomendas;
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]

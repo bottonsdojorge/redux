@@ -5,7 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
-namespace WebApplication1.DAL
+namespace redux.DAL
 {
     public class DALLocalEntrega : DAL
     {
@@ -57,7 +57,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.localEntrega Select(int idLocalEntrega)
+        public static Modelo.localEntrega Select(int idLocalEntrega)
         {
             Modelo.localEntrega localEntrega = null;
 

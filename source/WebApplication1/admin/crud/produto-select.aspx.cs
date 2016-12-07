@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace WebApplication1.admin.crud
+namespace redux.admin.crud
 {
     public partial class produto_select : System.Web.UI.Page
     {

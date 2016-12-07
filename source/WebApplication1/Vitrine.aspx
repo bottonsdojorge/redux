@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Vitrine | Bottons do Jorge" MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Vitrine.aspx.cs" Inherits="WebApplication1.Vitrine" Theme="main" %>
+﻿<%@ Page Title="Vitrine | Bottons do Jorge" MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Vitrine.aspx.cs" Inherits="redux.Vitrine" Theme="main" %>
 <asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 
 </asp:Content>
@@ -12,14 +12,14 @@
         </div>
         <div class="row">
                 <div class="col-xs-12">
-                        <% foreach (WebApplication1.Modelo.Marcador marcador in marcadores){ %>
+                        <% foreach (redux.Modelo.Marcador marcador in marcadores){ %>
                             <label class="checkbox-inline">
                                 <input type="checkbox" name="marcadores" id="marcador<%= marcador.id %>" value="<%= marcador.id %>" <% if ((string[])Session["marcadores"] != null && ((string[])Session["marcadores"]).Contains(marcador.id.ToString())) { Response.Write("checked"); } %>> <%= marcador.descricao %>
                             </label>     
                         <% } %>
                     <asp:Button ID="btnBusca" CssClass="btn btn-default" runat="server" PostBackUrl="~/Vitrine.aspx" Text="Buscar" UseSubmitBehavior="True" />
                 </div>
-            <% foreach (WebApplication1.Modelo.Item item in itens){ %>
+            <% foreach (redux.Modelo.Item item in itens){ %>
                 <div class="col-xs-12 col-sm-4">
                     <img class="img-responsive img-circle" src="/upload/imagem-produto/<% Response.Write(item.produto.imagem); %>" />
                     <p><% Response.Write(item.produto.descricao); %>, Tamanho <% Response.Write(item.tamanho.descricao); %></p>
