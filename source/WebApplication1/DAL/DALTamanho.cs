@@ -9,12 +9,12 @@ using System.Web;
 
 namespace WebApplication1.DAL
 {
-    public class DALTamanho : DAL
+    public static class DALTamanho : DAL
     {
-        public DALTamanho() : base(){}
+        public static DALTamanho() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Tamanho> SelectAll()
+        public static List<Modelo.Tamanho> SelectAll()
         {
             // O Tamanho
             Modelo.Tamanho tamanho;
@@ -55,7 +55,7 @@ namespace WebApplication1.DAL
         }   
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Tamanho Select(int idTamanho)
+        public static Modelo.Tamanho Select(int idTamanho)
         {
             // O Tamanho
             Modelo.Tamanho tamanho = null;
@@ -96,7 +96,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Tamanho tamanho)
+        public static void Delete(Modelo.Tamanho tamanho)
         {
             string id = tamanho.id.ToString();
             try
@@ -118,7 +118,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Tamanho tamanho)
+        public static void Insert(Modelo.Tamanho tamanho)
         {
             
             
@@ -144,10 +144,8 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Tamanho tamanho)
+        public static void Update(Modelo.Tamanho tamanho)
         {
-            
-            
             int id = tamanho.id;
             string descricao = tamanho.descricao;
             double preco = tamanho.precoUnitario;

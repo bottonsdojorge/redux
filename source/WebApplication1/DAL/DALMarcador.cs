@@ -14,15 +14,12 @@ namespace WebApplication1.DAL
         public DALMarcador() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Marcador> SelectAll()
+        public static List<Modelo.Marcador> SelectAll()
         {
             // O Marcador
             Modelo.Marcador marcador;
             // A lista de retorno
             List<Modelo.Marcador> marcadores = new List<Modelo.Marcador>();
-
-            
-            
 
             try
             {
@@ -57,13 +54,10 @@ namespace WebApplication1.DAL
         }   
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Marcador Select(int idMarcador)
+        public static Modelo.Marcador Select(int idMarcador)
         {
             // O Marcador
             Modelo.Marcador marcador = null;
-
-            
-            
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -104,7 +98,7 @@ namespace WebApplication1.DAL
          * @param int id do produto
          */
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Marcador> SelectFromProduto(int idProduto)
+        public static List<Modelo.Marcador> SelectFromProduto(int idProduto)
         {
             // O Marcador
             Modelo.Marcador marcador;
@@ -151,10 +145,8 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Marcador marcador)
+        public static void Delete(Modelo.Marcador marcador)
         {
-            
-            
             string id = marcador.id.ToString();
             try
             {
@@ -174,10 +166,8 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Marcador marcador)
+        public static void Insert(Modelo.Marcador marcador)
         {
-            
-            
             string descricao = marcador.descricao;
             try
             {
@@ -198,10 +188,8 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Marcador marcador)
+        public static void Update(Modelo.Marcador marcador)
         {
-            
-            
             int id = marcador.id;
             string descricao = marcador.descricao;
             try

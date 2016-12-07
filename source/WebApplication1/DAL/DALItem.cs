@@ -15,11 +15,9 @@ namespace WebApplication1.DAL
         public DALItem() : base() { }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Item> SelectAll()
+        public static List<Modelo.Item> SelectAll()
         {
-            // O Item
             Modelo.Item item;
-            // A lista de retorno
             List<Modelo.Item> itens = new List<Modelo.Item>();
 
             try
@@ -41,11 +39,8 @@ namespace WebApplication1.DAL
                                 int idProduto = Convert.ToInt32(drItens["Produto_id"]);
                                 int idTamanho = Convert.ToInt32(drItens["Tamanho_id"]);
 
-                                DALProduto dalProduto = new DALProduto();
-                                DALTamanho dalTamanho = new DALTamanho();
-
-                                Modelo.Produto produto = dalProduto.Select(idProduto);
-                                Modelo.Tamanho tamanho = dalTamanho.Select(idTamanho);
+                                Modelo.Produto produto = DALProduto.Select(idProduto);
+                                Modelo.Tamanho tamanho = DALTamanho.Select(idTamanho);
 
                                 item = new Modelo.Item(produto, tamanho);
                                 itens.Add(item);
@@ -62,7 +57,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Item Select(int idProduto, int idTamanho)
+        public static Modelo.Item Select(int idProduto, int idTamanho)
         {
             // O Produto retorno
             Modelo.Item item = null;
@@ -88,11 +83,8 @@ namespace WebApplication1.DAL
                                 idProduto = Convert.ToInt32(drItens["Produto_id"]);
                                 idTamanho = Convert.ToInt32(drItens["Tamanho_id"]);
 
-                                DALProduto dalProduto = new DALProduto();
-                                DALTamanho dalTamanho = new DALTamanho();
-
-                                Modelo.Produto produto = dalProduto.Select(idProduto);
-                                Modelo.Tamanho tamanho = dalTamanho.Select(idTamanho);
+                                Modelo.Produto produto = DALProduto.Select(idProduto);
+                                Modelo.Tamanho tamanho = DALTamanho.Select(idTamanho);
 
                                 item = new Modelo.Item(produto, tamanho);
                             }
@@ -108,7 +100,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Item> SelectToVitrine(List<int> marcadores, int pagina)
+        public static List<Modelo.Item> SelectToVitrine(List<int> marcadores, int pagina)
         {
             /* Verificar o que o sql server retorna se o offset for maior do que o numero de itens.*/
 
@@ -155,11 +147,8 @@ namespace WebApplication1.DAL
                                 int idProduto = Convert.ToInt32(drItens["Produto_id"]);
                                 int idTamanho = Convert.ToInt32(drItens["Tamanho_id"]);
 
-                                DALProduto dalProduto = new DALProduto();
-                                DALTamanho dalTamanho = new DALTamanho();
-
-                                Modelo.Produto produto = dalProduto.Select(idProduto);
-                                Modelo.Tamanho tamanho = dalTamanho.Select(idTamanho);
+                                Modelo.Produto produto = DALProduto.Select(idProduto);
+                                Modelo.Tamanho tamanho = DALTamanho.Select(idTamanho);
 
                                 item = new Modelo.Item(produto, tamanho);
                                 itens.Add(item);
@@ -177,7 +166,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public int SelectNumPaginas(List<int> marcadores)
+        public static int SelectNumPaginas(List<int> marcadores)
         {
             int itensPorPagina = Convert.ToInt32(ConfigurationManager.AppSettings["itensPorPagina"]);
             int count = 0;
@@ -228,7 +217,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Item item)
+        public static void Delete(Modelo.Item item)
         {
             try
             {
@@ -249,7 +238,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Item item)
+        public static void Insert(Modelo.Item item)
         {
             if (Select(item.produto.id, item.tamanho.id) != item)
             {

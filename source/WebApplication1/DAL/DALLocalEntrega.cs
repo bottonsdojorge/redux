@@ -12,7 +12,7 @@ namespace WebApplication1.DAL
         public DALLocalEntrega() : base() {}
         
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.localEntrega> SelectAll()
+        public static List<Modelo.localEntrega> SelectAll()
         {
             Modelo.localEntrega localEntrega;
             List<Modelo.localEntrega> locaisEntrega = new List<Modelo.localEntrega>();

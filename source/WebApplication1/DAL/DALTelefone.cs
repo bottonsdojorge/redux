@@ -13,7 +13,7 @@ namespace WebApplication1.DAL
         public DALTelefone() : base() {}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Telefone> SelectAll()
+        public static List<Modelo.Telefone> SelectAll()
         {
             // O telefone
             Modelo.Telefone telefone;
@@ -56,7 +56,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Telefone Select(int idTelefone)
+        public static Modelo.Telefone Select(int idTelefone)
         {
             // O telefone
             Modelo.Telefone telefone = null;            
@@ -96,7 +96,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Telefone> SelectFromUsuario(int idUsuario)
+        public static List<Modelo.Telefone> SelectFromUsuario(int idUsuario)
         {
             // O telefone
             Modelo.Telefone telefone;
@@ -139,7 +139,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Telefone telefone)
+        public static void Delete(Modelo.Telefone telefone)
         {   try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -161,7 +161,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Telefone telefone)
+        public static void Insert(Modelo.Telefone telefone)
         {
             string numero = telefone.numero;
             int idUsuario = telefone.usuarioId;
@@ -186,7 +186,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Update(Modelo.Telefone telefone)
+        public static void Update(Modelo.Telefone telefone)
         {
             string numero = telefone.numero;
             int idUsuario = telefone.usuarioId;

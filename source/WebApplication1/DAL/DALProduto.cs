@@ -16,7 +16,7 @@ namespace WebApplication1.DAL
         public DALProduto() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Produto> SelectAll()
+        public static List<Modelo.Produto> SelectAll()
         {
             // O Produto
             Modelo.Produto produto;
@@ -43,8 +43,7 @@ namespace WebApplication1.DAL
                                 string imagem = drProdutos["imagem"].ToString();
                                 List<Modelo.Marcador> marcadores;
 
-                                DALMarcador dalMarcador = new DALMarcador();
-                                marcadores = dalMarcador.SelectFromProduto(idProduto);
+                                marcadores = DALMarcador.SelectFromProduto(idProduto);
 
                                 produto = new Modelo.Produto(idProduto, descricao, imagem, marcadores);
                                 produtos.Add(produto);
@@ -61,7 +60,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Produto Select(int idProduto)
+        public static Modelo.Produto Select(int idProduto)
         {
             // O Produto retorno
             Modelo.Produto produto = null;
@@ -87,8 +86,7 @@ namespace WebApplication1.DAL
                                 string imagem = drProdutos["imagem"].ToString();
                                 List<Modelo.Marcador> marcadores;
 
-                                DALMarcador dalMarcador = new DALMarcador();
-                                marcadores = dalMarcador.SelectFromProduto(idProduto);
+                                marcadores = DALMarcador.SelectFromProduto(idProduto);
 
                                 produto = new Modelo.Produto(idProduto, descricao, imagem, marcadores);
                             }
@@ -104,10 +102,8 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Produto produto)
+        public static void Delete(Modelo.Produto produto)
         {
-            
-            
             int id = Convert.ToInt32(produto.id);
             try
             {
@@ -128,7 +124,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public int Insert(Modelo.Produto produto)
+        public static int Insert(Modelo.Produto produto)
         {
             int idProduto;
             string descricao = produto.descricao;
@@ -176,7 +172,7 @@ namespace WebApplication1.DAL
          * Alterando, atualmente, apenas descrição e imagem do produto.
          */
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Produto produto)
+        public static void Update(Modelo.Produto produto)
         {
             
             
@@ -188,7 +184,7 @@ namespace WebApplication1.DAL
                 using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    if (this.Select(produto.id) != produto)
+                    if (Select(produto.id) != produto)
                     {
                         // O SQL
                         string sqlTamanho = "UPDATE Tamanho SET descricao = '@descricao', imagem = '@imagem' WHERE ID = @id";

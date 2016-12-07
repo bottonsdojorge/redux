@@ -11,7 +11,7 @@ namespace WebApplication1.DAL
 {
     public class DAL
     {
-        protected string connectionString = "";
+        protected static string connectionString = "";
         static protected SqlConnection conn;
         public DAL()
         {

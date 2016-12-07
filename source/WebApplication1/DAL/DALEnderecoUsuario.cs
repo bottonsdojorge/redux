@@ -13,7 +13,7 @@ namespace WebApplication1.DAL
 		public DALEnderecoUsuario() : base() {}
 
 		[DataObjectMethod(DataObjectMethodType.Select)]
-		public List<Modelo.EnderecoUsuario> SelectAll()
+		public static List<Modelo.EnderecoUsuario> SelectAll()
 		{
 			Modelo.EnderecoUsuario enderecoUsuario;
 			List<Modelo.EnderecoUsuario> enderecosUsuario = new List<Modelo.EnderecoUsuario>();
@@ -36,8 +36,7 @@ namespace WebApplication1.DAL
 								int idLocalEntrega = (int)drEnderecosUsuario["localEntrega_id"];
 								int idUsuario = (int)drEnderecosUsuario["Usuario_id"];
 
-								DALLocalEntrega dalLocalEntrega = new DALLocalEntrega();
-								Modelo.localEntrega localEntrega = dalLocalEntrega.Select(idLocalEntrega);
+								Modelo.localEntrega localEntrega = DALLocalEntrega.Select(idLocalEntrega);
 
 								enderecoUsuario = new Modelo.EnderecoUsuario(localEntrega, idUsuario);
 								enderecosUsuario.Add(enderecoUsuario);
@@ -56,7 +55,7 @@ namespace WebApplication1.DAL
 		}
 
 		[DataObjectMethod(DataObjectMethodType.Select)]
-		public Modelo.EnderecoUsuario Select(int idLocalEntrega, int idUsuario)
+		public static Modelo.EnderecoUsuario Select(int idLocalEntrega, int idUsuario)
 		{
 			Modelo.EnderecoUsuario enderecoUsuario = null;
 			try
@@ -76,9 +75,8 @@ namespace WebApplication1.DAL
 						if (drEnderecoUsuario.HasRows)
 						{
 							while (drEnderecoUsuario.Read())
-							{	DALLocalEntrega dalLocalEntrega = new DALLocalEntrega();
-								Modelo.localEntrega localEntrega = dalLocalEntrega.Select(idLocalEntrega);
-
+							{	
+								Modelo.localEntrega localEntrega = DALLocalEntrega.Select(idLocalEntrega);
 								enderecoUsuario = new Modelo.EnderecoUsuario(localEntrega, idUsuario);
 							}
 						}
@@ -95,7 +93,7 @@ namespace WebApplication1.DAL
 		}
 
 		[DataObjectMethod(DataObjectMethodType.Select)]
-		public List<Modelo.EnderecoUsuario> SelectFromUsuario(int idUsuario)
+		public static List<Modelo.EnderecoUsuario> SelectFromUsuario(int idUsuario)
 		{
 			Modelo.EnderecoUsuario enderecoUsuario;
 			List<Modelo.EnderecoUsuario> enderecosUsuario = new List<Modelo.EnderecoUsuario>();
@@ -118,8 +116,7 @@ namespace WebApplication1.DAL
 							{
 								int idLocalEntrega = (int)drEnderecosUsuario["localEntrega_id"];
 
-								DALLocalEntrega dalLocalEntrega = new DALLocalEntrega();
-								Modelo.localEntrega localEntrega = dalLocalEntrega.Select(idLocalEntrega);
+								Modelo.localEntrega localEntrega = DALLocalEntrega.Select(idLocalEntrega);
 
 								enderecoUsuario = new Modelo.EnderecoUsuario(localEntrega, idUsuario);
 								enderecosUsuario.Add(enderecoUsuario);

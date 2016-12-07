@@ -13,7 +13,7 @@ namespace WebApplication1.DAL
         public DALStatus() : base() {}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Status> SelectAll()
+        public static List<Modelo.Status> SelectAll()
         {
             Modelo.Status status;
             List<Modelo.Status> statue = new List<Modelo.Status>();
@@ -52,10 +52,9 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Status Select(int idStatus)
+        public static Modelo.Status Select(int idStatus)
         {
             Modelo.Status status = null;
-
             try
             {
                 using (conn = new SqlConnection(connectionString))
@@ -87,7 +86,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Status status)
+        public static void Delete(Modelo.Status status)
         {
             try
             {
@@ -109,7 +108,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Status status)
+        public static void Insert(Modelo.Status status)
         {
             try
             {
@@ -131,7 +130,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Status status)
+        public static void Update(Modelo.Status status)
         {
             if (Select(status.id) != status)
             {

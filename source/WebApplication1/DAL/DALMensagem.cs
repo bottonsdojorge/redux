@@ -13,7 +13,7 @@ namespace WebApplication1.DAL
         public DALMensagem() : base() {}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Mensagem> SelectAll()
+        public static List<Modelo.Mensagem> SelectAll()
         {
             Modelo.Mensagem mensagem;
             List<Modelo.Mensagem> mensagens = null;
@@ -41,10 +41,8 @@ namespace WebApplication1.DAL
                                 int idDestinatario = Convert.ToInt32(drMensagens["UsuarioDestinatario_id"]);
                                 int idRemetente = Convert.ToInt32(drMensagens["UsuarioRemetente_id"]);
 
-                                DALUsuario dalUsuario = new DALUsuario();
-
-                                Modelo.Usuario destinatario = dalUsuario.Select(idDestinatario);
-                                Modelo.Usuario remetente = dalUsuario.Select(idRemetente);
+                                Modelo.Usuario destinatario = DALUsuario.Select(idDestinatario);
+                                Modelo.Usuario remetente = DALUsuario.Select(idRemetente);
 
                                 mensagem = new Modelo.Mensagem(id, data, corpo, visualizada, destinatario, remetente);
                                 mensagens.Add(mensagem);                               
@@ -63,7 +61,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Mensagem Select(int idMensagem)
+        public static Modelo.Mensagem Select(int idMensagem)
         {
             Modelo.Mensagem mensagem = null;
 
@@ -89,10 +87,8 @@ namespace WebApplication1.DAL
                                 int idDestinatario = Convert.ToInt32(drMensagem["UsuarioDestinatario_id"]);
                                 int idRemetente = Convert.ToInt32(drMensagem["UsuarioRemetente_id"]);
 
-                                DALUsuario dalUsuario = new DALUsuario();
-
-                                Modelo.Usuario destinatario = dalUsuario.Select(idDestinatario);
-                                Modelo.Usuario remetente = dalUsuario.Select(idRemetente);
+                                Modelo.Usuario destinatario = DALUsuario.Select(idDestinatario);
+                                Modelo.Usuario remetente = DALUsuario.Select(idRemetente);
 
                                 mensagem = new Modelo.Mensagem(id, data, corpo, visualizada, destinatario, remetente);                                
                             }
@@ -109,7 +105,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Mensagem> SelectFromDestinatario(int idDestinatario)
+        public static List<Modelo.Mensagem> SelectFromDestinatario(int idDestinatario)
         {
             Modelo.Mensagem mensagem;
             List<Modelo.Mensagem> mensagens = null;
@@ -137,10 +133,8 @@ namespace WebApplication1.DAL
                                 bool visualizada = Convert.ToBoolean(drMensagens["visualizada"]);
                                 int idRemetente = Convert.ToInt32(drMensagens["UsuarioRemetente_id"]);
 
-                                DALUsuario dalUsuario = new DALUsuario();
-
-                                Modelo.Usuario destinatario = dalUsuario.Select(idDestinatario);
-                                Modelo.Usuario remetente = dalUsuario.Select(idRemetente);
+                                Modelo.Usuario destinatario = DALUsuario.Select(idDestinatario);
+                                Modelo.Usuario remetente = DALUsuario.Select(idRemetente);
 
                                 mensagem = new Modelo.Mensagem(id, data, corpo, visualizada, destinatario, remetente);
                                 mensagens.Add(mensagem);
@@ -159,7 +153,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Mensagem> SelectFromRemetente(int idRemetente)
+        public static List<Modelo.Mensagem> SelectFromRemetente(int idRemetente)
         {
             Modelo.Mensagem mensagem;
             List<Modelo.Mensagem> mensagens = null;
@@ -187,10 +181,8 @@ namespace WebApplication1.DAL
                                 bool visualizada = Convert.ToBoolean(drMensagens["visualizada"]);
                                 int idDestinatario = Convert.ToInt32(drMensagens["UsuarioDestinatario_id"]);
 
-                                DALUsuario dalUsuario = new DALUsuario();
-
-                                Modelo.Usuario destinatario = dalUsuario.Select(idDestinatario);
-                                Modelo.Usuario remetente = dalUsuario.Select(idRemetente);
+                                Modelo.Usuario destinatario = DALUsuario.Select(idDestinatario);
+                                Modelo.Usuario remetente = DALUsuario.Select(idRemetente);
 
                                 mensagem = new Modelo.Mensagem(id, data, corpo, visualizada, destinatario, remetente);
                                 mensagens.Add(mensagem);
@@ -209,7 +201,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Mensagem mensagem)
+        public static void Delete(Modelo.Mensagem mensagem)
         {
             try
             {
@@ -229,7 +221,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Mensagem mensagem)
+        public static void Insert(Modelo.Mensagem mensagem)
         {
             try
             {
@@ -257,7 +249,7 @@ namespace WebApplication1.DAL
          * Acho que sim.. Talvez um trigger no SGBD.
          */
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Mensagem mensagem)
+        public static void Update(Modelo.Mensagem mensagem)
         {
             if (Select(mensagem.id) != mensagem)
             {

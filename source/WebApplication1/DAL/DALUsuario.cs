@@ -39,13 +39,9 @@ namespace WebApplication1.DAL
                                 string idAspnet = drUsuarios["aspnet_id"].ToString();
                                 string nome = drUsuarios["nome"].ToString();
 
-                                DALTelefone dalTelefone = new DALTelefone();
-                                DALEnderecoUsuario dalEnderecoUsuario = new DALEnderecoUsuario();
-                                DALCarrinho dalCarrinho = new DALCarrinho();
-
-                                List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
-                                List<Modelo.EnderecoUsuario> enderecos = dalEnderecoUsuario.SelectFromUsuario(id);
-                                Modelo.Carrinho carrinho = dalCarrinho.Select(id);
+                                List<Modelo.Telefone> telefones = DALTelefone.SelectFromUsuario(id);
+                                List<Modelo.EnderecoUsuario> enderecos = DALEnderecoUsuario.SelectFromUsuario(id);
+                                Modelo.Carrinho carrinho = DALCarrinho.Select(id);
 
                                 usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos, carrinho);
                                 usuarios.Add(usuario);
@@ -63,7 +59,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Usuario Select(int idUsuario)
+        public static Modelo.Usuario Select(int idUsuario)
         {
             Modelo.Usuario usuario = null;
             try
@@ -87,13 +83,9 @@ namespace WebApplication1.DAL
                                 string idAspnet = drUsuario["aspnet_id"].ToString();
                                 string nome = drUsuario["nome"].ToString();
 
-                                DALTelefone dalTelefone = new DALTelefone();
-                                DALEnderecoUsuario dalEnderecoUsuario = new DALEnderecoUsuario();
-                                DALCarrinho dalCarrinho = new DALCarrinho();
-
-                                List<Modelo.Telefone> telefones = dalTelefone.SelectFromUsuario(id);
-                                List<Modelo.EnderecoUsuario> enderecos = dalEnderecoUsuario.SelectFromUsuario(id);
-                                Modelo.Carrinho carrinho = dalCarrinho.Select(id);
+                                List<Modelo.Telefone> telefones = DALTelefone.SelectFromUsuario(id);
+                                List<Modelo.EnderecoUsuario> enderecos = DALEnderecoUsuario.SelectFromUsuario(id);
+                                Modelo.Carrinho carrinho = DALCarrinho.Select(id);
 
                                 usuario = new Modelo.Usuario(id, idAspnet, nome, telefones, enderecos, carrinho);
                             }
@@ -115,7 +107,7 @@ namespace WebApplication1.DAL
          */
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Usuario usuario)
+        public static void Delete(Modelo.Usuario usuario)
         {
             try
             {
@@ -141,7 +133,7 @@ namespace WebApplication1.DAL
          * Urgente: revisar tabela do usuário, acrescentar informações a ela para que seja útil de alguma forma.
          */
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Usuario usuario)
+        public static void Insert(Modelo.Usuario usuario)
         {   
             try
             {
@@ -154,10 +146,9 @@ namespace WebApplication1.DAL
                     cmdUsuario.Parameters.Add("@nome", SqlDbType.VarChar).Value = usuario.nome;
                     cmdUsuario.Parameters.Add("@idAspnet", SqlDbType.VarChar).Value = usuario.aspnet_id;
 
-                    DALTelefone dalTelefone = new DALTelefone();
                     foreach (Modelo.Telefone telefone in usuario.telefones)
                     {
-                        dalTelefone.Insert(telefone);
+                        DALTelefone.Insert(telefone);
                     }
                 }
             }
@@ -169,7 +160,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Usuario usuario)
+        public static void Update(Modelo.Usuario usuario)
         {
             if (Select(usuario.id) != usuario)
             {
@@ -194,7 +185,7 @@ namespace WebApplication1.DAL
             }
         }
 
-        public int GetCurrentUserId(string aspnetid)
+        public static int GetCurrentUserId(string aspnetid)
         {
             int id = 0;
             try

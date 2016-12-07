@@ -14,7 +14,7 @@ namespace WebApplication1.DAL
         public DALCarrinho() : base(){}
                 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Carrinho> SelectAll()
+        public static List<Modelo.Carrinho> SelectAll()
         {
             // O carrinho
             Modelo.Carrinho carrinho;
@@ -42,8 +42,7 @@ namespace WebApplication1.DAL
                                 double precoTotal = Convert.ToDouble(drCarrinhos["precoTotal"]);
                                 List<Modelo.itemCarrinho> itensCarrinho;
 
-                                DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-                                itensCarrinho = dalItemCarrinho.SelectFromCarrinho(idUsuario);
+                                itensCarrinho = DALItemCarrinho.SelectFromCarrinho(idUsuario);
 
                                 carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, idUsuario);
                             }
@@ -60,7 +59,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public Modelo.Carrinho Select(int idCarrinho)
+        public static Modelo.Carrinho Select(int idCarrinho)
         {
             // O carrinho retorno
             Modelo.Carrinho carrinho = new Modelo.Carrinho();
@@ -86,8 +85,7 @@ namespace WebApplication1.DAL
                                 double precoTotal = Convert.ToDouble(drCarrinhos["precoTotal"]);
                                 List<Modelo.itemCarrinho> itensCarrinho;
 
-                                DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-                                itensCarrinho = dalItemCarrinho.SelectFromCarrinho(idUsuario);
+                                itensCarrinho = DALItemCarrinho.SelectFromCarrinho(idUsuario);
 
                                 carrinho = new Modelo.Carrinho(itensCarrinho, precoTotal, idUsuario);
                             }
@@ -103,7 +101,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Carrinho carrinho)
+        public static void Delete(Modelo.Carrinho carrinho)
         {
             int id = Convert.ToInt32(carrinho.Usuario_id);
             try
@@ -125,7 +123,7 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Limpar(Modelo.Carrinho carrinho)
+        public static void Limpar(Modelo.Carrinho carrinho)
         {
             int id = carrinho.Usuario_id;
             try
@@ -139,10 +137,9 @@ namespace WebApplication1.DAL
                     cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = id;
                     cmdCarrinho.ExecuteNonQuery();
 
-                    DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
                     foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
                     {
-                        dalItemCarrinho.Delete(itemCarrinho);
+                        DALItemCarrinho.Delete(itemCarrinho);
                     }
                 }
             }
@@ -153,11 +150,11 @@ namespace WebApplication1.DAL
         }
 
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Carrinho carrinho)
+        public static void Insert(Modelo.Carrinho carrinho)
         {
             try
             {
-                if (this.Select(carrinho.Usuario_id) == null)
+                if (Select(carrinho.Usuario_id) == null)
                 {
                     using (conn = new SqlConnection(connectionString))
                     {
@@ -172,13 +169,13 @@ namespace WebApplication1.DAL
                 }
                 else
                 {
-                    this.Update(carrinho);
+                    Update(carrinho);
                 }
                 // A inserção dos itens do carrinho
                 DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
                 foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
                 {
-                    dalItemCarrinho.Insert(itemCarrinho);
+                    DALItemCarrinho.Insert(itemCarrinho);
                 }
             }
             catch (SystemException)
@@ -192,7 +189,7 @@ namespace WebApplication1.DAL
          * Será que aqui deveria ser calculado o preco do carrinho antes de incluir?
          */
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Update(Modelo.Carrinho carrinho)
+        public static void Update(Modelo.Carrinho carrinho)
         {
             if (Select(carrinho.Usuario_id) != carrinho)
             {
@@ -208,11 +205,9 @@ namespace WebApplication1.DAL
                         cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = carrinho.Usuario_id;
                         cmdCarrinho.ExecuteNonQuery();
 
-                        // Atualizar os produtos
-                        DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
                         foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
                         {
-                            dalItemCarrinho.Update(itemCarrinho);
+                            DALItemCarrinho.Update(itemCarrinho);
                         }
                     }
                 }
@@ -223,38 +218,30 @@ namespace WebApplication1.DAL
             }
         }
 
-        public void InserirItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
+        public static void InserirItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
         {
-            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-            dalItemCarrinho.Insert(itemCarrinho);
+            DALItemCarrinho.Insert(itemCarrinho);
         }
 
-        public void InserirItem(int idProduto, int idTamanho, int quantidade, Modelo.Carrinho carrinho)
+        public static void InserirItem(int idProduto, int idTamanho, int quantidade, Modelo.Carrinho carrinho)
         {
-            DALItem dalItem = new DALItem();
-            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-
-            Modelo.Item item = dalItem.Select(idProduto, idTamanho);
+            Modelo.Item item = DALItem.Select(idProduto, idTamanho);
             Modelo.itemCarrinho itemCarrinho = new Modelo.itemCarrinho(carrinho.Usuario_id, item, quantidade);
 
-            dalItemCarrinho.Insert(itemCarrinho);
+            DALItemCarrinho.Insert(itemCarrinho);
         }
 
-        public void RemoverItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
+        public static void RemoverItem(Modelo.itemCarrinho itemCarrinho, Modelo.Carrinho carrinho)
         {
-            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
-            dalItemCarrinho.Delete(itemCarrinho);
+            DALItemCarrinho.Delete(itemCarrinho);
         }
 
-        public void RemoverItem(int idProduto, int idTamanho, Modelo.Carrinho carrinho)
+        public static void RemoverItem(int idProduto, int idTamanho, Modelo.Carrinho carrinho)
         {
-            DALItem dalItem = new DALItem();
-            DALItemCarrinho dalItemCarrinho = new DALItemCarrinho();
+            Modelo.Item item = DALItem.Select(idProduto, idTamanho);
+            Modelo.itemCarrinho itemCarrinho = DALItemCarrinho.Select(carrinho.Usuario_id, idTamanho, idProduto);
 
-            Modelo.Item item = dalItem.Select(idProduto, idTamanho);
-            Modelo.itemCarrinho itemCarrinho = dalItemCarrinho.Select(carrinho.Usuario_id, idTamanho, idProduto);
-
-            dalItemCarrinho.Delete(itemCarrinho);
+            DALItemCarrinho.Delete(itemCarrinho);
         }
     }
 }
