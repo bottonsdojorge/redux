@@ -1,5 +1,5 @@
-﻿ALTER TRIGGER [dbo].[Descontos] ON [dbo].[Carrinho]
-AFTER INSERT
+CREATE TRIGGER[dbo].[calcularDescontos] ON [dbo].[itemCarrinho]
+FOR INSERT, UPDATE, DELETE
 AS
 DECLARE 
 	@descontos INT,
@@ -7,7 +7,7 @@ DECLARE
 	@qtditens INT,
 	@usuario_id INT
  
-	SELECT @usuario_id = Usuario_id
+	SELECT @usuario_id = Carrinho_id
 		FROM inserted
 	SELECT @qtditens = SUM(quantidade)
 		FROM itemCarrinho
