@@ -23,15 +23,14 @@ namespace WebApplication1.usuario
 
         private void InitLocaisEntrega()
         {
-            DAL.DALLocalEntrega dalLocalEntrega = new DAL.DALLocalEntrega();
-            locaisEntrega = dalLocalEntrega.SelectAll();
+            locaisEntrega = DAL.DALLocalEntrega.SelectAll();
         }
 
         protected void RegistrarEncomenda(object sender, EventArgs e)
         {
             int leid = Convert.ToInt32(Request.Form["leid"]);
             int uid = Convert.ToInt32(Session["uid"]);
-            new DAL.DALEncomenda().RegistrarEncomenda(uid, leid);
+            DAL.DALEncomenda.RegistrarEncomenda(uid, leid);
             MetodosExtensao.Redirecionar("usuario/dashboard", new System.Collections.Specialized.NameValueCollection {{"tab","encomendas"}});
         }
     }

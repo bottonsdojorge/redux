@@ -23,7 +23,7 @@ namespace WebApplication1
             string aSQLConecStr;
 
             // Lendo a conexão de dados do Web.Config
-            aSQLConecStr = ConfigurationManager.ConnectionStrings["pedroPcConnectionString"].ConnectionString;
+            aSQLConecStr = ConfigurationManager.ConnectionStrings["BottonsDoJorgeConnectionString"].ConnectionString;
 
             // Abrindo a Conexão com o banco de dados
             SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);

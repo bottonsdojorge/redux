@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CRUDUsuarioSelect.aspx.cs" Inherits="WebApplication1.CRUDUsuarioSelect" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="usuario-select.aspx.cs" Inherits="WebApplication1.CRUDUsuarioSelect" %>
 
 <!DOCTYPE html>
 

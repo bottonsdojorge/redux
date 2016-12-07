@@ -9,11 +9,6 @@ namespace WebApplication1.Modelo
 {
     public class Produto
     {
-
-        /*
-         * Modificado: Image imagem para string imagem. Corrigir como é o tratamento no crud..
-         * TODO: Tratamento na classe Produto para receber caminho ou classe imagem..
-         */
         private int _id;
         public int id
         {
@@ -35,6 +30,14 @@ namespace WebApplication1.Modelo
             set { _imagem = value; }
         }
 
+        private bool _ativo;
+        public bool ativo
+        {
+            get { return _ativo; }
+            set { _ativo = value; }
+        }
+        
+
         private List<Marcador> _marcadores;
         public List<Marcador> marcadores
         {
@@ -50,19 +53,21 @@ namespace WebApplication1.Modelo
             this.marcadores = new List<Marcador>();
         }
 
-        public Produto(int id, string descricao, string imagem, List<Marcador> marcadores)
+        public Produto(int id, string descricao, string imagem, List<Marcador> marcadores, bool ativo = true)
         {
             this.id = id;
             this.descricao = descricao;
             this.imagem = imagem;
             this.marcadores = marcadores;
+            this.ativo = ativo;
         }
 
-        public Produto(int id, string descricao, Image imagem, List<Marcador> marcadores)
+        public Produto(int id, string descricao, Image imagem, List<Marcador> marcadores, bool ativo = true)
         {
             this.id = id;
             this.descricao = descricao;
             this.marcadores = marcadores;
+            this.ativo = ativo;
             InsertImage(imagem);
 
         }

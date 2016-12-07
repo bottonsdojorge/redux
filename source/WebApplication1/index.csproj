@@ -57,8 +57,9 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="admin\CRUDProdutoInsert.aspx" />
-    <Content Include="admin\CRUDProdutoSelect.aspx" />
+    <Content Include="admin\crud\produto-insert.aspx" />
+    <Content Include="admin\crud\produto-select.aspx" />
+    <Content Include="admin\dashboard.aspx" />
     <Content Include="App_Themes\main\main.css" />
     <Content Include="usuario\cart.aspx" />
     <Content Include="usuario\checkout.aspx" />
@@ -66,7 +67,7 @@
     <Content Include="usuario\personalizar.aspx" />
     <Content Include="index.csproj.user" />
     <Content Include="public\Cadastro.aspx" />
-    <Content Include="admin\CRUDUsuarioSelect.aspx" />
+    <Content Include="admin\crud\usuario-select.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="upload\imagem-produto\botton-default.jpg" />
     <Content Include="upload\imagem-produto\botton1.gif" />
@@ -79,19 +80,26 @@
     <Content Include="index.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="admin\CRUDProdutoInsert.aspx.cs">
-      <DependentUpon>CRUDProdutoInsert.aspx</DependentUpon>
+    <Compile Include="admin\crud\produto-insert.aspx.cs">
+      <DependentUpon>produto-insert.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\CRUDProdutoInsert.aspx.designer.cs">
-      <DependentUpon>CRUDProdutoInsert.aspx</DependentUpon>
+    <Compile Include="admin\crud\produto-insert.aspx.designer.cs">
+      <DependentUpon>produto-insert.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\CRUDProdutoSelect.aspx.cs">
-      <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
+    <Compile Include="admin\crud\produto-select.aspx.cs">
+      <DependentUpon>produto-select.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\CRUDProdutoSelect.aspx.designer.cs">
-      <DependentUpon>CRUDProdutoSelect.aspx</DependentUpon>
+    <Compile Include="admin\crud\produto-select.aspx.designer.cs">
+      <DependentUpon>produto-select.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="admin\dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="usuario\cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>
@@ -165,12 +173,12 @@
     <Compile Include="public\Cadastro.aspx.designer.cs">
       <DependentUpon>Cadastro.aspx</DependentUpon>
     </Compile>
-    <Compile Include="admin\CRUDUsuarioSelect.aspx.cs">
-      <DependentUpon>CRUDUsuarioSelect.aspx</DependentUpon>
+    <Compile Include="admin\crud\usuario-select.aspx.cs">
+      <DependentUpon>usuario-select.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="admin\CRUDUsuarioSelect.aspx.designer.cs">
-      <DependentUpon>CRUDUsuarioSelect.aspx</DependentUpon>
+    <Compile Include="admin\crud\usuario-select.aspx.designer.cs">
+      <DependentUpon>usuario-select.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
