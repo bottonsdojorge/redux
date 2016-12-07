@@ -60,6 +60,10 @@
     <Content Include="admin\crud\produto-insert.aspx" />
     <Content Include="admin\crud\produto-select.aspx" />
     <Content Include="admin\dashboard.aspx" />
+    <Content Include="App_Themes\main\imagem-cadastro.png" />
+    <Content Include="App_Themes\main\logo-200px.png" />
+    <Content Include="App_Themes\main\logo-80px.png" />
+    <Content Include="App_Themes\main\logo.png" />
     <Content Include="App_Themes\main\main.css" />
     <Content Include="usuario\cart.aspx" />
     <Content Include="usuario\checkout.aspx" />
