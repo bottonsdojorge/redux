@@ -12,7 +12,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top" style="margin:0px;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -42,7 +42,7 @@
         <%--navbar inferior--%>
         <% if (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
            {  %>
-        <nav class="navbar navbar-inverse navbar-static-top">
+        <nav class="navbar navbar-inverse navbar-static-top" style="background-color:#01579b">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
