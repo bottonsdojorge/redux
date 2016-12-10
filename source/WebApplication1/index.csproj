@@ -61,6 +61,8 @@
     <Content Include="admin\crud\produto-select.aspx" />
     <Content Include="admin\dashboard.aspx" />
     <Content Include="App_Themes\main\bootstrap.min.js" />
+    <Content Include="App_Themes\main\carrossel-got-Descontos.png" />
+    <Content Include="App_Themes\main\carrossel-8bit-personalizacao.png" />
     <Content Include="App_Themes\main\imagem-cadastro.png" />
     <Content Include="App_Themes\main\logo-200px.png" />
     <Content Include="App_Themes\main\logo-80px.png" />
@@ -219,6 +221,7 @@
   <ItemGroup>
     <Content Include="public\Web.config" />
     <Content Include="mainMaster.Master" />
+    <Content Include="App_Themes\main\main.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
