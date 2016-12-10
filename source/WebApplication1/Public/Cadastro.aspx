@@ -1,10 +1,9 @@
-﻿<%@ Page MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="redux.CRUDUsuarioInsert" %>
+﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="redux.CRUDUsuarioInsert" MasterPageFile="~/mainMaster.Master" %>
 
 <asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 </asp:Content>
 
 <asp:Content ID="contentBody" ContentPlaceHolderID="contentPlaceHolderCorpo" runat="server">
-
     <div class="container">
         <div class="row">
             <div class="col-md-5" style="border-right: 3px solid; border-color: #808080;">
