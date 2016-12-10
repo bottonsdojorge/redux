@@ -41,7 +41,7 @@ namespace redux.DAL
                                 int idProduto = Convert.ToInt32(drProdutos["id"]);
                                 string descricao = drProdutos["descricao"].ToString();
                                 string imagem = drProdutos["imagem"].ToString();
-                                bool ativo = (drProdutos["imagem"].ToString() == "1") ? true : false;
+                                bool ativo = (drProdutos["ativo"].ToString() == "1") ? true : false;
                                 List<Modelo.Marcador> marcadores;
 
                                 marcadores = DALMarcador.SelectFromProduto(idProduto);
@@ -84,7 +84,7 @@ namespace redux.DAL
                             {
                                 string descricao = drProdutos["descricao"].ToString();
                                 string imagem = drProdutos["imagem"].ToString();
-                                bool ativo = (drProdutos["imagem"].ToString() == "1") ? true : false;
+                                bool ativo = (drProdutos["ativo"].ToString() == "1") ? true : false;
 
                                 List<Modelo.Marcador> marcadores;
 

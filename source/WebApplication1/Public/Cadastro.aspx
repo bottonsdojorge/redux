@@ -1,4 +1,5 @@
-﻿﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="redux.CRUDUsuarioInsert" MasterPageFile="~/mainMaster.Master" %>
+﻿<%@ Page Title="Cadastro | Bottons do Jorge" Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="redux.CRUDUsuarioInsert" MasterPageFile="~/mainMaster.Master" Theme="main" %>
+﻿
 
 <asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 </asp:Content>
