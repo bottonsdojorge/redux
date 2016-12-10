@@ -52,7 +52,7 @@
                 <div class="collapse navbar-collapse" id="Div1">
                     <ul class="nav navbar-nav">
                         <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/personalizar") %>">Personalizar</a></li>
-                        <li><a href="<%= redux.MetodosExtensao.GetLink("Vitrine") %>">Vitrine</a></li>
+                        <li><a href="<%= redux.MetodosExtensao.GetLink("public/Vitrine") %>">Vitrine</a></li>
                         <% string[] funcoes = Roles.GetRolesForUser();
                            if (funcoes.Contains("adm"))
                            { %>
