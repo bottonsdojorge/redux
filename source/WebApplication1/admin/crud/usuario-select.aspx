@@ -1,24 +1,23 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="usuario-select.aspx.cs" Inherits="redux.CRUDUsuarioSelect" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/mainMaster.Master" CodeBehind="usuario-select.aspx.cs" Inherits="redux.CRUDUsuarioSelect" %>
 
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-    <div>
-        Lista de Usuários <hr />
-        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceUsuario">
-            <Columns>
-                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
-                <asp:BoundField DataField="aspnet_id" HeaderText="aspnet_id" SortExpression="aspnet_id" />
-                <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
-            </Columns>
-        </asp:GridView>
+<asp:Content ID="Content1" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contentPlaceHolderCorpo" runat="server">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12">
+                <h1>Lista de Usuários</h1>
+                <hr />
+                <asp:GridView ID="grvProdutos" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceUsuario" AllowPaging="True" CssClass="table table-striped table-bordered" CellSpacing="-1">
+                    <Columns>
+                        <asp:CommandField HeaderText="Ações" ShowDeleteButton="True" ShowEditButton="True" />
+                        <asp:BoundField DataField="id" HeaderText="ID" SortExpression="id" />
+                        <asp:BoundField DataField="aspnet_id" HeaderText="ASP ID" SortExpression="aspnet_id" />
+                        <asp:BoundField DataField="nome" HeaderText="Nome de Usuário" SortExpression="nome" />
+                    </Columns>
+                </asp:GridView>
+                <asp:ObjectDataSource ID="dataSourceUsuario" runat="server" DataObjectTypeName="redux.Modelo.Usuario" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="redux.DAL.DALUsuario" UpdateMethod="Update"></asp:ObjectDataSource>
+            </div>
+        </div>
     </div>
-        <asp:ObjectDataSource ID="dataSourceUsuario" runat="server" DataObjectTypeName="redux.Modelo.Usuario" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="redux.DAL.DALUsuario" UpdateMethod="Update"></asp:ObjectDataSource>
-    </form>
-</body>
-</html>
+</asp:Content>

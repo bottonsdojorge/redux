@@ -6,6 +6,7 @@
         <div class="row">
             <div class="col-xs-12">
                 <h1>Listagem de produtos</h1>
+                <hr />
                 <asp:GridView ID="grvProdutos" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceProduto" AllowPaging="True" AllowSorting="True" CssClass="table table-striped table-bordered" CellSpacing="-1">
                 <Columns>
                     <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" HeaderText="Ações" />
