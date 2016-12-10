@@ -197,7 +197,7 @@ namespace redux.DAL
                     {
                         where += String.Format(" OR mp.Marcador_id = {0} ", marcador);
                     }
-                    string sqlItens = String.Format("SELECT i.Tamanho_id, i.Produto_id FROM ( SELECT i.Tamanho_id, i.Produto_id FROM Item i INNER JOIN marcadorProduto mp on mp.Produto_id = i.Produto_id {0} ) i ORDER BY i.Produto_id OFFSET @offSet ROWS FETCH NEXT @itensPorPagina ROWS ONLY", where);
+                    string sqlItens = String.Format("SELECT i.Tamanho_id, i.Produto_id FROM ( SELECT i.Tamanho_id, i.Produto_id FROM Item i INNER JOIN marcadorProduto mp on mp.Produto_id = i.Produto_id {0} ) i ORDER BY i.Produto_id DESC OFFSET @offSet ROWS FETCH NEXT @itensPorPagina ROWS ONLY", where);
                     SqlCommand cmdItens = new SqlCommand(sqlItens, conn);
                     cmdItens.Parameters.Add("@offSet", SqlDbType.Int).Value = offset;
                     cmdItens.Parameters.Add("@itensPorPagina", SqlDbType.Int).Value = itensPorPagina;

@@ -16,16 +16,18 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6" style="padding: 0px;">
+                        <br />
                         <div class="input-group">
                             <span class="input-group-addon" id="sizing-addon1">Dê um nome</span>
                             <input type="text" name="nomeupload" id="nomeupload" runat="server" class="form-control">
                         </div>
+                        <br />
                         <div class="input-group">
                             <span class="input-group-addon" id="Span1">Quantidade</span>
                             <input type="number" name="q" value="1" class="form-control" />
                         </div>
                     </div>
-                </div>
+                </div><br />
                 <%
                     List<redux.Modelo.Tamanho> tamanhos;
 
@@ -38,6 +40,7 @@
                 <%}
             
                 %>
+                <br />
                 <asp:Button ID="btnupload" CssClass="btn btn-default" runat="server" Text="Adicionar ao Carrinho" OnClick="btnupload_Click" />
             </div>
         </div>

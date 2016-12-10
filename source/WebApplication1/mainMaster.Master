@@ -12,18 +12,22 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav class="navbar navbar-inverse navbar-static-top" style="margin:0px;">
+        <nav class="navbar navbar-inverse navbar-static-top" style="margin: 0px;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
-                    <a href="<%= redux.MetodosExtensao.GetLink() %>" class="navbar-brand" style="margin-left:15px;"><asp:Image runat="server"  imageUrl="App_Themes\main\logo-80px.png"/></a>
+                    <a href="<%= redux.MetodosExtensao.GetLink() %>" class="navbar-brand" style="margin-left: 15px;">
+                        <asp:Image runat="server" ImageUrl="App_Themes\main\logo-80px.png" /></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
-            	    <ul class="nav navbar-nav navbar-right">
-                        <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
-                        <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
+                    <ul class="nav navbar-nav navbar-right">
+                        <% if (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
+                           {  %>
+                        <li>
+                            <p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p>
+                        </li>
                         <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/cart") %>" class="btn btn-warning btn-carrinho"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                         <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/dashboard") %>"><i class="fa fa-user" aria-hidden="true"></i>
                             Dashboard</a></li>
@@ -42,7 +46,7 @@
         <%--navbar inferior--%>
         <% if (HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated)
            {  %>
-        <nav class="navbar navbar-inverse navbar-static-top" style="background-color:#01579b; margin:0px;">
+        <nav class="navbar navbar-inverse navbar-static-top" style="background-color: #01579b; margin: 0px;">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
@@ -70,6 +74,20 @@
             </asp:ContentPlaceHolder>
         </div>
         <footer>
+            <p class="text-center" style="color: white;">
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x" style="color: blue;"></i>
+                    <i class="fa fa-facebook fa-stack-1x"></i>
+                </span>fb.com/bottonsdojorge
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x" style="color: green;"></i>
+                    <i class="fa fa-whatsapp fa-stack-1x"></i>
+                </span> (84) 99934-2904
+                <span class="fa-stack fa-lg">
+                    <i class="fa fa-circle fa-stack-2x" style="color: hotpink;"></i>
+                    <i class="fa fa-instagram fa-stack-1x"></i>
+                </span> @bottonsdojorge
+            </p>
             <p class="text-center">
                 <small>Bottons do Jorge &copy; 2016.<br>
                     Não emitimos notas fiscais.<br>
