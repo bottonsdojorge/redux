@@ -14,10 +14,9 @@
                 <asp:FileUpload ID="fileProduto" runat="server" />
                 <h3>Tamanhos:</h3>
                 <%
-                    redux.DAL.DALTamanho dalTamanho = new redux.DAL.DALTamanho();
                     List<redux.Modelo.Tamanho> tamanhos;
 
-                    tamanhos = dalTamanho.SelectAll();
+                    tamanhos = redux.DAL.DALTamanho.SelectAll();
 
                     foreach (var tamanho in tamanhos)
                     { %>
@@ -28,10 +27,9 @@
                 %>
                 <h3>Marcadores:</h3>
                 <%
-                    redux.DAL.DALMarcador dalMarcador = new redux.DAL.DALMarcador();
                     List<redux.Modelo.Marcador> marcadores;
 
-                    marcadores = dalMarcador.SelectAll();
+                    marcadores = redux.DAL.DALMarcador.SelectAll();
 
                     foreach (var marcador in marcadores)
                     { %>

@@ -11,6 +11,25 @@
                     <a href="<%= redux.MetodosExtensao.GetLink("admin/crud/produto-select") %>" class="list-group-item">Visualizar produtos</a>
                     <a href="<%= redux.MetodosExtensao.GetLink("admin/crud/usuario-select") %>" class="list-group-item">Visualizar usuários</a>
                 </div>
+                <h3>Encomendas</h3>
+                <asp:GridView ID="grdEncomendas" CssClass="table table-bordered" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataSourceID="dsrcEncomendas">
+                    <Columns>
+                        <asp:CommandField ShowEditButton="True" />
+                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" ReadOnly="True" />
+                        <asp:BoundField DataField="precoTotal" HeaderText="$$" SortExpression="precoTotal" ReadOnly="True" />
+                        <asp:BoundField DataField="dataEntrega" HeaderText="Data para entrega" SortExpression="dataEntrega" />
+                        <asp:BoundField DataField="Usuario.nome" HeaderText="Usuario" SortExpression="Usuario" ReadOnly="True" />
+                        <asp:TemplateField HeaderText="Status" SortExpression="Status">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Status.descricao") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="Label1" runat="server" Text='<%# Bind("Status.descricao") %>'></asp:Label>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                    </Columns>
+                </asp:GridView>
+                <asp:ObjectDataSource ID="dsrcEncomendas" runat="server" DataObjectTypeName="redux.Modelo.Encomenda" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="redux.DAL.DALEncomenda" UpdateMethod="Update"></asp:ObjectDataSource>
             </div>
         </div>
     </div>

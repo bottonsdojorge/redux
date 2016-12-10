@@ -18,13 +18,13 @@
                     <button class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
                         <i class="fa fa-bars" aria-hidden="true"></i>
                     </button>
-                    <a href="<%= redux.MetodosExtensao.GetLink() %>" class="navbar-brand"><asp:Image runat="server" imageUrl="App_Themes\main\logo-80px.png"/></a>
+                    <a href="<%= redux.MetodosExtensao.GetLink() %>" class="navbar-brand"><asp:Image runat="server"  imageUrl="App_Themes\main\logo-80px.png"/></a>
                 </div>
                 <div class="collapse navbar-collapse" id="navbar-collapse">
             	    <ul class="nav navbar-nav navbar-right">
                         <% if(HttpContext.Current.User != null && HttpContext.Current.User.Identity.IsAuthenticated) {  %>
                         <li><p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p></li>
-                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/cart") %>"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i> <span class="badge">20</span></a></li>
+                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/cart") %>" class="btn btn-warning btn-carrinho"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a></li>
                         <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/dashboard") %>"><i class="fa fa-user" aria-hidden="true"></i>
  Dashboard</a></li>
                         <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/personalizar") %>">Personalizar</a></li>

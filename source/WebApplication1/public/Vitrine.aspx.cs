@@ -104,7 +104,7 @@ namespace redux
          */
         protected void initMarcadores()
         {
-            marcadores = DAL.DALMarcador.SelectAll();
+            marcadores = DAL.DALMarcador.SelectAll(true);
             filtro = new List<int>();
 
             if (Request.Form["marcadores"] != null)
@@ -122,7 +122,7 @@ namespace redux
 
         protected void paginar()
         {
-            string urlVitrine = redux.MetodosExtensao.GetLink("Vitrine") + "?p=";
+            string urlVitrine = redux.MetodosExtensao.GetLink("public/Vitrine") + "?p=";
             bool ativo;
             string classeAtivo = "class='active'";
 

@@ -14,7 +14,7 @@ namespace redux.DAL
         public DALMarcador() : base(){}
 
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<Modelo.Marcador> SelectAll()
+        public static List<Modelo.Marcador> SelectAll(bool paraVitrine = false)
         {
             // O Marcador
             Modelo.Marcador marcador;
@@ -28,6 +28,11 @@ namespace redux.DAL
                     conn.Open();
                     // O SQL
                     string sqlMarcadores = "SELECT * FROM Marcador";
+                    if (paraVitrine)
+                    {
+                        string where = " WHERE descricao != 'Personalizado'";
+                        sqlMarcadores += where;
+                    }
                     SqlCommand cmdMarcadores = new SqlCommand(sqlMarcadores, conn);
                     SqlDataReader drMarcadores;
                     using (drMarcadores = cmdMarcadores.ExecuteReader())

@@ -73,11 +73,11 @@
     <Content Include="public\Cadastro.aspx" />
     <Content Include="admin\crud\usuario-select.aspx" />
     <Content Include="Login.aspx" />
-    <Content Include="upload\imagem-produto\botton-default.jpg" />
-    <Content Include="upload\imagem-produto\botton1.gif" />
-    <Content Include="upload\imagem-produto\botton2.gif" />
-    <Content Include="upload\imagem-produto\offline-stream.png" />
-    <Content Include="Vitrine.aspx" />
+    <Content Include="produtos\personalizados\botton-default.jpg" />
+    <Content Include="produtos\personalizados\botton1.gif" />
+    <Content Include="produtos\personalizados\botton2.gif" />
+    <Content Include="produtos\personalizados\offline-stream.png" />
+    <Content Include="public\Vitrine.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -199,11 +199,11 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vitrine.aspx.cs">
+    <Compile Include="public\Vitrine.aspx.cs">
       <DependentUpon>Vitrine.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vitrine.aspx.designer.cs">
+    <Compile Include="public\Vitrine.aspx.designer.cs">
       <DependentUpon>Vitrine.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -217,7 +217,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="produtos\loja\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -20,7 +20,7 @@
 				<br />
 				<asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/crud/produto-select.aspx">Visualização de Produto</asp:HyperLink>
 				<br />
-				<asp:HyperLink ID="linkVitrine" runat="server" NavigateUrl="~/Vitrine.aspx">Vitrine</asp:HyperLink>
+				<asp:HyperLink ID="linkVitrine" runat="server" NavigateUrl="~/public/Vitrine.aspx">Vitrine</asp:HyperLink>
 			</td>
 		</tr>	
 	</table>

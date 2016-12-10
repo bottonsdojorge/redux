@@ -162,7 +162,7 @@
 
 .navbar-brand {
   float: left;
-  padding: $navbar-padding-vertical $navbar-padding-horizontal;
+  padding: 0;
   font-size: $font-size-large;
   line-height: $line-height-computed;
   height: $navbar-height;
@@ -548,11 +548,13 @@
   .navbar-nav {
     > li > a {
       color: $navbar-inverse-link-color;
-
       &:hover,
       &:focus {
         color: $navbar-inverse-link-hover-color;
         background-color: $navbar-inverse-link-hover-bg;
+      }
+      &.btn-warning{
+         @include button-variant($btn-warning-color, $btn-warning-bg, $btn-warning-border);
       }
     }
     > .active > a {

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="redux.CRUDUsuarioInsert" %>
+﻿<%@ Page MasterPageFile="~/mainMaster.Master" Language="C#" AutoEventWireup="true" CodeBehind="Cadastro.aspx.cs" Inherits="redux.CRUDUsuarioInsert" %>
 
 <asp:Content ID="contentHead" ContentPlaceHolderID="contentPlaceHolderHead" runat="server">
 </asp:Content>
@@ -7,10 +7,9 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-2" style="border-right: 3px solid; border-color: #808080;">
-                <asp:CreateUserWizard ID="wiz_criarUsuario" ContinueDestinationPageUrl="~/index.aspx" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" AnswerLabelText="Resposta secreta:" AnswerRequiredErrorMessage="A pergunta secreta é necessária." CancelButtonText="Cancelar" CompleteSuccessText="Sua conta foi criada com sucesso." ConfirmPasswordCompareErrorMessage="As senhas devem coincidir." ConfirmPasswordLabelText="Confirme a senha:" ConfirmPasswordRequiredErrorMessage="É necessário confirmar a senha." CreateUserButtonText="Cadastrar" DuplicateEmailErrorMessage="O e-mail inserido já está sendo usado. Por favor, escolha outro." DuplicateUserNameErrorMessage="Nome de usuário já cadastrado." EmailRegularExpressionErrorMessage="Por favor, digite um e-mail válido." EmailRequiredErrorMessage="Por favor, digite um e-mail válido." Font-Names="Verdana" Font-Size="0.8em" InvalidAnswerErrorMessage="Por favor, digite uma resposta diferente." InvalidEmailErrorMessage="Por favor, digite um e-mail válido." InvalidQuestionErrorMessage="Por favor, digite uma pergunta secreta diferente." PasswordLabelText="Senha" PasswordRegularExpressionErrorMessage="A senha contém caracteres inválidos." PasswordRequiredErrorMessage="Digite uma senha." QuestionLabelText="Pergunta secreta:" UnknownErrorMessage="Ocorreu um erro. Por favor, tente novamente." UserNameLabelText="Usuário" UserNameRequiredErrorMessage="Digite um usuário.">
-                    <CreateUserButtonStyle CssClass="btn btn-primary" />
+            <div class="col-md-5" style="border-right: 3px solid; border-color: #808080;">
+                <asp:CreateUserWizard  ID="wiz_criarUsuario" ContinueDestinationPageUrl="~/index.aspx" runat="server" OnCreatedUser="CreateUserWizard1_CreatedUser" AnswerLabelText="Resposta secreta:" AnswerRequiredErrorMessage="A pergunta secreta é necessária." CancelButtonText="Cancelar" CompleteSuccessText="Sua conta foi criada com sucesso." ConfirmPasswordCompareErrorMessage="As senhas devem coincidir." ConfirmPasswordLabelText="Confirme a senha:" ConfirmPasswordRequiredErrorMessage="É necessário confirmar a senha." CreateUserButtonText="Cadastrar" DuplicateEmailErrorMessage="O e-mail inserido já está sendo usado. Por favor, escolha outro." DuplicateUserNameErrorMessage="Nome de usuário já cadastrado." EmailRegularExpressionErrorMessage="Por favor, digite um e-mail válido." EmailRequiredErrorMessage="Por favor, digite um e-mail válido." Font-Names="Verdana" Font-Size="0.8em" InvalidAnswerErrorMessage="Por favor, digite uma resposta diferente." InvalidEmailErrorMessage="Por favor, digite um e-mail válido." InvalidQuestionErrorMessage="Por favor, digite uma pergunta secreta diferente." PasswordLabelText="Senha" PasswordRegularExpressionErrorMessage="A senha contém caracteres inválidos." PasswordRequiredErrorMessage="Digite uma senha." QuestionLabelText="Pergunta secreta:" UnknownErrorMessage="Ocorreu um erro. Por favor, tente novamente." UserNameLabelText="Usuário" UserNameRequiredErrorMessage="Digite um usuário.">
+                    <CreateUserButtonStyle CssClass="btn btn-warning" />
                     <WizardSteps>
                         <asp:CreateUserWizardStep ID="CreateUserWizardStep1" runat="server">
                             <ContentTemplate>
@@ -54,7 +53,7 @@
                     </WizardSteps>
                 </asp:CreateUserWizard>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-7">
                 <h1>Inscreva-se para participar do melhor comércio de botton do Brasil</h1>
                 <asp:Image ID="Image1" runat="server" imageUrl="\App_Themes\main\imagem-cadastro.png" Width="600px"/>
             </div>

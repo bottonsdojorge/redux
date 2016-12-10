@@ -34,7 +34,7 @@ namespace redux
             aSQL.Parameters.AddWithValue("@nome", wiz_criarUsuario.UserName);
             aSQL.Parameters.AddWithValue("@id", Membership.GetUser(wiz_criarUsuario.UserName).ProviderUserKey);
             aSQL.ExecuteNonQuery();
-            Response.Redirect("~/CRUDUsuarioSelect.aspx");
+            Response.Redirect("~/index.aspx");
 
         }
     }

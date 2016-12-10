@@ -36,8 +36,9 @@ namespace redux.DAL
                             while (drEncomendas.Read())
                             {
                                 int id = (int)drEncomendas["id"];
-                                double precoTotal = (double)drEncomendas["precoTotal"];
-                                DateTime dataEntrega = (DateTime)drEncomendas["dataEntrega"];
+                                double precoTotal = Convert.ToDouble(drEncomendas["precoTotal"]);
+                                DateTime dataEntrega;
+                                DateTime.TryParse(drEncomendas["dataEntrega"].ToString(), out dataEntrega);
 
                                 Modelo.Usuario usuario = DALUsuario.Select((int)drEncomendas["Usuario_id"]);
                                 List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
@@ -79,8 +80,9 @@ namespace redux.DAL
                             while (drEncomenda.Read())
                             {
                                 int id = (int)drEncomenda["id"];
-                                double precoTotal = (double)drEncomenda["precoTotal"];
-                                DateTime dataEntrega = (DateTime)drEncomenda["dataEntrega"];
+                                double precoTotal = Convert.ToDouble(drEncomenda["precoTotal"]);
+                                DateTime dataEntrega;
+                                DateTime.TryParse(drEncomenda["dataEntrega"].ToString(), out dataEntrega);
 
                                 Modelo.Usuario usuario = DALUsuario.Select((int)drEncomenda["Usuario_id"]);
                                 List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
