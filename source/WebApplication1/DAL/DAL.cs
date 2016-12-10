@@ -11,11 +11,11 @@ namespace redux.DAL
 {
     public class DAL
     {
-        protected static string connectionString = ConfigurationManager.ConnectionStrings["bjConnectionString"].ConnectionString;
+        protected static string connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo1ConnectionString"].ConnectionString;
         static protected SqlConnection conn;
         public DAL()
         {
-            connectionString = ConfigurationManager.ConnectionStrings["bjConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["2016TiiGrupo1ConnectionString"].ConnectionString;
         }
     }
 }

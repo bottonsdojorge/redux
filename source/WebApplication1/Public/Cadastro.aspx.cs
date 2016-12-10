@@ -23,7 +23,7 @@ namespace redux
             string aSQLConecStr;
 
             // Lendo a conexão de dados do Web.Config
-            aSQLConecStr = ConfigurationManager.ConnectionStrings["bjConnectionString"].ConnectionString;
+            aSQLConecStr = ConfigurationManager.ConnectionStrings["2016TiiGrupo1ConnectionString"].ConnectionString;
 
             // Abrindo a Conexão com o banco de dados
             SqlConnection aSQLCon = new SqlConnection(aSQLConecStr);
