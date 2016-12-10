@@ -23,7 +23,7 @@
         <div class="row">
             <% foreach (redux.Modelo.Item item in itens){ %>
                 <div class="col-xs-12 col-sm-4" style="text-align:center; padding:25px 0px 25px 0px;">
-                    <img class="img-responsive img-circle" src="/produtos/<% Response.Write(item.produto.imagem); %>" width="200px" style="margin:auto; margin-bottom:20px;"/>
+                    <img class="img-circle" src="/produtos/<% Response.Write(item.produto.imagem); %>" width="200px" style="margin:auto; margin-bottom:20px;"/>
                     <p><% Response.Write(item.produto.descricao); %>, Tamanho <% Response.Write(item.tamanho.descricao); %></p>
                     <p>Preço: R$<% Response.Write(item.tamanho.precoUnitario); %></p>
                     <a href="/usuario/cart.aspx?addq=1&addpid=<% Response.Write(item.produto.id);%>&addtid=<% Response.Write(item.tamanho.id); %>">Adicionar ao Carrinho <i class="fa fa-cart-plus" aria-hidden="true"></i></a>

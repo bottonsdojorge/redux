@@ -38,22 +38,16 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-    <table style="width: 100%; height: 277px;">
-        <tr>
-            <td>Logado como 
-				<asp:LoginName ID="lblUsername" runat="server" />
-                <br />
-                <asp:LoginStatus ID="LoginStatus1" runat="server" />
-            </td>
-            <td>
-                <asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/admin/crud/usuario-select.aspx">Visualização de Usuario</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="HyperLink3" runat="server" NavigateUrl="~/admin/crud/produto-insert.aspx">Cadastro de Produto</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="HyperLink4" runat="server" NavigateUrl="~/admin/crud/produto-select.aspx">Visualização de Produto</asp:HyperLink>
-                <br />
-                <asp:HyperLink ID="linkVitrine" runat="server" NavigateUrl="~/public/Vitrine.aspx">Vitrine</asp:HyperLink>
-            </td>
-        </tr>
-    </table>
+    <h2 style="margin-left:50px; color:#e68100;">Bottons adicionados recentemente:</h2>
+    <hr />
+    <div class="row">
+            <% foreach (redux.Modelo.Item item in itens){ %>
+                <div class="col-xs-12 col-sm-4" style="text-align:center; padding:25px 0px 25px 0px;">
+                    <img class="img-circle" src="/produtos/<% Response.Write(item.produto.imagem); %>" width="200px" style="margin:auto; margin-bottom:20px;"/>
+                    <p><% Response.Write(item.produto.descricao); %>, Tamanho <% Response.Write(item.tamanho.descricao); %></p>
+                    <p>Preço: R$<% Response.Write(item.tamanho.precoUnitario); %></p>
+                    <a href="/usuario/cart.aspx?addq=1&addpid=<% Response.Write(item.produto.id);%>&addtid=<% Response.Write(item.tamanho.id); %>">Adicionar ao Carrinho <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                </div>       
+            <% } %>
+    </div>
 </asp:Content>

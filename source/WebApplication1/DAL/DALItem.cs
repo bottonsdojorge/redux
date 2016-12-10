@@ -165,6 +165,73 @@ namespace redux.DAL
             return itens;
         }
 
+        //teste index
+        public static List<Modelo.Item> SelectToIndex(List<int> marcadores, int pagina)
+        {
+            /* Verificar o que o sql server retorna se o offset for maior do que o numero de itens.*/
+
+            int itensPorPagina = Convert.ToInt32(ConfigurationManager.AppSettings["itensPorPagina"]);
+            int offset = (pagina - 1) * itensPorPagina;
+
+            List<Modelo.Item> itens = new List<Modelo.Item>();
+            Modelo.Item item = null;
+
+            try
+            {
+                using (conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+                    /*
+                     * O que isso aqui vai fazer?
+                     * Vou retornar produtos a partir da página e a partir de filtros
+                     * Que filtros? Marcadores.
+                     * Tenho que encontrar os produtos que se referem a determinados marcadores passados.
+                     * Logo, tenho que ter um loop na lista de maarcadores.
+                     */
+                    string where;
+                    if (marcadores.Count == 0)
+                        where = "WHERE 1 = 1";
+                    else
+                        where = "WHERE 1 = 2";
+                    foreach (int marcador in marcadores)
+                    {
+                        where += String.Format(" OR mp.Marcador_id = {0} ", marcador);
+                    }
+                    string sqlItens = String.Format("SELECT i.Tamanho_id, i.Produto_id FROM ( SELECT i.Tamanho_id, i.Produto_id FROM Item i INNER JOIN marcadorProduto mp on mp.Produto_id = i.Produto_id {0} ) i ORDER BY i.Produto_id OFFSET @offSet ROWS FETCH NEXT @itensPorPagina ROWS ONLY", where);
+                    SqlCommand cmdItens = new SqlCommand(sqlItens, conn);
+                    cmdItens.Parameters.Add("@offSet", SqlDbType.Int).Value = offset;
+                    cmdItens.Parameters.Add("@itensPorPagina", SqlDbType.Int).Value = itensPorPagina;
+                    SqlDataReader drItens;
+
+                    using (drItens = cmdItens.ExecuteReader())
+                    {
+                        if (drItens.HasRows)
+                        {
+                            while (drItens.Read())
+                            {
+
+                                int idProduto = Convert.ToInt32(drItens["Produto_id"]);
+                                int idTamanho = Convert.ToInt32(drItens["Tamanho_id"]);
+
+                                Modelo.Produto produto = DALProduto.Select(idProduto);
+                                Modelo.Tamanho tamanho = DALTamanho.Select(idTamanho);
+
+                                item = new Modelo.Item(produto, tamanho);
+                                itens.Add(item);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SystemException)
+            {
+                throw;
+            }
+
+            return itens;
+        }
+        //fim teste index
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static int SelectNumPaginas(List<int> marcadores)
         {
