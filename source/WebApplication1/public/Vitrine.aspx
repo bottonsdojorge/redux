@@ -17,7 +17,7 @@
                                 <input type="checkbox" name="marcadores" id="marcador<%= marcador.id %>" value="<%= marcador.id %>" <% if ((string[])Session["marcadores"] != null && ((string[])Session["marcadores"]).Contains(marcador.id.ToString())) { Response.Write("checked"); } %>> <%= marcador.descricao %>
                             </label>     
                         <% } %>
-                    <asp:Button ID="btnBusca" CssClass="btn btn-default" runat="server" PostBackUrl="~/Vitrine.aspx" Text="Buscar" UseSubmitBehavior="True" />
+                    <asp:Button ID="btnBusca" CssClass="btn btn-default" runat="server" PostBackUrl="~/public/Vitrine.aspx" Text="Buscar" UseSubmitBehavior="True" />
                 </div>
             <% foreach (redux.Modelo.Item item in itens){ %>
                 <div class="col-xs-12 col-sm-4">
