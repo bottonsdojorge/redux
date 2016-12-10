@@ -185,7 +185,7 @@ namespace redux.DAL
             }
         }
 
-        public static int GetCurrentUserId(string aspnetid)
+        public static int GetCurrentUserId()
         {
             int id = 0;
             try
@@ -193,7 +193,7 @@ namespace redux.DAL
                 using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
-                    //MembershipUser usuario = Membership.Providers["pedroPcConnectionString"].GetUser(HttpContext.Current.User.Identity.Name, false);
+                    string aspnetid = Membership.GetUser().ProviderUserKey.ToString();
                     string sqlUsuario = "SELECT id FROM Usuario WHERE aspnet_id = @aspnet_id";
                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, conn);
                     cmdUsuario.Parameters.Add("@aspnet_id", System.Data.SqlDbType.VarChar).Value = aspnetid;

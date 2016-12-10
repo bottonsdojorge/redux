@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WebApplication1</RootNamespace>
-    <AssemblyName>WebApplication1</AssemblyName>
+    <RootNamespace>redux</RootNamespace>
+    <AssemblyName>redux</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -60,6 +60,7 @@
     <Content Include="admin\crud\produto-insert.aspx" />
     <Content Include="admin\crud\produto-select.aspx" />
     <Content Include="admin\dashboard.aspx" />
+    <Content Include="App_Themes\main\bootstrap.min.js" />
     <Content Include="App_Themes\main\imagem-cadastro.png" />
     <Content Include="App_Themes\main\logo-200px.png" />
     <Content Include="App_Themes\main\logo-80px.png" />
@@ -68,6 +69,7 @@
     <Content Include="usuario\cart.aspx" />
     <Content Include="usuario\checkout.aspx" />
     <Content Include="usuario\dashboard.aspx" />
+    <Content Include="usuario\detalhar.aspx" />
     <Content Include="usuario\personalizar.aspx" />
     <Content Include="index.csproj.user" />
     <Content Include="public\Cadastro.aspx" />
@@ -125,6 +127,13 @@
     </Compile>
     <Compile Include="usuario\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usuario\detalhar.aspx.cs">
+      <DependentUpon>detalhar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usuario\detalhar.aspx.designer.cs">
+      <DependentUpon>detalhar.aspx</DependentUpon>
     </Compile>
     <Compile Include="usuario\personalizar.aspx.cs">
       <DependentUpon>personalizar.aspx</DependentUpon>

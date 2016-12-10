@@ -17,8 +17,10 @@
                                 <input type="checkbox" name="marcadores" id="marcador<%= marcador.id %>" value="<%= marcador.id %>" <% if ((string[])Session["marcadores"] != null && ((string[])Session["marcadores"]).Contains(marcador.id.ToString())) { Response.Write("checked"); } %>> <%= marcador.descricao %>
                             </label>     
                         <% } %>
-                    <asp:Button ID="btnBusca" CssClass="btn btn-default" runat="server" PostBackUrl="~/Vitrine.aspx" Text="Buscar" UseSubmitBehavior="True" />
+                    <asp:Button ID="btnBusca" CssClass="btn btn-default" runat="server" PostBackUrl="~/public/Vitrine.aspx" Text="Buscar" UseSubmitBehavior="True" />
                 </div>
+        </div>
+        <div class="row">
             <% foreach (redux.Modelo.Item item in itens){ %>
                 <div class="col-xs-12 col-sm-4">
                     <img class="img-responsive img-circle" src="/produtos/<% Response.Write(item.produto.imagem); %>" />
@@ -26,6 +28,8 @@
                     <a href="/usuario/cart.aspx?addq=1&addpid=<% Response.Write(item.produto.id);%>&addtid=<% Response.Write(item.tamanho.id); %>">Adicionar ao Carrinho</a>
                 </div>       
             <% } %>
+        </div>
+        <div class="row">
             <div class="col-xs-12">
                 <nav aria-label="Navegação">
                   <ul class="pagination">

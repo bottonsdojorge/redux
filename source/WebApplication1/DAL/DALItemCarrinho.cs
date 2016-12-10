@@ -156,7 +156,7 @@ namespace redux.DAL
         public static void Insert(Modelo.itemCarrinho itemCarrinho)
         {
             Modelo.itemCarrinho itemAnterior = Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id);
-            if ( itemAnterior == null )
+            if ( itemAnterior == null && itemCarrinho.quantidade != 0)
             {
                 try
                 {
@@ -210,7 +210,7 @@ namespace redux.DAL
         [DataObjectMethod(DataObjectMethodType.Update)]
         public static void Update(Modelo.itemCarrinho itemCarrinho)
         {
-            if (Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id) != itemCarrinho)
+            if (Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id) != itemCarrinho && itemCarrinho.quantidade != 0)
             {
                 try
                 {
@@ -231,6 +231,10 @@ namespace redux.DAL
                 {
                     throw;
                 }
+            }
+            else if (Select(itemCarrinho.carrinhoId, itemCarrinho.item.tamanho.id, itemCarrinho.item.produto.id) != itemCarrinho && itemCarrinho.quantidade == 0)
+            {
+                Delete(itemCarrinho);
             }
         }
     }

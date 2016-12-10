@@ -37,15 +37,20 @@ namespace redux.DAL
                             {
                                 int id = (int)drEncomendas["id"];
                                 double precoTotal = Convert.ToDouble(drEncomendas["precoTotal"]);
-                                DateTime dataEntrega;
-                                DateTime.TryParse(drEncomendas["dataEntrega"].ToString(), out dataEntrega);
+                                double subTotal = Convert.ToDouble(drEncomendas["subTotal"]);
+                                double desconto = Convert.ToDouble(drEncomendas["desconto"]);
+                                DateTime? dataEntrega;
+                                if (drEncomendas["dataEntrega"] != null)
+                                    dataEntrega = Convert.ToDateTime(drEncomendas["dataEntrega"].ToString());
+                                else
+                                    dataEntrega = null;
 
                                 Modelo.Usuario usuario = DALUsuario.Select((int)drEncomendas["Usuario_id"]);
                                 List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
                                 Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomendas["localEntrega_id"]);
                                 Modelo.Status status = DALStatus.Select((int)drEncomendas["Status_id"]);
 
-                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status, subTotal, desconto, precoTotal);
                                 encomendas.Add(encomenda);
                             }
                         }
@@ -69,8 +74,9 @@ namespace redux.DAL
                 {
                     conn.Open();
 
-                    string sqlEncomenda = "SELECT * FROM Encomenda";
+                    string sqlEncomenda = "SELECT * FROM Encomenda WHERE ID = @id";
                     SqlCommand cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
+                    cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Value = idEncomenda;
                     SqlDataReader drEncomenda;
 
                     using (drEncomenda = cmdEncomenda.ExecuteReader())
@@ -81,6 +87,8 @@ namespace redux.DAL
                             {
                                 int id = (int)drEncomenda["id"];
                                 double precoTotal = Convert.ToDouble(drEncomenda["precoTotal"]);
+                                double subTotal = Convert.ToDouble(drEncomenda["subTotal"]);
+                                double desconto = Convert.ToDouble(drEncomenda["desconto"]);
                                 DateTime dataEntrega;
                                 DateTime.TryParse(drEncomenda["dataEntrega"].ToString(), out dataEntrega);
 
@@ -89,7 +97,7 @@ namespace redux.DAL
                                 Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomenda["localEntrega_id"]);
                                 Modelo.Status status = DALStatus.Select((int)drEncomenda["Status_id"]);
 
-                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status, subTotal, desconto, precoTotal);
                             }
                         }
                     }
@@ -127,6 +135,8 @@ namespace redux.DAL
                             {
                                 int id = (int)drEncomendas["id"];
                                 double precoTotal = Convert.ToDouble(drEncomendas["precoTotal"]);
+                                double subTotal = Convert.ToDouble(drEncomendas["subTotal"]);
+                                double desconto = Convert.ToDouble(drEncomendas["desconto"]);
                                 DateTime dataEntrega;
                                 DateTime.TryParse(drEncomendas["dataEntrega"].ToString(), out dataEntrega);
 
@@ -135,7 +145,7 @@ namespace redux.DAL
                                 Modelo.localEntrega localEntrega = DALLocalEntrega.Select((int)drEncomendas["localEntrega_id"]);
                                 Modelo.Status status = DALStatus.Select((int)drEncomendas["Status_id"]);
 
-                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status);
+                                encomenda = new Modelo.Encomenda(id, usuario, itensEncomenda, dataEntrega, localEntrega, status, subTotal, desconto, precoTotal);
                                 encomendas.Add(encomenda);
                     
                             }
@@ -182,10 +192,12 @@ namespace redux.DAL
                     {
                         conn.Open();
 
-                        string sqlEncomenda = "UPDATE Encomenda SET precoTotal = @preco, dataEntrega = @dataEntrega, localEntrega_id = @localEntrega, Status_id = @status WHERE id = @id";
+                        string sqlEncomenda = "UPDATE Encomenda SET precoTotal = @preco, subTotal = @subTotal, desconto = @desconto dataEntrega = @dataEntrega, localEntrega_id = @localEntrega, Status_id = @status WHERE id = @id";
                         SqlCommand cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
                         cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Value = encomenda.id;
                         cmdEncomenda.Parameters.Add("@preco", SqlDbType.Decimal).Value = encomenda.precoTotal;
+                        cmdEncomenda.Parameters.Add("@subTotal", SqlDbType.Decimal).Value = encomenda.subTotal;
+                        cmdEncomenda.Parameters.Add("@desconto", SqlDbType.Decimal).Value = encomenda.desconto;
                         cmdEncomenda.Parameters.Add("@dataEntrega", SqlDbType.DateTime).Value = encomenda.dataEntrega;
                         cmdEncomenda.Parameters.Add("@localEntrega", SqlDbType.Int).Value = encomenda.localEntrega.id;
                         cmdEncomenda.Parameters.Add("@status", SqlDbType.Int).Value = encomenda.Status.id;
@@ -214,17 +226,19 @@ namespace redux.DAL
                     SqlCommand cmdEncomenda;
                     if (encomenda.dataEntrega != null)
                     {
-                        string sqlEncomenda = "INSERT INTO Encomenda (Usuario_id, precoTotal, dataEntrega, localEntrega_id, Status_id) VALUES (@idUsuario, @preco, @dataEntrega, @localEntrega,@status) SET @id = SCOPE_IDENTITY()";
+                        string sqlEncomenda = "INSERT INTO Encomenda (Usuario_id, precoTotal, subTotal, desconto, dataEntrega, localEntrega_id, Status_id) VALUES (@idUsuario, @preco, @dataEntrega, @subTotal, @desconto, @localEntrega,@status) SET @id = SCOPE_IDENTITY()";
                         cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
                         cmdEncomenda.Parameters.Add("@dataEntrega", SqlDbType.DateTime).Value = encomenda.dataEntrega;
                     }
                     else
                     {
-                        string sqlEncomenda = "INSERT INTO Encomenda (Usuario_id, precoTotal, localEntrega_id, Status_id) VALUES (@idUsuario, @preco, @localEntrega,@status) SET @id = SCOPE_IDENTITY()";
+                        string sqlEncomenda = "INSERT INTO Encomenda (Usuario_id, precoTotal, subTotal, desconto, localEntrega_id, Status_id) VALUES (@idUsuario, @preco, @subTotal, @desconto, @localEntrega,@status) SET @id = SCOPE_IDENTITY()";
                         cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
                     }
                     cmdEncomenda.Parameters.Add("@idUsuario", SqlDbType.Int).Value = encomenda.Usuario.id;
                     cmdEncomenda.Parameters.Add("@preco", SqlDbType.Decimal).Value = encomenda.precoTotal;
+                    cmdEncomenda.Parameters.Add("@subTotal", SqlDbType.Decimal).Value = encomenda.subTotal;
+                    cmdEncomenda.Parameters.Add("@desconto", SqlDbType.Decimal).Value = encomenda.desconto;
                     cmdEncomenda.Parameters.Add("@localEntrega", SqlDbType.Int).Value = encomenda.localEntrega.id;
                     cmdEncomenda.Parameters.Add("@status", SqlDbType.Int).Value = encomenda.Status.id;
                     cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Direction = ParameterDirection.Output;
@@ -254,7 +268,7 @@ namespace redux.DAL
                 itemEncomenda = new Modelo.itemEncomenda(0, item.item, item.item.tamanho.precoUnitario, item.quantidade);
                 itensEncomenda.Add(itemEncomenda);
             }
-            encomenda = new Modelo.Encomenda(0, usuario, itensEncomenda, DALLocalEntrega.Select(leid), DALStatus.Select(1));
+            encomenda = new Modelo.Encomenda(0, usuario, itensEncomenda, DALLocalEntrega.Select(leid), DALStatus.Select(1), usuario.carrinho.subTotal, usuario.carrinho.desconto, usuario.carrinho.precoTotal);
             Insert(encomenda);
             DALCarrinho.Limpar(usuario.carrinho);
         }

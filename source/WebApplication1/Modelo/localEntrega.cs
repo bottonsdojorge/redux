@@ -71,7 +71,7 @@ namespace redux.Modelo
             this.bairro = bairro;
             this.cep = cep;
             this.complemento = complemento;
-            enderecoFormatado = String.Format("{0} - {1}, {2}, {3} - {4}, {5}", descricao, rua, numero, complemento, bairro, cep);
+            enderecoFormatado = String.Format("{0} - {1}, {2}{3} - {4}, {5}", descricao, rua, numero, (complemento != "") ? ", " + complemento : null, bairro, cep);
         }  
     }
 }

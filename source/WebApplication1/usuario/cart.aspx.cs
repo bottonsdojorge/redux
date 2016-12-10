@@ -30,7 +30,7 @@ namespace redux.usuario
         {
             if (!IsPostBack)
             {
-                usuarioId = DAL.DALUsuario.GetCurrentUserId(Membership.GetUser().ProviderUserKey.ToString());
+                usuarioId = DAL.DALUsuario.GetCurrentUserId();
                 Session["uid"] = usuarioId;
             }
             initCarrinho();
@@ -39,7 +39,7 @@ namespace redux.usuario
 
         protected void initCarrinho()
         {
-            carro = DAL.DALCarrinho.Select(usuarioId);
+            carro = DAL.DALCarrinho.Select(Convert.ToInt32(Session["uid"]));
         }
 
         protected void checkAcoes()

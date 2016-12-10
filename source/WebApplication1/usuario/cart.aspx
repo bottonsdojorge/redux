@@ -49,9 +49,9 @@
                 </table>
                 <% if (carro.itens.Count > 0) {  %>
                     <a href="<%= redux.MetodosExtensao.GetLink("usuario/checkout") %>" class="btn btn-warning">Fazer encomenda</a>
-                    <asp:Button ID="btnLimparCarrinho" runat="server" Text="Limpar carrinho" CssClass="btn btn-default" UseSubmitBehavior="True" OnClick="btnLimparCarrinho_Click"/>
+                    <asp:Button ID="btnLimparCarrinho" runat="server" Text="Limpar carrinho" CssClass="btn btn-default" UseSubmitBehavior="True" OnClick="btnLimparCarrinho_Click" PostBackUrl="~/usuario/cart.aspx"/>
                 <% } %>
-                <a href="<%= redux.MetodosExtensao.GetLink("Vitrine") %>">Continuar comprando</a>
+                <a href="<%= redux.MetodosExtensao.GetLink("public/Vitrine") %>">Continuar comprando</a>
             </div>
             <!-- Fim Items -->
         </div>        

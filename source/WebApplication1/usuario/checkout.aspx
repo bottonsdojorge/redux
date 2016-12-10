@@ -9,7 +9,7 @@
                 <h4>Escolha onde você deseja receber sua encomenda.</h4>
                 <select name="leid">
                     <% foreach (redux.Modelo.localEntrega localEntrega in locaisEntrega) { %>
-                    <option value="<%= localEntrega.id %>"><%= String.Format("{4} - {0}, número {1}, {2}, {3}", localEntrega.rua, localEntrega.numero, localEntrega.complemento, localEntrega.bairro, localEntrega.descricao) %></option><% } %>
+                    <option value="<%= localEntrega.id %>"><%= localEntrega.enderecoFormatado %></option><% } %>
                 </select>
                 <asp:Button Text="Confirmar" CssClass="btn btn-info" runat="server" OnClick="RegistrarEncomenda" />
         	</div>

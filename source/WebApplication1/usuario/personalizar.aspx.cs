@@ -34,7 +34,7 @@ namespace redux.usuario
 
                 if (!(tipoArquivo != "image/jpg" && tipoArquivo != "image/jpeg" && tipoArquivo != "image/png"))
                 {
-                    Modelo.Produto produto = new Modelo.Produto(0, nomeupload.Value, imagem, new List<Modelo.Marcador>());
+                    Modelo.Produto produto = new Modelo.Produto(0, nomeupload.Value, imagem, new List<Modelo.Marcador>(), true);
                     produto.id = DAL.DALProduto.Insert(produto);
 
                     Modelo.Item item = new Modelo.Item(produto, DAL.DALTamanho.Select(Convert.ToInt32(Request.Form["tid"])));

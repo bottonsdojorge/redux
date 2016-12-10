@@ -129,22 +129,11 @@ namespace redux.DAL
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public static void Limpar(Modelo.Carrinho carrinho)
         {
-            int id = carrinho.Usuario_id;
             try
             {
-                using (conn = new SqlConnection(connectionString))
+                foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
                 {
-                    conn.Open();
-
-                    string sqlCarrinho = "UPDATE Carrinho SET precoTotal = 0 WHERE Usuario_id = @id";
-                    SqlCommand cmdCarrinho = new SqlCommand(sqlCarrinho, conn);
-                    cmdCarrinho.Parameters.Add("@id", SqlDbType.Int).Value = id;
-                    cmdCarrinho.ExecuteNonQuery();
-
-                    foreach (Modelo.itemCarrinho itemCarrinho in carrinho.itens)
-                    {
-                        DALItemCarrinho.Delete(itemCarrinho);
-                    }
+                    DALItemCarrinho.Delete(itemCarrinho);
                 }
             }
             catch (SystemException)

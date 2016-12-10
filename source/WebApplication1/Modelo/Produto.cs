@@ -62,26 +62,30 @@ namespace redux.Modelo
             this.ativo = ativo;
         }
 
-        public Produto(int id, string descricao, Image imagem, List<Marcador> marcadores, bool ativo = true)
+        public Produto(int id, string descricao, Image imagem, List<Marcador> marcadores, bool personalizado = false, bool ativo = true)
         {
             this.id = id;
             this.descricao = descricao;
             this.marcadores = marcadores;
             this.ativo = ativo;
-            InsertImage(imagem);
-
+            InsertImage(imagem, personalizado);
         }
 
-        private void InsertImage(Image image)
+        private void InsertImage(Image image, bool personalizado = false)
         {
             Bitmap imgBitmap = new Bitmap(image);
             string unixTimestamp = (DateTime.UtcNow.Subtract(new DateTime(1970, 1, 1))).TotalSeconds.ToString();
             string nome = "btupcliente" + unixTimestamp + ".jpg";
-            string path = HttpContext.Current.Request.PhysicalApplicationPath + "upload\\imagem-produto\\" + nome;
+            string path, pasta;
+            path = HttpContext.Current.Request.PhysicalApplicationPath + "produtos\\";
+            if (!personalizado)
+                pasta = "loja\\";
+            else
+                pasta = "personalizados\\";
             try
             {
-                imgBitmap.Save(path);
-                this.imagem = nome;
+                imgBitmap.Save(path + pasta + nome);
+                this.imagem = pasta + nome;
             }
             catch (SystemException)
             {

@@ -105,6 +105,7 @@ CREATE TABLE Encomenda(
 	desconto numeric(10,2) not null,
 	localEntrega_id int not null,
 	Status_id int not null,
+	dataEntrega DATETIME NULL
 	FOREIGN KEY (Usuario_id) REFERENCES Usuario(id),
 	FOREIGN KEY (localEntrega_id) REFERENCES localEntrega(id),
 	FOREIGN KEY (Status_id) REFERENCES Status(id),
@@ -118,7 +119,8 @@ GO
 CREATE TABLE Produto(
 	id INT IDENTITY PRIMARY KEY,
 	descricao VARCHAR(20) NOT NULL,
-	imagem VARCHAR(100) NOT NULL	
+	imagem VARCHAR(100) NOT NULL,
+	ativo BIT NOT NULL	
 )
 GO
 CREATE TABLE marcadorProduto(
@@ -185,7 +187,7 @@ END
 GO
 
 -- CREATE STORAGE PROCEDURES
-CREATE PROCEDURE sp_calcularPrecoCarrinho
+CREATE PROCEDURE sp_calcularPrecoCarrinho 
 	@idCarrinho INT
 AS
 BEGIN
@@ -210,30 +212,36 @@ BEGIN
 		SUM(quantidade) 
 		FROM ItemCarrinho 
 		WHERE Carrinho_id = @idCarrinho
-
+	SELECT @quantidadeDeItens
 	-- Calculo de descontos
-
+	
 	-- Se itens for menor que 50, desconto absoluto.
-	IF(@quantidadeDeItens < 50)
+	IF(@quantidadeDeItens IS NOT NULL AND @quantidadeDeItens < 50 AND @quantidadeDeItens != 0)
 	BEGIN
 		SET @desconto = @quantidadeDeItens/3
+		SELECT @desconto
 	END
 
 	-- Itens maior que 50 e menor que 100 itens, desconto de 20%
-	ELSE IF (@quantidadeDeItens >= 50 AND @quantidadeDeItens < 100)
+	ELSE IF(@quantidadeDeItens IS NOT NULL AND @quantidadeDeItens >= 50 AND @quantidadeDeItens < 100)
 	BEGIN
 		SET @desconto = @subTotal * 0.2
 	END
 
+	ELSE IF(@quantidadeDeItens IS NULL OR @quantidadeDeItens = 0)
+	BEGIN
+		SET @subTotal = 0
+		SET @desconto = 0
+	END
 	-- Itens maior que 100 de 40%
-	ELSE
+	ELSE IF(@quantidadeDeItens > 100)
 	BEGIN
 		SET @desconto = @subTotal * 0.4
 	END
 
 	SET @precoTotal = @subTotal - @desconto
 
-	UPDATE Carrinho SET precoTotal = @precoTotal, desconto = @desconto, subTotal = @subtotal WHERE Usuario_id = @idCarrinho
+	UPDATE Carrinho SET precoTotal = @precoTotal, desconto = @desconto, subTotal = @subTotal WHERE Usuario_id = @idCarrinho
 END
 GO
 CREATE PROCEDURE sp_inserirTamanhosNoProduto
@@ -288,10 +296,17 @@ AS
 	INSERT INTO Carrinho(Usuario_id, precoTotal, subTotal, desconto) VALUES (@id, 0, 0, 0)
 GO
 CREATE TRIGGER t_calcularPrecoCarrinho ON itemCarrinho
-AFTER INSERT, UPDATE
+AFTER INSERT, UPDATE, DELETE
 AS
 	DECLARE @id INT
-	SELECT @id = carrinho_id FROM INSERTED
+	IF EXISTS (SELECT * FROM INSERTED)
+	BEGIN
+		SELECT @id = carrinho_id FROM INSERTED
+	END
+	ELSE
+	BEGIN
+		SELECT @id = carrinho_id FROM DELETED
+	END
 	EXEC sp_calcularPrecoCarrinho @id
 GO
 CREATE TRIGGER t_checarCep ON LocalEntrega

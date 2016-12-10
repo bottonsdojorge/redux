@@ -28,6 +28,20 @@ namespace redux.Modelo
             set { _itens = value; }
         }
 
+        private double _subTotal;
+        public double subTotal
+        {
+            get { return _subTotal; }
+            set { _subTotal = value; }
+        }
+
+        private double _desconto;
+        public double desconto
+        {
+            get { return _desconto; }
+            set { _desconto = value; }
+        }
+
         private double _precoTotal;
         public double precoTotal 
         {
@@ -66,7 +80,7 @@ namespace redux.Modelo
             this.Status = new Status();
         }
 
-        public Encomenda(int id, Usuario usuario, List<itemEncomenda> itens, DateTime? dataentrega, localEntrega localEntrega, Status status)
+        public Encomenda(int id, Usuario usuario, List<itemEncomenda> itens, DateTime? dataentrega, localEntrega localEntrega, Status status, double subTotal, double desconto, double precoTotal)
         {
             this.id = id;
             this.Usuario = usuario;
@@ -74,10 +88,12 @@ namespace redux.Modelo
             this.dataEntrega = (dataentrega == default(DateTime)) ? null : dataentrega;
             this.localEntrega = localEntrega;
             this.Status = status;
-            calcularPrecoTotal();
+            this.precoTotal = precoTotal;
+            this.subTotal = subTotal;
+            this.desconto = desconto;
         }
 
-        public Encomenda(int id,Usuario usuario, List<itemEncomenda> itens, localEntrega localEntrega, Status status)
+        public Encomenda(int id, Usuario usuario, List<itemEncomenda> itens, localEntrega localEntrega, Status status, double subTotal, double desconto, double precoTotal)
         {
             this.id = id;
             this.Usuario = usuario;
@@ -85,16 +101,10 @@ namespace redux.Modelo
             this.dataEntrega = null;
             this.localEntrega = localEntrega;
             this.Status = status;
-            calcularPrecoTotal();
+            this.precoTotal = precoTotal;
+            this.subTotal = subTotal;
+            this.desconto = desconto;
         }
 
-        private void calcularPrecoTotal()
-        {
-            precoTotal = 0;
-            foreach (var item in this.itens)
-            {
-                precoTotal += item.precoIndividual * item.quantidade;
-            }
-        }
     }
 }

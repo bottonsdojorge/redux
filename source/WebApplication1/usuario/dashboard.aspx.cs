@@ -25,7 +25,7 @@ namespace redux.usuario
 
             if (!IsPostBack)
             {
-                int idUsuario = DAL.DALUsuario.GetCurrentUserId(Membership.GetUser().ProviderUserKey.ToString());
+                int idUsuario = DAL.DALUsuario.GetCurrentUserId();
                 encomendas = DAL.DALEncomenda.SelectFromUsuario(idUsuario);
             }
         }
