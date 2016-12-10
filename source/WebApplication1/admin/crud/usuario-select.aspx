@@ -11,8 +11,8 @@
                 <asp:GridView ID="grvProdutos" runat="server" AutoGenerateColumns="False" DataSourceID="dataSourceUsuario" AllowPaging="True" CssClass="table table-striped table-bordered" CellSpacing="-1">
                     <Columns>
                         <asp:CommandField HeaderText="Ações" ShowDeleteButton="True" ShowEditButton="True" />
-                        <asp:BoundField DataField="id" HeaderText="ID" SortExpression="id" />
-                        <asp:BoundField DataField="aspnet_id" HeaderText="ASP ID" SortExpression="aspnet_id" />
+                        <asp:BoundField DataField="id" HeaderText="ID" SortExpression="id" ReadOnly="True" />
+                        <asp:BoundField DataField="aspnet_id" HeaderText="ASP ID" SortExpression="aspnet_id" ReadOnly="True" />
                         <asp:BoundField DataField="nome" HeaderText="Nome de Usuário" SortExpression="nome" />
                     </Columns>
                 </asp:GridView>

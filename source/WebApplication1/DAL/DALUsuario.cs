@@ -141,7 +141,7 @@ namespace redux.DAL
                 {
                     conn.Open();
 
-                    string sqlUsuario = "INSERT INTO Usuario (nome, aspnet_id) VALUES ('@nome', '@idAspnet')";
+                    string sqlUsuario = "INSERT INTO Usuario (nome, aspnet_id) VALUES (@nome, @idAspnet)";
                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, conn);
                     cmdUsuario.Parameters.Add("@nome", SqlDbType.VarChar).Value = usuario.nome;
                     cmdUsuario.Parameters.Add("@idAspnet", SqlDbType.VarChar).Value = usuario.aspnet_id;
@@ -170,7 +170,7 @@ namespace redux.DAL
                     {
                         conn.Open();
 
-                        string sqlUsuario = "UPDATE Usuario SET nome = '@nome' WHERE id = @id";
+                        string sqlUsuario = "UPDATE Usuario SET nome = @nome WHERE id = @id";
                         SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, conn);
                         cmdUsuario.Parameters.Add("@nome", SqlDbType.VarChar).Value = usuario.nome;
                         cmdUsuario.Parameters.Add("@id", SqlDbType.Int).Value = usuario.id;
