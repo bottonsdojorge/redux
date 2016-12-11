@@ -31,7 +31,7 @@ namespace redux.usuario
             int leid = Convert.ToInt32(Request.Form["leid"]);
             int uid = Convert.ToInt32(Session["uid"]);
             DAL.DALEncomenda.RegistrarEncomenda(uid, leid);
-            MetodosExtensao.Redirecionar("usuario/dashboard#encomendas");
+            Response.Redirect("~/usuario/dashboard.aspx#encomendas"); ;
         }
     }
 }

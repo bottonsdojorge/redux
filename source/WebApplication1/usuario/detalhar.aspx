@@ -58,7 +58,7 @@
                         	</td>
                         </tr>
     				</table>
-                    <a href="<%= redux.MetodosExtensao.GetLink("usuario/dashboard#encomendas") %>" class="btn btn-warning">Voltar às encomendas</a>
+                    <a href="dashboard.aspx#encomendas" class="btn btn-warning">Voltar às encomendas</a>
     			</div>
     		</div>
     	</section>
