@@ -270,10 +270,10 @@ BEGIN
 	IF EXISTS (SELECT * FROM Marcador WHERE id = @idMarcador)
 	BEGIN
 		-- Insere o produto
-		INSERT INTO Produto (descricao, imagem)
+		INSERT INTO Produto (descricao, imagem, ativo)
 			OUTPUT INSERTED.id 
 			INTO @tableInserido 
-			VALUES (@descricao, @imagem)	
+			VALUES (@descricao, @imagem, 1)	
 		SELECT @idProduto = id FROM @tableInserido
 
 		-- Insere o marcador
