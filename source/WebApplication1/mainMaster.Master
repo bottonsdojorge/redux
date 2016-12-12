@@ -28,9 +28,9 @@
                         <li>
                             <p class="navbar-text">Bem vindo, <%= HttpContext.Current.User.Identity.Name %></p>
                         </li>                        
-                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/dashboard") %>"><i class="fa fa-user" aria-hidden="true"></i>
+                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/dashboard") %>"><i class="fa fa-user" aria-hidden="true" style="padding-bottom:0px;"></i>
                             Dashboard</a></li>
-                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/cart") %>" class="btn btn-warning btn-carrinho" style=" border-bottom:10px solid; border-color:#ef6c00"><i class="fa fa-shopping-cart" aria-hidden="true" style="padding-left:15px; padding-right:15px; font-size:25px;"></i></a></li>
+                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/cart") %>" class="btn btn-warning btn-carrinho" style=" border-bottom:10px solid; border-color:#ef6c00; padding:22px 10px 21px 10px;"><i class="fa fa-shopping-cart" aria-hidden="true" style="padding-left:15px; padding-right:15px; font-size:25px;"></i></a></li>
                         <% }
                            else
                            { %>
