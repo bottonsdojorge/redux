@@ -30,12 +30,12 @@
                         </li>                        
                         <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/dashboard") %>"><i class="fa fa-user" aria-hidden="true"></i>
                             Dashboard</a></li>
+                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/cart") %>" class="btn btn-warning btn-carrinho" style=" border-bottom:10px solid; border-color:#ef6c00"><i class="fa fa-shopping-cart" aria-hidden="true" style="padding-left:15px; padding-right:15px; font-size:25px;"></i></a></li>
                         <% }
                            else
                            { %>
-                        <li><a href="<%= redux.MetodosExtensao.GetLink("public/Cadastro") %>">Cadastre-se</a></li>
-                        <% } %>
-                        <li><a href="<%= redux.MetodosExtensao.GetLink("usuario/cart") %>" class="btn btn-warning btn-carrinho" style=" border-bottom:10px solid; border-color:#ef6c00"><i class="fa fa-shopping-cart" aria-hidden="true" style="padding-left:15px; padding-right:15px; font-size:25px;"></i></a></li>
+                        <li><a href="<%= redux.MetodosExtensao.GetLink("public/Cadastro") %>">Cadastre-se</a></li>                        
+                        <% } %>                        
                         <li>
                             <asp:LoginStatus ID="loginStatus" runat="server" LogoutText="Sair" LoginText="Entrar" />
                         </li>                        
