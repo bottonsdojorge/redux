@@ -193,6 +193,7 @@ namespace redux.DAL
                 using (conn = new SqlConnection(connectionString))
                 {
                     conn.Open();
+                    
                     string aspnetid = Membership.GetUser().ProviderUserKey.ToString();
                     string sqlUsuario = "SELECT id FROM Usuario WHERE aspnet_id = @aspnet_id";
                     SqlCommand cmdUsuario = new SqlCommand(sqlUsuario, conn);

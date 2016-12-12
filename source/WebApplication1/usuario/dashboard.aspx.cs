@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -22,11 +23,42 @@ namespace redux.usuario
             string[] funcoes = Roles.GetRolesForUser();
             if (funcoes.Contains("adm"))
                 MetodosExtensao.Redirecionar("admin/dashboard");
-
             if (!IsPostBack)
             {
-                int idUsuario = DAL.DALUsuario.GetCurrentUserId();
+                int idUsuario = App_Code.Global.uid;
                 encomendas = DAL.DALEncomenda.SelectFromUsuario(idUsuario);
+            }
+        }
+
+        protected void srcsDashboard_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+            e.InputParameters["idUsuario"] = App_Code.Global.uid;
+        }
+
+        protected void grvEncomendas_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "mensagem")
+            {
+                MetodosExtensao.Redirecionar("usuario/escrever", null, this.Page, new NameValueCollection { { "eid", e.CommandArgument.ToString() } });
+            }
+            else if (e.CommandName == "detalhar")
+            {
+                Response.Write("detalhar");
+                Response.Write(e.CommandArgument);
+                MetodosExtensao.Redirecionar("usuario/detalhar", new NameValueCollection { { "eid", e.CommandArgument.ToString() } });
+            }
+        }
+
+        protected void grvMensagens_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "responder")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                var row = grvMensagens.Rows[index];
+                string mid = grvMensagens.DataKeys[index].Value.ToString();
+                NameValueCollection data = new NameValueCollection();
+                data.Add("mid", mid);
+                MetodosExtensao.Redirecionar("usuario/escrever", null, this.Page, data);
             }
         }
     }

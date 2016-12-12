@@ -72,6 +72,7 @@
     <Content Include="usuario\checkout.aspx" />
     <Content Include="usuario\dashboard.aspx" />
     <Content Include="usuario\detalhar.aspx" />
+    <Content Include="usuario\escrever.aspx" />
     <Content Include="usuario\personalizar.aspx" />
     <Content Include="index.csproj.user" />
     <Content Include="public\Cadastro.aspx" />
@@ -109,6 +110,7 @@
     <Compile Include="admin\dashboard.aspx.designer.cs">
       <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App_Code\Global.cs" />
     <Compile Include="usuario\cart.aspx.cs">
       <DependentUpon>cart.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -136,6 +138,13 @@
     </Compile>
     <Compile Include="usuario\detalhar.aspx.designer.cs">
       <DependentUpon>detalhar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="usuario\escrever.aspx.cs">
+      <DependentUpon>escrever.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="usuario\escrever.aspx.designer.cs">
+      <DependentUpon>escrever.aspx</DependentUpon>
     </Compile>
     <Compile Include="usuario\personalizar.aspx.cs">
       <DependentUpon>personalizar.aspx</DependentUpon>
@@ -222,6 +231,7 @@
     <Content Include="public\Web.config" />
     <Content Include="mainMaster.Master" />
     <Content Include="App_Themes\main\main.scss" />
+    <Content Include="usuario\web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

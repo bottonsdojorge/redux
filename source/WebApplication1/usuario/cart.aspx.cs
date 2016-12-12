@@ -19,27 +19,15 @@ namespace redux.usuario
             set { _carro = value; }
         }
 
-        private int _usuarioId;
-        public int usuarioId
-        {
-            get { return _usuarioId; }
-            set { _usuarioId = value; }
-        }
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack)
-            {
-                usuarioId = DAL.DALUsuario.GetCurrentUserId();
-                Session["uid"] = usuarioId;
-            }
             initCarrinho();
             checkAcoes();
         }
 
         protected void initCarrinho()
         {
-            carro = DAL.DALCarrinho.Select(Convert.ToInt32(Session["uid"]));
+            carro = DAL.DALCarrinho.Select(App_Code.Global.uid);
         }
 
         protected void checkAcoes()

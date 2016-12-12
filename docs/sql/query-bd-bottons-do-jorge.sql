@@ -70,8 +70,10 @@ CREATE TABLE Mensagem(
 	visualizada BIT NOT NULL,
 	UsuarioDestinatario_id INT NOT NULL,	
 	UsuarioRemetente_id INT NOT NULL,
+	Encomenda_id INT NOT NULL,
 	FOREIGN KEY (UsuarioDestinatario_id) REFERENCES Usuario(id),
-	FOREIGN KEY (UsuarioRemetente_id) REFERENCES Usuario(id)
+	FOREIGN KEY (UsuarioRemetente_id) REFERENCES Usuario(id),
+	FOREIGN KEY (Encomenda_id) REFERENCES Encomenda(id)
 )
 GO
 CREATE TABLE localEntrega(	

@@ -39,11 +39,9 @@ namespace redux.DAL
                                 double precoTotal = Convert.ToDouble(drEncomendas["precoTotal"]);
                                 double subTotal = Convert.ToDouble(drEncomendas["subTotal"]);
                                 double desconto = Convert.ToDouble(drEncomendas["desconto"]);
-                                DateTime? dataEntrega;
-                                if (drEncomendas["dataEntrega"] != null)
-                                    dataEntrega = Convert.ToDateTime(drEncomendas["dataEntrega"].ToString());
-                                else
-                                    dataEntrega = null;
+                                DateTime dataEntrega;
+                                DateTime.TryParse(drEncomendas["dataEntrega"].ToString(), out dataEntrega);
+
 
                                 Modelo.Usuario usuario = DALUsuario.Select((int)drEncomendas["Usuario_id"]);
                                 List<Modelo.itemEncomenda> itensEncomenda = DALItemEncomenda.SelectFromEncomenda(id);
@@ -192,7 +190,7 @@ namespace redux.DAL
                     {
                         conn.Open();
 
-                        string sqlEncomenda = "UPDATE Encomenda SET precoTotal = @preco, subTotal = @subTotal, desconto = @desconto dataEntrega = @dataEntrega, localEntrega_id = @localEntrega, Status_id = @status WHERE id = @id";
+                        string sqlEncomenda = "UPDATE Encomenda SET precoTotal = @preco, subTotal = @subTotal, desconto = @desconto, dataEntrega = @dataEntrega, localEntrega_id = @localEntrega, Status_id = @status WHERE id = @id";
                         SqlCommand cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
                         cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Value = encomenda.id;
                         cmdEncomenda.Parameters.Add("@preco", SqlDbType.Decimal).Value = encomenda.precoTotal;
@@ -214,7 +212,35 @@ namespace redux.DAL
                 }
             }
         }
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public static void UpdateWithParam(Modelo.Encomenda encomenda, int status, int localEntrega)
+        {
+            if (Select(encomenda.id) != encomenda)
+            {
+                try
+                {
+                    using (conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
 
+                        string sqlEncomenda = "UPDATE Encomenda SET precoTotal = @preco, subTotal = @subTotal, desconto = @desconto, dataEntrega = @dataEntrega, localEntrega_id = @localEntrega, Status_id = @status WHERE id = @id";
+                        SqlCommand cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
+                        cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Value = encomenda.id;
+                        cmdEncomenda.Parameters.Add("@preco", SqlDbType.Decimal).Value = encomenda.precoTotal;
+                        cmdEncomenda.Parameters.Add("@subTotal", SqlDbType.Decimal).Value = encomenda.subTotal;
+                        cmdEncomenda.Parameters.Add("@desconto", SqlDbType.Decimal).Value = encomenda.desconto;
+                        cmdEncomenda.Parameters.Add("@dataEntrega", SqlDbType.DateTime).Value = encomenda.dataEntrega;
+                        cmdEncomenda.Parameters.Add("@localEntrega", SqlDbType.Int).Value = localEntrega;
+                        cmdEncomenda.Parameters.Add("@status", SqlDbType.Int).Value = status;
+                        cmdEncomenda.ExecuteNonQuery();
+                    }
+                }
+                catch (SystemException)
+                {
+                    throw;
+                }
+            }
+        }
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static void Insert(Modelo.Encomenda encomenda)
         {

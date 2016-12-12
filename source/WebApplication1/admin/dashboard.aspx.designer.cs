@@ -22,6 +22,24 @@ namespace redux.admin {
         protected global::System.Web.UI.WebControls.GridView grdEncomendas;
         
         /// <summary>
+        /// dsrcStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsrcStatus;
+        
+        /// <summary>
+        /// dsrcLocalEntrega control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource dsrcLocalEntrega;
+        
+        /// <summary>
         /// dsrcEncomendas control.
         /// </summary>
         /// <remarks>
@@ -29,5 +47,23 @@ namespace redux.admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource dsrcEncomendas;
+        
+        /// <summary>
+        /// grvMensagens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grvMensagens;
+        
+        /// <summary>
+        /// srcMensagens control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource srcMensagens;
     }
 }

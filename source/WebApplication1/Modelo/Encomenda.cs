@@ -106,5 +106,18 @@ namespace redux.Modelo
             this.desconto = desconto;
         }
 
+        public Encomenda(int id, Usuario usuario, List<itemEncomenda> itens, int localEntrega, Status status, double subTotal, double desconto, double precoTotal)
+        {
+            this.id = id;
+            this.Usuario = usuario;
+            this.itens = itens;
+            this.dataEntrega = null;
+            this.localEntrega = DAL.DALLocalEntrega.Select(localEntrega);
+            this.Status = status;
+            this.precoTotal = precoTotal;
+            this.subTotal = subTotal;
+            this.desconto = desconto;
+        }
+
     }
 }

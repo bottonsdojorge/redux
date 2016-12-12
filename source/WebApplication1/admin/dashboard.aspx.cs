@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,5 +15,19 @@ namespace redux.admin
         {
 
         }
+
+        protected void grvMensagens_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "responder")
+            {
+                int index = Convert.ToInt32(e.CommandArgument);
+                var row = grvMensagens.Rows[index];
+                string mid = grvMensagens.DataKeys[index].Value.ToString();
+                NameValueCollection data = new NameValueCollection();
+                data.Add("mid", mid);
+                MetodosExtensao.Redirecionar("usuario/escrever", null, this.Page, data);
+            }
+        }
+
     }
 }

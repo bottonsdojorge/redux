@@ -20,7 +20,7 @@ namespace redux.usuario
         {
             int idEncomenda = MetodosExtensao.GetValor(Request.QueryString["eid"]);
             encomenda = DAL.DALEncomenda.Select(idEncomenda);
-            if (encomenda.Usuario.id != DAL.DALUsuario.GetCurrentUserId())
+            if (encomenda.Usuario.id != App_Code.Global.uid)
             {
                 encomenda = new Modelo.Encomenda();
             }

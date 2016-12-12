@@ -13,7 +13,13 @@ namespace redux.Modelo
             get { return _id; }
             set { _id = value; }
         }
-
+        private int _idEncomenda;
+        public int idEncomenda
+        {
+            get { return _idEncomenda; }
+            set { _idEncomenda = value; }
+        }
+        
         private DateTime _data;
         public DateTime data
         {
@@ -58,8 +64,9 @@ namespace redux.Modelo
             this.visualizada = false;
             this.destinatario = new Usuario();
             this.remetente = new Usuario();
+            this.idEncomenda = 0;
         }
-        public Mensagem(int id, DateTime data, string corpo, bool visualizada, Usuario destinatario, Usuario remetente)
+        public Mensagem(int id, DateTime data, string corpo, bool visualizada, Usuario destinatario, Usuario remetente, int idEncomenda)
         {
             this.id = id;
             this.data = data;
@@ -67,6 +74,7 @@ namespace redux.Modelo
             this.visualizada = visualizada;
             this.remetente = remetente;
             this.destinatario = destinatario;
+            this.idEncomenda = idEncomenda;
         }
 
     }

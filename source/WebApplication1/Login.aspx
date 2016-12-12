@@ -6,7 +6,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-6" style="border-right: 3px solid; border-color: #808080;">
-                <asp:Login ID="frmLogin" runat="server" EnableTheming="False" RenderOuterTable="False">
+                <asp:Login ID="frmLogin" runat="server" EnableTheming="False" RenderOuterTable="False" OnLoggedIn="frmLogin_LoggedIn">
                     <LayoutTemplate>
                         <h2>Login</h2>
                         <div class="form-group">
