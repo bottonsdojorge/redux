@@ -23,7 +23,7 @@
             </div>
 
             <div class="item">
-                <img src="/App_Themes/main/carrossel-got-descontos.png" class="img-responsive center-block" width="100%" alt="Placeholder">
+                <img src="/App_Themes/main/carrossel-harry-potter.png" class="img-responsive center-block" width="100%" alt="Placeholder">
             </div>
 
         </div>

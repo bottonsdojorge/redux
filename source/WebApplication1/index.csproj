@@ -61,6 +61,7 @@
     <Content Include="admin\crud\produto-select.aspx" />
     <Content Include="admin\dashboard.aspx" />
     <Content Include="App_Themes\main\bootstrap.min.js" />
+    <Content Include="App_Themes\main\carrossel-harry-potter.png" />
     <Content Include="App_Themes\main\carrossel-got-Descontos.png" />
     <Content Include="App_Themes\main\carrossel-8bit-personalizacao.png" />
     <Content Include="App_Themes\main\imagem-cadastro.png" />
