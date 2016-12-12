@@ -11,7 +11,7 @@
 
                 <input id="fileProduto" type="file" name="imagem" onchange="gerarPreview()" runat="server" />
                 <div id="preview-wrapper" class="hidden">
-                    <p>Preview:</p>
+                    <b>Preview:</b>
                     <img src="" id="imgPreview" class="img-responsive img-circle" style="width: 300px; height: 300px;" />
                 </div>
                 <div class="row">
