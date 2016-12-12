@@ -241,6 +241,35 @@ namespace redux.DAL
                 }
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public static void UpdateWithParam(int id, int precoTotal, int subTotal, int desconto, DateTime? dataEntrega, int status, int localEntrega)
+        {
+                try
+                {
+                    using (conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+
+                        string sqlEncomenda = "UPDATE Encomenda SET precoTotal = @preco, subTotal = @subTotal, desconto = @desconto, dataEntrega = @dataEntrega, localEntrega_id = @localEntrega, Status_id = @status WHERE id = @id";
+                        SqlCommand cmdEncomenda = new SqlCommand(sqlEncomenda, conn);
+                        cmdEncomenda.Parameters.Add("@id", SqlDbType.Int).Value = id;
+                        cmdEncomenda.Parameters.Add("@preco", SqlDbType.Decimal).Value = precoTotal;
+                        cmdEncomenda.Parameters.Add("@subTotal", SqlDbType.Decimal).Value = subTotal;
+                        cmdEncomenda.Parameters.Add("@desconto", SqlDbType.Decimal).Value = desconto;
+                        cmdEncomenda.Parameters.Add("@dataEntrega", SqlDbType.DateTime).Value = dataEntrega;
+                        cmdEncomenda.Parameters.Add("@localEntrega", SqlDbType.Int).Value = localEntrega;
+                        cmdEncomenda.Parameters.Add("@status", SqlDbType.Int).Value = status;
+                        cmdEncomenda.ExecuteNonQuery();
+                    }
+                }
+                catch (SystemException)
+                {
+                    throw;
+                }
+            
+        }
+
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public static void Insert(Modelo.Encomenda encomenda)
         {

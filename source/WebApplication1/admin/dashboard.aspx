@@ -46,7 +46,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Local de Entrega">
                                     <EditItemTemplate>
-                                        <asp:DropDownList runat="server" ID="selectLocal" DataSourceID="dsrcLocalEntrega" DataTextField="descricao" DataValueField="id"></asp:DropDownList>
+                                        <asp:DropDownList runat="server" ID="selectLocal" SelectedValue='<%# Bind("localEntrega.id") %>' DataSourceID="dsrcLocalEntrega" DataTextField="descricao" DataValueField="id"></asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="localEntrega" runat="server" Text='<%# Bind("localEntrega.descricao") %>'></asp:Label>
@@ -54,7 +54,7 @@
                                 </asp:TemplateField>
                                 <asp:TemplateField HeaderText="Status">
                                     <EditItemTemplate>
-                                        <asp:DropDownList ID="selectStatus" runat="server" DataSourceID="dsrcStatus" DataTextField="descricao" DataValueField="id"></asp:DropDownList>
+                                        <asp:DropDownList ID="selectStatus" SelectedValue='<%# Bind("Status.id") %>' runat="server" DataSourceID="dsrcStatus" DataTextField="descricao" DataValueField="id"></asp:DropDownList>
                                     </EditItemTemplate>
                                     <ItemTemplate>
                                         <asp:Label ID="status" runat="server" Text='<%# Bind("Status.descricao") %>'></asp:Label>
@@ -74,11 +74,11 @@
                         <asp:ObjectDataSource ID="dsrcStatus" runat="server" SelectMethod="SelectAll" TypeName="redux.DAL.DALStatus"></asp:ObjectDataSource>
                         <asp:ObjectDataSource ID="dsrcLocalEntrega" runat="server" SelectMethod="SelectAll" TypeName="redux.DAL.DALLocalEntrega"></asp:ObjectDataSource>
 
-                        <asp:ObjectDataSource  ID="dsrcEncomendas" runat="server" DataObjectTypeName="redux.Modelo.Encomenda" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="redux.DAL.DALEncomenda" UpdateMethod="UpdateWithParam">
+                        <asp:ObjectDataSource  ID="dsrcEncomendas" runat="server" SelectMethod="SelectAll" TypeName="redux.DAL.DALEncomenda" UpdateMethod="UpdateWithParam">
                             <UpdateParameters>
                                 <asp:Parameter Name="encomenda" Type="Object" />
-                                <asp:Parameter Name="status" Type="Int32" />
-                                <asp:Parameter Name="localEntrega" Type="Int32" />
+                                <asp:ControlParameter Name="status" Type="Int32" ControlID="ctl00$contentPlaceHolderCorpo$grdEncomendas$ctl02$selectStatus" PropertyName="SelectedValue" />
+                                <asp:ControlParameter Name="localEntrega" Type="Int32" ControlID="ctl00$contentPlaceHolderCorpo$grdEncomendas$ctl02$selectLocal" PropertyName="SelectedValue" />
                             </UpdateParameters>
                         </asp:ObjectDataSource>
                     </div>

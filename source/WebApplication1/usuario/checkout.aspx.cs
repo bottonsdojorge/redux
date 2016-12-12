@@ -28,8 +28,8 @@ namespace redux.usuario
 
         protected void RegistrarEncomenda(object sender, EventArgs e)
         {
-            int leid = Convert.ToInt32(Request.Form["leid"]);
-            int uid = Convert.ToInt32(Session["uid"]);
+            int leid = Convert.ToInt32(Request.Form.GetValues("leid")[0]);
+            int uid = App_Code.Global.uid;
             DAL.DALEncomenda.RegistrarEncomenda(uid, leid);
             Response.Redirect("~/usuario/dashboard.aspx#encomendas"); ;
         }
